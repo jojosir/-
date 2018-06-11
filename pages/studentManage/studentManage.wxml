@@ -32,6 +32,12 @@
       </picker>
       <view class="item">
         <button class="item-content" bindtap="logoutClick">
+          <image class="item-content-image" src="/img/timg(1).png"></image>
+          <view class="item-content-state">修改密码</view>
+        </button>
+      </view>
+      <view class="item">
+        <button class="item-content" bindtap="logoutClick">
           <image class="item-content-image" src="/img/out_icon.png"></image>
           <view class="item-content-state">注销</view>
         </button>

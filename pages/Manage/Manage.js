@@ -9,7 +9,7 @@ Page({
     identity: [], //最后显示在picker选项中
     disabled: false,
     pickerChoice: [], // 用来控制跳转
-    user_type:""
+    user_type: 0//1:student,2:admin,3:consellor，4：组织代表或活动发起者
   },
 
   /**
@@ -20,11 +20,11 @@ Page({
     wx.showTabBar({
 
     })
-    if (!value) {
+    /*if (value < 1 ) {
       wx.reLaunch({
         url: '../login/login'
       })
-    }
+    } 测试时隐藏,获取当前身份，若小于1代表未登陆*/
     var tmp = wx.getStorageSync('detailIdentity');
     var identity = [];
     for (var i = 0; i < tmp.length; i++) {
@@ -66,13 +66,13 @@ Page({
     }
     this.setData({
       identity: identity,
-      user_type: wx.getStorageSync('curIdentity')
+      //user_type: wx.getStorageSync('curIdentity') 测试时隐藏
     })
     console.log(this.data.pickerChoice);
     console.log(this.data.identity);
   },
 
-  
+
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     var index = e.detail.value;
@@ -105,9 +105,14 @@ Page({
       })
     }
   },
-  activityClick: function (e) {
+  student_activityClick: function (e) {
     wx.navigateTo({
       url: '../studentActivityRecords/studentActivityRecords'
+    })
+  },
+  InfoClick: function (e) {
+    wx.navigateTo({
+      url: '../ArouseAnounnce/ArouseAnounnce'
     })
   },
   identityClick: function (e) {
@@ -115,10 +120,40 @@ Page({
       hidden: false
     })
   },
+  approveActivityClick: function (e) {
+    wx: wx.navigateTo({
+      url: '../adminPendingActivityList/adminPendingActivityList',
+    })
+  },
+  stuClick: function (e) {
+    wx.navigateTo({
+      url: '../counsellorStudentList/counsellorStudentList'
+    })
+  },
+  consellor_activityClick: function (e) {
+    wx.navigateTo({
+      url: '../counsellorActivityList/counsellorActivityList'
+    })
+  },
+  ChangeRepresentClick: function (e) {
+    wx: wx.navigateTo({
+      url: '../adminPendingRepresentList/adminPendingRepresentList',
+    })
+  },
+  ChangeClick: function (e) {
+    wx: wx.navigateTo({
+      url: '../ChangePassword/ChangePassword',
+    })
+  },
+  issueRecordsClick: function (e) {
+    wx: wx.navigateTo({
+      url: '../corporationIssueRecords/corporationIssueRecords'
+    })
+  },
   logoutClick: function (e) {
     //注销
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/Logout',
+      url: 'https://38697963.qcloud.la/CampusMap/Logout',
       data: {
         id: wx.getStorageSync('student_id')
       },

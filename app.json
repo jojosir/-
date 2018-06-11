@@ -1,8 +1,11 @@
 {
   "pages": [
-    "pages/login/login",
+        "pages/login/login",
+        "pages/studentManage/studentManage",
+        "pages/ArouseAnounnce/ArouseAnounnce",
+
     "pages/ChangePassword/ChangePassword",
-    "pages/ArouseAnounnce/ArouseAnounnce",
+
     "pages/Inform/Inform",
     "pages/SyInfo/SyInfo",
     "pages/schoolMap/schoolMap",
@@ -30,7 +33,7 @@
     "pages/counsellorStudentList/counsellorStudentList",
     "pages/studentActivityRecords/studentActivityRecords",
     "pages/studentAdminManage/studentAdminManage",
-    "pages/studentManage/studentManage",
+
     "pages/studentRepresentManage/studentRepresentManage",
     "pages/activityInfo/activityInfo",
     "pages/corporationAdminList/corporationAdminList",
@@ -46,9 +49,11 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#a9b7b7",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#989898",
     "selectedColor": "#11cd6e",
-    "borderStyle": "white",
+
     "list": [
       {
         "iconPath": "/img/‪white_xinfeng.png",
@@ -65,7 +70,7 @@
       {
         "iconPath": "/img/white_ren.png",
         "selectedIconPath": "/img/green_ren.png",
-        "pagePath": "pages/login/login",
+        "pagePath": "pages/Manage/Manage",
         "text": "个人中心"
       }
     ]

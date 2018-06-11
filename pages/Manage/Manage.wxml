@@ -8,12 +8,57 @@
   </view>
   <view class="main-list" >
     <view class="list-item">
-      <view class="item">
-        <button class="item-content" bindtap="activityClick">
-          <image class="item-content-image" src="/img/rec_icon.png"></image>
-          <view class="item-content-state">已选活动记录</view>
-        </button>
-      </view>
+      <block wx:if = "{{user_type < 2}}">
+        <view class="item" >
+          <button class="item-content" bindtap="student_activityClick">
+            <image class="item-content-image" src="/img/rec_icon.png"></image>
+            <view class="item-content-state">已选活动记录</view>
+          </button>
+        </view>
+      </block>
+      <block wx:elif = "{{user_type < 3}}">
+        <view class="item">
+          <button class="item-content" bindtap="approveActivityClick">
+            <image class="item-content-image" src="/img/app_act_icon.png"></image>
+            <view class="item-content-state">审批活动</view>
+          </button>
+        </view>
+        <view class="item">
+          <button class="item-content" bindtap="ChangeRepresentClick">
+            <image class="item-content-image" src="/img/cha_rep_icon_1.png"></image>
+            <view class="item-content-state">授予组织代表</view>
+          </button>
+        </view>
+        <view class="item">
+          <button class="item-content" bindtap="InfoClick">
+            <image class="item-content-image" src="/img/cha_rep_icon_1.png"></image>
+            <view class="item-content-state">发布公告</view>
+          </button>
+        </view>
+      </block>
+      <block wx:elif = "{{user_type < 4}}">
+        <view class="item">
+          <button class="item-content" bindtap="stuClick">
+            <image class="item-content-image" src="/img/stu_icon.png"></image>
+            <view class="item-content-state">学生记录</view>
+          </button>
+        </view>
+        <view class="item">
+          <button class="item-content" bindtap="consellor_activityClick">
+            <image class="item-content-image" src="/img/actli_icon.png"></image>
+            <view class="item-content-state">活动列表</view>
+          </button>
+        </view>
+      </block>
+      <block wx:elif = "{{user_type < 5}}">
+        <view class="item">
+          <button class="item-content" bindtap="issueRecordsClick">
+            <image class="item-content-image" src="/img/adm_wat_actli_icon.png"></image>
+            <view class="item-content-state">查看发布活动记录</view>
+          </button>
+        </view>
+      </block>
+      
     </view>
   </view>
   <view class="main-title">
@@ -23,7 +68,7 @@
   </view>
   <view class="main-list" >
     <view class="list-item">
-      <picker bindchange="bindPickerChange" range="{{identity}}" disabled="{{disabled}}">
+      <picker bindchange="bindPickerChange" range="{{identity}}" >
         <view class="item">
           <button class="item-content" bindtap="identityClick">
             <image class="item-content-image" src="/img/user_icon.png"></image>
@@ -38,17 +83,12 @@
         </button>
       </view>
       <view class="item">
-        <button class="item-content" bindtap="approveActivityClick">
+        <button class="item-content" bindtap="ChangeClick">
           <image class="item-content-image" src="/img/app_act_icon.png"></image>
-          <view class="item-content-state">审批活动</view>
-        </button>
-      </view>
-      <view class="item">
-        <button class="item-content" bindtap="ChangeRepresentClick">
-          <image class="item-content-image" src="/img/cha_rep_icon_1.png"></image>
-          <view class="item-content-state">审批组织代表变更</view>
+          <view class="item-content-state">修改密码</view>
         </button>
       </view>
     </view>
   </view>
 </view>
+

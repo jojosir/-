@@ -41,5 +41,31 @@
 }
 
 .text{
-  height: 750rpx
+  margin: 15rpx 0 15rpx;
+  height: 650rpx
+}
+.reporter-detail-input{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30rpx;
+    padding-left: 45rpx;
+}
+.reporter-detail-name{
+    font-size: 12pt;
+    font-family: "黑体";
+    text-align: left;
+
+    padding-top: 20rpx;
+}
+.reporter-detail{
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-top: 25rpx;
+    overflow: hidden;
+    height: 80rpx
 }
