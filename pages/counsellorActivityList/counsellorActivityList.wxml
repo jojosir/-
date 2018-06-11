@@ -1,0 +1,52 @@
+<view class="out-view">
+  <view class="search-view">
+    <view class="search-bar">
+      <view class="search-bar-form">
+        <view class="search-bar-box">
+          <icon class="icon-search-in-box" type="search" size="14"></icon>
+          <input type="text" class="search-bar-input" placeholder="请输入活动名称" value="{{inputValue}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchAction"/>
+          <view class="icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="search-bar-label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="icon-search" type="search" size="14"></icon>
+            <view class="search-bar-text">搜索</view>
+        </label>
+      </view>
+      <view class="search-bar-cancel-btn item-label item-label-primary" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+  </view>
+  <scroll-view class="searchListView {{inputShowed ? 'searchListView-show':''}}">
+    <view class="class-item">
+      <view class="re-item" wx:for="{{resultItems}}" data-index="{{item.activity_id}}" wx:key="{{index}}" bindtap="studentList">
+        <view class="item-left">
+          <view class="item-name" data-index="{{item.activity_id}}">{{item.activity_name}}</view>
+        </view>
+        <view class="recordTime" data-index="{{item.activity_id}}">
+          <view class="item-right">
+            <image class="item-icon" src="/img/time.png"></image>
+            <view class="item-other-title">起止时间</view>
+          </view>
+          <view class="item-other" data-index="{{item.activity_id}}">{{item.time}}</view>
+        </view>  
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view class="SviewRecord" bindtap="hiddenFilter">
+    <view class="class-item">
+      <view class="item" wx:for="{{items}}" wx:key="{{index}}"  data-index="{{item.activity_id}}" bindtap="studentList">
+        <view class="item-left">
+          <view class="item-name" data-index="{{item.activity_id}}">{{item.activity_name}}</view>
+        </view>
+        <view class="recordTime" data-index="{{item.activity_id}}">
+          <view class="item-right">
+            <image class="item-icon" src="/img/time.png"></image>
+            <view class="item-other-title">起止时间</view>
+          </view>
+          <view class="item-other" data-index="{{item.activity_id}}">{{item.time}}</view>
+        </view>  
+      </view>
+    </view>
+  </scroll-view>
+</view>

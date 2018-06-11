@@ -1,0 +1,28 @@
+.originRepresent{
+  display: flex;
+  justify-content: space-around;
+  line-height: 100rpx;
+  height:100rpx;
+  border-bottom: 1px cornflowerblue solid
+}
+.changeRepresent{
+  display: flex;
+  justify-content: space-around;
+  line-height: 100rpx;
+  height:100rpx;
+  border-bottom: 1px cornflowerblue solid
+}
+.btnView{
+  display: flex;
+  justify-content: space-around;
+  line-height: 100rpx;
+  height:100rpx;
+  margin-top:50rpx; 
+}
+.associationName{
+  display: flex;
+  justify-content: space-around;
+  line-height: 100rpx;
+  height:100rpx;
+  border-bottom: 1px cornflowerblue solid
+}

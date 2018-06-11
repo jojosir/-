@@ -1,0 +1,44 @@
+<view class="out-view">
+  <view class="search-view">
+    <view class="search-bar">
+      <view class="search-bar-form">
+        <view class="search-bar-box">
+          <icon class="icon-search-in-box" type="search" size="14"></icon>
+          <input type="text" class="search-bar-input" placeholder="请输入学生学号或姓名" value="{{inputValue}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchAction"/>
+          <view class="icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="search-bar-label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="icon-search" type="search" size="14"></icon>
+            <view class="search-bar-text">搜索</view>
+        </label>
+      </view>
+      <view class="search-bar-cancel-btn item-label item-label-primary" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+  </view>
+
+  <scroll-view class="searchListView {{inputShowed ? 'searchListView-show':''}}">
+    <view class="class-item">
+      <view class="re-item" wx:for="{{resultItems}}" data-index="{{item.id}}" wx:key="{{index}}" bindtap="studentActivityList">
+        <view class="item-left">
+          <view class="item-other" data-index="{{item.id}}" >{{item.id}}</view>
+          <view class="item-name" data-index="{{item.id}}" >{{item.name}}</view>
+        </view>
+        <icon type="info" data-index="{{item.id}}" class="studentInfoIcon" size="25"  color="#ffb74d"/>
+      </view>
+    </view>
+  </scroll-view>
+
+  <scroll-view class="class-content"  bindtap="hiddenFilter">
+    <view class="class-item">
+      <view class="item" bindtap="studentActivityList"  wx:for="{{items}}" wx:key="{{index}}" data-index="{{item.id}}" >
+        <view class="item-left">
+          <view class="item-other" data-index="{{item.id}}">{{item.id}}</view>
+          <view class="item-name" data-index="{{item.id}}">{{item.name}}</view>
+        </view>
+        <icon type="info" data-index="{{item.id}}" class="studentInfoIcon" size="25" color="#ffb74d"/>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,32 @@
+<view class="out-view">
+  <view class="info-header">
+    <view class="info-text">
+        <text class="info-header-title">学生已选活动</text>
+    </view>
+    <image class="info-img" src="/img/stu_actli_icon.png"></image>
+  </view>
+  <view class="class-content">
+    <view class="class-item" wx:for="{{items}}" wx:key="{{index}}">
+      <view class="item">
+        <view class="item-left" >
+          <view class="item-name">
+            {{item.activity_name}}
+          </view>
+        </view>
+        <view class="recordTime" data-index="{{item.activity_id}}">
+          <view class="item-other" style="width:{{stateWidth}}" data-index="{{item.activity_id}}">
+            <block  wx:if="{{item.state=='有效'}}">
+              <view class="item-label item-label-primary-hellno item-label-small" data-index="{{item.activity_id}}" bindtap="changeState">{{item.state}}</view>
+            </block>
+            <block  wx:elif="{{item.state=='无效'}}">
+              <view class="item-label item-label-primary-no item-label-small" data-index="{{item.activity_id}}" bindtap="changeState">{{item.state}}</view>
+            </block>
+            <block  wx:else>
+              <view class="item-label item-label-primary item-label-small">{{item.state}}</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

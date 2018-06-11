@@ -1,0 +1,52 @@
+/* pages/tmap/tmap.wxss */
+.activityMessage{
+  width: 100%;
+  height: 100rpx;
+  background-color: white;
+}
+
+.flex-item{
+  width: 100%;
+  height: 100rpx;
+}
+.bc_green{
+  background-color: green;
+}
+.green_hover{
+  border: 5px solid black;
+}
+
+.mb-new {
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  position: fixed;
+  top: 0rpx;
+  box-shadow: 0 2px 5px #ccc;
+  line-height: 100rpx;
+}
+
+.nomalMap{
+  width: 100%;
+  height: 1000rpx;
+}
+
+.clickMap{
+  width: 100%;
+  height: 900rpx;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+#myMap{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}

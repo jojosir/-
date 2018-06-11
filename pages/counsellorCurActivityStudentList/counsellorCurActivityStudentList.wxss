@@ -1,0 +1,385 @@
+page{
+  height: 100%;
+  background-color: #f7f7f7;
+}
+
+.Sview{
+  height: 80%;
+}
+.buttonView{
+  justify-content: space-around;
+  display: flex;
+}
+.button{
+  background-color:lightgreen;
+  color: white;
+}
+.studentID{
+  width: 33%;
+  justify-content: center;
+  display: flex;
+}
+.studentName{
+  width: 33%;
+  
+  justify-content: center;
+  display: flex;
+}
+.studentState{
+  width: 34%;
+  justify-content:center;
+  display: flex;
+}
+.item{
+  position: relative;
+  justify-content: space-around;
+  border-top: 2rpx solid #eee;
+  line-height: 100rpx;
+  display:flex;
+  height: 100rpx;
+}
+.re-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100rpx;
+  position: relative;
+  line-height: 100rpx;
+}
+.inner{
+   position:absolute;
+   top:0;
+}
+.inner.txt{
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  padding:0 10rpx;
+  transition: left 0.2s ease-in-out;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  justify-content: flex-start;
+  display: flex;
+}
+.inner.txtt{
+  background-color: #fff;
+  width: 100%;
+  z-index: 6;
+  padding:0 10rpx;
+  transition: left 0.2s ease-in-out;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  justify-content: flex-start;
+  display: flex;
+}
+.tableHead{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  height: 8%;
+  border-bottom: 2px solid cornflowerblue;
+  align-items: center;
+}
+.input{
+  border: 1px solid chartreuse
+}
+.inner.del{
+    width: 360rpx;
+    text-align: center;
+    z-index: 4;
+    right: 0;
+    color: #fff;
+    justify-content: space-between;
+    display: flex;
+}
+.inner.del2{
+    width: 360rpx;
+    text-align: center;
+    z-index: 5;
+    right: 0;
+    color: #fff;
+    justify-content: space-between;
+    display: flex;
+}
+.item-icon{
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+    margin-right: 16rpx;
+    align-items: center;
+    display: flex;
+}
+.label{
+  width: 33%;
+  justify-content:center;
+  display: flex;
+  font-family: "黑体";
+}
+.imgView{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.changeItem{
+  width: 60%;
+  text-align: center;
+  background-color: orange;
+  font-family: "黑体";
+  justify-content: center;
+}
+.delItem{
+  width: 40%;
+  background-color: #e64340;
+  text-align: center;
+  font-family: "黑体";
+}
+.checkboxView{
+  justify-content: space-between;
+  display: flex;
+}
+.checkTableHead{
+  justify-content: space-between;
+  display: flex;
+  border-bottom: 1px #e64340 solid;
+}
+.hiddenCheckbox{
+  width: 0;
+}
+
+
+
+.out-view{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+}
+
+.studentInfoIcon{
+  align-items: center;
+  justify-content: flex-end;
+  display: flex;
+  margin-right: 15rpx;
+}
+.search-view{
+  height:90rpx;
+}
+.search-bar {
+  position: relative;
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+}
+.icon-search {
+  margin-right: 8px;
+  /*margin-top: 4px;*/
+}
+.icon-search-in-box {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+.search-bar-text {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+  font-family: "黑体";
+}
+.search-bar-form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+          flex: auto;
+  border-radius: 5px;
+  background: #FFFFFF;
+  border: 1rpx solid #E6E6EA;
+}
+.search-bar-box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.search-bar-input {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+}
+.icon-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 8px;
+  font-size: 0;
+}
+.search-bar-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 3px;
+  text-align: center;
+  color: #9B9B9B;
+  background: #FFFFFF;
+  line-height: 28px;
+}
+.search-bar-cancel-btn {
+  margin-left: 10px;
+  line-height: 28px;
+  color: #09BB07;
+  white-space: nowrap;
+}
+
+.searchListView{
+  height: 0;
+}
+.searchListView-show{
+  height: 90%;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  opacity: 1;
+  background-color: #f7f7f7;
+}
+.studentInfoIcon{
+  align-items: center;
+  justify-content: flex-end;
+  display: flex;
+  margin-right: 15rpx;
+}
+.clear-icon{
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.class-content{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    height: 90%;
+}
+
+.class-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 11pt;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+}
+
+.item-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-right: 30rpx;
+}
+.item-name {
+    font-size: 12pt;
+    line-height: 225%;
+    letter-spacing: 1px;
+    transition: color .15s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: "黑体";
+}
+.item-other {
+    font-size: 10pt;
+    line-height: 100%;
+    color: #aaa;
+    font-family: "黑体";
+}
+.item-label {
+  display: inline-block;
+  font-size: 24rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  color: #333;
+  border: 1rpx solid #999;
+  padding: 0rpx 20rpx;
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+  box-sizing: border-box;
+  vertical-align: middle;
+  text-align: center;
+}
+.item-label-primary {
+  color: #fff;
+  background: #ffb74d;
+  border: 1rpx solid #ffb74d;
+  font-family: "黑体";
+}
+.text{
+  font-size: 11pt;
+  font-family: "黑体";
+}
+.btn_enroll{
+  position: relative;
+  top: 25rpx;
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width:40%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15rpx 5% 30rpx;
+  background-color: #ffb74d;
+  color: white;
+  font-family: "黑体";
+}
+.plenty-btn{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  bottom: 0;
+}
+.swi_enroll{
+  position: relative;
+  top: 25rpx;
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width:100%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15rpx 0% 30rpx;
+  color: #999;
+  font-family: "黑体";
+  display: flex;
+  flex:1;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+.btn_enroll-inner{
+  position: relative;
+  top: 10rpx;
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width:70%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15rpx 15% 30rpx;
+  background-color: #ffb74d;
+  color: white;
+  font-family: "黑体";
+}
+.item-inner{
+  position: relative;
+  justify-content: space-around;
+  border-top: 2rpx solid #eee;
+  line-height: 100rpx;
+}

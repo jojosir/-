@@ -1,0 +1,19 @@
+<view class="container">
+  <text>当前位置信息</text>
+  <block wx:if="{{hasLocation === false}}">
+    <text>未选择位置</text>
+  </block>
+  <block wx:if="{{hasLocation === true}}">
+    <text>{{locationAddress}}</text>
+    <view>
+      <text>E: {{location.longitude[0]}}°{{location.longitude[1]}}′</text>
+      <text>N: {{location.latitude[0]}}°{{location.latitude[1]}}′</text>
+    </view>
+  </block>
+</view>
+<view>
+  <button type="primary" bindtap="chooseLocation">选择位置</button>
+  <button bindtap="clear">清空</button>
+  <button bindtap="backToMap">回到地图</button>
+</view>
+

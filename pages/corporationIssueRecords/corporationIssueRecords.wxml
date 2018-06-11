@@ -1,0 +1,41 @@
+<view class="out-view">
+  <view class="info-header">
+    <view class="info-text">
+        <text class="info-header-title">活动发布记录</text>
+    </view>
+    <image class="info-img" src="/img/actiss_icon_1.png"></image>
+  </view>
+  <view class="class-content" wx:key="{{index}}" data-index="{{index}}" wx:for="{{activities}}" >
+
+    <view class="class-item" >
+      <view class="item" bindtap="activityItemClick">
+        <view class="item-left">
+          <view class="item-name" data-index="{{index}}">
+            {{item.name}}
+          </view>
+
+
+          <view class="item-other" data-index="{{index}}">
+            <block  wx:if="{{item.state=='未发布'}}">
+              <view class="item-label item-label-primary-hellno item-label-small" data-index="{{index}}">{{item.state}}</view>
+            </block>
+            <block  wx:elif="{{item.state=='待审批'}}">
+              <view class="item-label item-label-primary-no item-label-small" data-index="{{index}}">{{item.state}}</view>
+            </block>
+            <block  wx:else>
+              <view class="item-label item-label-primary item-label-small" data-index="{{index}}">{{item.state}}</view>
+            </block>
+          </view>   
+
+
+
+        </view>
+        <image class="item-icon" src="/img/enter.png" data-index="{{index}}"></image>
+      </view>
+    </view>
+
+  </view>
+  <view style="display:{{hasButton}}">
+      <button class="btn_enroll" bindtap="createActivity" >创建活动</button>
+  </view>
+</view>

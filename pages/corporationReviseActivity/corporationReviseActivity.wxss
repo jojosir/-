@@ -1,0 +1,228 @@
+page{
+  height:100%;
+  background-color: #f7f7f7;
+}
+.out-view{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+}
+.repair-detail{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    margin-top: 30rpx;
+    overflow: hidden;
+}
+.repair-detail-item{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ddd;
+}
+.repair-detail-item.error{
+    background: rgba(231, 138, 176, 0.06);
+}
+.repair-detail-item-hd{
+    display: flex;
+    align-items: center;
+    height: 88rpx;
+    font-size: 11pt;
+    margin-left: 30rpx;
+}
+.repair-detail-item-ft{
+    font-size: 10pt;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-right: 30rpx;
+}
+.repair-detail-picker {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.repair-detail-content{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20rpx 0;
+}
+.repair-detail-info {
+    flex: 1;
+}
+.repair-detail-info.disabled{
+    color: #bbb;
+}
+.more-icon{
+    width: 18rpx;
+    height: 27rpx;
+    margin-left: 20rpx;
+}
+.more-icon-clear{
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 30rpx;
+}
+
+
+.reporter-detail{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-top: 25rpx;
+    overflow: hidden;
+}
+.reporter-detail-item{
+    display: flex;
+    align-items: center;
+    height: 88rpx;
+    border-bottom: 1px solid #e5e5e5;
+    padding-left: 30rpx;
+}
+
+.reporter-detail-item.reporter-address {
+    border: none;
+}
+.reporter-user .reporter-detail-input{
+    color: #999;
+}
+.reporter-detail-name{
+    font-size: 11pt;
+    font-family: "黑体";
+}
+.repair-detail-name{
+    font-size: 11pt;
+    font-family: "黑体";
+}
+.service-cells-items{
+    padding-left: 40rpx;
+    padding-right: 40rpx;
+}
+.servcie-cell-item{
+    height: 70rpx;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+}
+.reporter-detail-input{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30rpx;
+    padding-left: 45rpx;
+}
+.reporter-detail-input input{
+    font-size: 10pt;
+    width: 100%;
+}
+.input-placeholder {
+    font-size: 10pt;
+}
+.declare-context{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15rpx;
+    overflow: hidden;
+}
+.declare-context-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.declare-context-title{
+    color: #888;
+    margin: 5rpx 0 10rpx 30rpx;
+}
+.declare-context-input {
+    border-bottom: 1px solid #e5e5e5;
+    height: 88rpx;
+    padding: 0 30rpx;
+}
+.declare-context-input input{
+    height: 88rpx;
+}
+.declare-context-input.error{
+    background: rgba(231, 138, 176, 0.06);
+}
+.declare-context-textarea{
+    padding: 30rpx;
+    width: 100%;
+    min-height: 200rpx;
+    box-sizing:border-box;
+}
+.declare-context-textarea.error{
+    background: rgba(231, 138, 176, 0.06);
+}
+.submit-declare{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40rpx 3%;
+    height: 80rpx;
+    border-radius: 3px;
+    text-align: center;
+    background-color: #7acfa6;
+    color: #fff;
+    font-size: 12pt;
+}
+.submit-declare:active{
+    opacity: .8;
+}
+.main-title {
+    flex: 1;
+    margin: 10rpx 0 10rpx 25rpx;
+}
+.title-text {
+    color: #999;
+    font-family: "黑体";
+    font-size: 11pt; 
+}
+.text {
+    color: #000;
+    font-family: "黑体";
+    font-size: 11pt; 
+}
+.btn_enroll{
+  position: relative;
+  top: 25rpx;
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width:80%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15rpx 10% 30rpx;
+  background-color: #e84e40;
+  color: white;
+  font-family: "黑体";
+}
+.btn_enroll-plenty{
+  position: relative;
+  top: 25rpx;
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width:40%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15rpx 5% 30rpx;
+  background-color: #e84e40;
+  color: white;
+  font-family: "黑体";
+}
+.plenty-btn{
+  display: flex;
+  flex-direction: row;
+}

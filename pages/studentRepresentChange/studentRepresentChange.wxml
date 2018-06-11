@@ -1,0 +1,23 @@
+<view class="out-view">
+  <image class="background" src="/img/bg.png" mode="widthFix"/>
+  <view class="info-header">
+    <image class="info-img" src="/img/charep_icon.png"></image>
+      <view class="info-text">
+          <text class="info-header-title">申请代表变更</text>
+      </view>   
+  </view>
+  <form bindsubmit="formSubmit">
+    <view class="info-content">
+      <view class="reporter-detail">
+        <view class="reporter-user reporter-detail-item">
+          <text class="reporter-detail-name">继任代表学号</text>
+          <view class="reporter-detail-input">
+            <input class="input" type="number" name = "input"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <button class="btn_enroll" style="opacity: {{opacity}};color: white; background-color:#1de9b6;" disabled="{{disabled}}" form-type="submit">提交申请</button>
+  </form>
+</view>
+

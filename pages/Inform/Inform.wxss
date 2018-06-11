@@ -1,0 +1,40 @@
+.out_view{
+  position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+}
+.title{
+  font-family: "宋体";
+  font-weight: bold;
+  line-height: 150%;
+  margin-bottom: 15rpx;
+  color: #222;
+}
+.inform-title{
+  font-size: 25pt;
+}
+.inform-detail{
+  font-size: 18pt;
+  font-family: "Times New Roman"
+}
+.text{
+  font-size: 14pt;
+}
+.button{
+  position: relative;
+  top: 25rpx;
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width:75%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15rpx 12.5% 30rpx;
+  background-color: #00adef;
+  color: white;
+  font-family: "黑体";
+}

@@ -1,0 +1,5 @@
+<!-- map.wxml -->
+<view class="container">
+  <map id="myMap" scale="17"  longitude="116.27297" latitude="40.15156" bindtap="bindtap" bindcontroltap="bindcontroltap" bindmarkertap = "bindmarkertap" controls="{{controls}}" markers="{{markers}}" show-location class="nomalMap" bindcallouttap="bindcallouttap"/>
+</view>
+

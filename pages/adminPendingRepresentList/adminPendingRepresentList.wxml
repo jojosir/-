@@ -1,0 +1,41 @@
+<view class="out-view">
+  <view class="info-header">
+    <view class="info-text">
+      <text class="info-header-title">授权管理员</text>
+    </view>  
+    <image class="info-img" src="/img/pendact_icon.png"></image>
+  </view>
+  <view class="main-title">
+    <text class="title-text">
+      待审批列表
+    </text>
+  </view>
+  <view class="class-content"   bindtap="associationItemClick" >
+    <block  wx:for="{{items}}" data-index="{{item.id}}" wx:key="{{item.id}}">
+      <view class="class-item {{item.hidden? '' : 'item-show'}}" >
+        <view class="hd" data-index="{{item.id}}" >
+          <view class="hd-left" data-index="{{item.id}}">
+            <view class="hd-name" data-index="{{item.id}}">
+              {{item.org_name}}
+            </view>
+          </view>
+          <image class="item-icon" data-index="{{item.id}}" src="/img/down.png"></image>
+        </view>
+        <view class="detail">
+          <view class="detail-item">
+            <text class="detail-label">学号</text>
+            <text class="detail-content">{{item.student_id}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="detail-label">姓名</text>
+            <text class="detail-content">{{item.student_name}}</text>
+          </view>
+          <view class="plenty-btn">
+            <button class="btn_enroll" bindtap="agree" data-index="{{item.id}}" >同意</button>
+            <button class="btn_enroll" bindtap="deny" data-index="{{item.id}}">拒绝</button>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

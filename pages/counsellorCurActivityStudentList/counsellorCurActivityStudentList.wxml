@@ -1,0 +1,101 @@
+<view class="out-view">
+  <view class="search-view">
+    <view class="search-bar">
+      <view class="search-bar-form">
+        <view class="search-bar-box">
+          <icon class="icon-search-in-box" type="search" size="14"></icon>
+          <input type="text" class="search-bar-input" placeholder-class="text" placeholder="请输入学生学号或姓名" value="{{inputValue}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="searchAction"/>
+          <view class="icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="search-bar-label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="icon-search" type="search" size="14"></icon>
+            <view class="search-bar-text">搜索</view>
+        </label>
+      </view>
+      <view class="search-bar-cancel-btn item-label item-label-primary" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+  </view>
+
+
+
+  <scroll-view class="searchListView {{inputShowed ? 'searchListView-show':''}}">
+    <view class="class-item">
+      <view class="re-item" wx:for="{{resultItems}}" wx:key="{{index}}" bindlongtap="callManyDelete">
+        <view bindlongtap="callManyDelete"
+                bindtouchstart="touchS" 
+                bindtouchmove="touchMSearch" 
+                bindtouchend="touchESearch"
+                data-index="{{index}}" 
+                style="{{item.txtStyle}}" 
+                class="inner txtt">
+          <label class="label"  data-index="{{index}}" >{{item.ID}}</label>
+          <label class="label"  data-index="{{index}}">{{item.name}}</label>
+          <view class="imgView" style="width:{{stateWidth}}" data-index="{{index}}">
+            <image class="item-icon"  src="{{item.imgPath}}" mode="widthFix"  data-index="{{index}}"></image>
+          </view>
+        </view>
+        <view data-index="{{index}}" class="inner del2">
+          <view data-index="{{index}}" bindtap="changeItemSearch" class="changeItem">修改状态</view>
+          <view data-index="{{index}}" bindtap="delItemSearch" class="delItem">删除</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view class="class-content">
+    <checkbox-group bindchange="checkboxChange">
+      <view class="class-item">
+        <view class="item" wx:for="{{items}}" wx:key="{{index}}" bindlongtap="callManyDelete">
+          <view bindlongtap="callManyDelete"
+                bindtouchstart="touchS" 
+                bindtouchmove="touchM" 
+                bindtouchend="touchE"
+                data-index="{{index}}" 
+                style="{{item.txtStyle}}" 
+                class="inner txt">
+            <label class="label"  data-index="{{index}}" >{{item.ID}}</label>
+            <label class="label"  data-index="{{index}}">{{item.name}}</label>
+            <view class="imgView" style="width:{{stateWidth}}" data-index="{{index}}">
+              <image class="item-icon"  src="{{item.imgPath}}" mode="widthFix"  data-index="{{index}}"></image>
+            </view>
+            <checkbox class="hiddenCheckbox" style="display:{{hiddenItemCheckbox}}" value="{{item.ID}}" checked="{{item.checked}}"/>
+          </view>
+          <view data-index="{{index}}" class="inner del">
+            <view data-index="{{index}}" bindtap="changeItem" class="changeItem">修改状态</view>
+            <view data-index="{{index}}" bindtap="delItem" class="delItem">删除</view>
+          </view>
+        </view>
+      </view>
+    </checkbox-group>
+  </scroll-view>
+  <view style="display:{{switchShow}};" class="swi_enroll">
+      <label>{{unvalidOrAll}}</label>
+      <switch type="switch" bindtap="getUnvalid" checked="{{switchChecked}}" class="switch" color="red" style="display:{{switchShow}};" />
+  </view>
+  <view class="plenty-btn">
+    <button class="btn_enroll" bindtap="createClick">{{createOrCancel}}</button>
+    <button class="btn_enroll" bindtap="deleteClick">删除</button>
+    <button class="btn_enroll" bindtap="selectAll" style="display:{{hiddenSelectAll}}">{{allOrNull}}</button>
+  </view>
+  <modal hidden="{{createHidden}}" bindconfirm="createConfirm" bindcancel="createCancel" title="添加学生">
+    <view class="class-content">
+      <checkbox-group bindchange="selectStu">
+        <view class="class-item">
+          <view class="item-inner">
+            <view class="checkboxView" wx:for="{{checkItems}}">
+              <label class="label">{{item.id}}</label>
+              <label class="label">{{item.name}}</label>
+              <checkbox class="checkbox" value="{{item.id}}" checked="{{item.checked}}"/>
+            </view>
+          </view>
+        </view>
+      </checkbox-group>
+    </view> 
+    <view>
+      <button class="btn_enroll-inner" bindtap="selectAllStu">{{createAllOrNot}}</button>
+    </view>
+  </modal>
+  <modal confirm-text="删除" hidden="{{hiddenDeleteAlert}}" bindconfirm="deleteConfirm" bindcancel="deleteCancel" title="删除所选学生？">
+  </modal>
+</view>

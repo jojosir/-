@@ -1,0 +1,12 @@
+<view class = 'out_view'>
+  <view class='title'>
+    <view class = 'inform-title'>{{inform_title}}</view>
+    <view class = 'inform-dtail'>{{inform_dtail}}</view>
+  </view>
+  <view class = 'text'>
+    <text>{{inform_text}}</text>
+  </view>
+  <view>
+    <button class='button' wx:if="{{hide_button == false}}" bindtap='delete'>删除</button>
+  </view>
+</view>

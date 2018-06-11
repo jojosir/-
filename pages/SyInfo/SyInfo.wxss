@@ -1,0 +1,33 @@
+.out_view{
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+}
+.header{
+  padding: 30rpx 0;
+  background-color: greenyellow;
+}
+.infoheader{
+    
+    align-items: center;
+    padding: 50rpx 0;
+}
+.info-header-title{
+  font-family: "宋体";
+  font-size: 25pt;
+  font-weight: bold;
+  line-height: 150%;
+  margin-bottom: 15rpx;
+  color: #222;
+}
+.inform{
+   padding: 50rpx 0;
+}
+.inform-title{
+  font-family: "宋体";
+  font-size: 14pt;
+  color: #222;
+}

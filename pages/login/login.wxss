@@ -1,0 +1,78 @@
+/**index.wxss**/
+
+.form_view{
+    display: flex;
+}
+.out_view{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1000;
+  opacity: 1;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  padding: 25rpx 10rpx;
+  margin: 40rpx 3%;
+  background: #fff;
+  border-radius: 5px;
+  border: 2px solid #f4f4f4;
+  transition: all .25s ease-in-out;
+}
+.input-group.active {
+  border: 2px solid #7acfa6;
+}
+.input-label {
+  color: #888;
+  font-size: 13pt;
+  height: 25rpx;
+  line-height: 25rpx;
+  padding: 0 25rpx;
+  border-right: 1px solid #d8d8d8; 
+  font-family: "黑体"
+}
+.input-group input,
+.input-group picker {
+  flex: 1;
+  font-size: 13pt;
+  min-height: 52rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  padding: 0 25rpx;
+}
+.input-placeholder,
+.input-group picker.placeholder {
+  color: #ccc;
+}
+.btn_login {
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  text-align: center;
+  border-radius: 5px;
+  margin: 50rpx 3%;
+  font-family: "黑体";
+}
+form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  position:absolute;
+  bottom: 50rpx;
+  width:80%;
+  margin:0% 10%;
+}

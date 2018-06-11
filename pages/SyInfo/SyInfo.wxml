@@ -1,0 +1,16 @@
+<view class='out_view'> 
+  
+  <view class="info-header">
+      <text class="info-header-title" >系统公告</text>
+  </view>
+  <view class = "header"></view>
+  <view class="class-content" wx:key="{{id}}" data-index="{{index}}" wx:for="{{inform}}">
+    <scroll-view class="class-item">
+      <view class='inform' bindtap='click_inform' data-index="{{id}}">
+        <view class="inform-title" data-index="{{id}}" >
+          {{item.name}}  {{item.detail}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

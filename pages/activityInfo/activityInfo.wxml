@@ -1,0 +1,43 @@
+<view class="out-view">
+  <view class="info-header">
+    <image class="info-img" src="/img/act_icon.png"></image>
+      <view class="info-text">
+          <text class="info-header-title">活动详情</text>
+      </view>   
+  </view>
+  <view class="info-content">
+    <view class="info-head">
+      <text class="info-name" >{{Title}}</text>
+    </view>
+    <view class="info-list">
+      <view class="info-item">时间:
+        <text>{{time}}</text>
+      </view>
+      <view class="info-item">地点:
+        <text>{{site}}</text>
+      </view>
+      <view class="info-item">人数:
+        <text>{{attendNumber}}</text>
+      </view>
+      <view class="info-item">主办方：
+        <text>{{sponsor}}</text>
+      </view>
+      <view class="info-item">状态：
+        <text>{{state}}</text>
+      </view>
+      <view class="info-item">类型：
+        <text>{{courseType}}</text>
+      </view>
+      <view class="info-item">简介：</view>
+      <view class="intro-item">
+        <text>{{briefIntro}}</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <button class="btn_enroll" wx:if="{{hasButton == true && curID == true}}" bindtap="enrollClick">{{buttonContent}}</button>
+  </view>
+  <view>
+      <button class="btn_enroll" wx:if="{{deleteButton == true && curID == true}}" bindtap="deleteClick">退选</button>
+  </view>
+</view>

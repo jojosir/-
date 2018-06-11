@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="out_view">
+  <image class="background" src="/img/QQ图片20180610213646.png" mode="widthFix"/>
+
+  <view class="form_view">
+
+    <form bindsubmit="formSubmit">
+        <view class="input-group {{userid_focus ? 'active' : ''}}">
+            <text class="input-label">帐号</text>
+            <input type="number" cursor-spacing="30" name = "input" maxlength="8" placeholder="北航统一认证账号" bindinput="idInput" bindfocus="inputFocus" bindblur="inputBlur" />
+        </view>
+
+        <view class="input-group {{passwd_focus ? 'active' : ''}}">
+            <text class="input-label">密码</text>
+            <input password="true" cursor-spacing="30" name = "password" placeholder="请输入密码" bindinput="passwordInput" bindfocus="inputFocus" bindblur="inputBlur" />
+        </view>
+
+        <view>
+          <button style="opacity: {{opacity}};color: white; background-color:#00adef;" disabled="{{disabled}}" form-type="submit"  class="btn_login">登录             
+          </button>
+        </view>
+      </form>
+    </view>
+</view>
