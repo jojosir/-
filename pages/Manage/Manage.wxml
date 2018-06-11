@@ -44,7 +44,7 @@
           </button>
         </view>
         <view class="item">
-          <button class="item-content" bindtap="consellor_activityClick">
+          <button class="item-content" bindtap="counsellor_activityClick">
             <image class="item-content-image" src="/img/actli_icon.png"></image>
             <view class="item-content-state">活动列表</view>
           </button>

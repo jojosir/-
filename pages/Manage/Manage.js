@@ -9,7 +9,7 @@ Page({
     identity: [], //最后显示在picker选项中
     disabled: false,
     pickerChoice: [], // 用来控制跳转
-    user_type: 0//1:student,2:admin,3:consellor，4：组织代表或活动发起者
+    user_type: 0//1:student,2:admin,3:counsellor，4：组织代表或活动发起者
   },
 
   /**
@@ -130,7 +130,7 @@ Page({
       url: '../counsellorStudentList/counsellorStudentList'
     })
   },
-  consellor_activityClick: function (e) {
+  counsellor_activityClick: function (e) {
     wx.navigateTo({
       url: '../counsellorActivityList/counsellorActivityList'
     })
