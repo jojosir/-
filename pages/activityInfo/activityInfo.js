@@ -22,7 +22,7 @@ Page({
   onShow: function (options) {
     var that = this
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ActivitySingle',
+      url: 'http://123.206.94.45/CampusMap/getActivity',
       data: {
         student_id: wx.getStorageSync('student_id'),
         activity_id: wx.getStorageSync('activity_id')
@@ -145,7 +145,7 @@ Page({
   
   deleteClick:function(e){
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ExitActivity',
+      url: 'http://123.206.94.45/CampusMap/ActivityQuit',
       data: {
         student_id: wx.getStorageSync('student_id'),
         activity_id: wx.getStorageSync('activity_id')
@@ -171,7 +171,7 @@ Page({
     if (this.data.state == '未参加')
     {
       wx.request({
-        url: 'https://38697963.qcloud.la/CampusMap/Join',
+        url: 'http://123.206.94.45/CampusMap/JoinActivity',
         data: {
           student_id: wx.getStorageSync('student_id'),
           activity_id: wx.getStorageSync('activity_id')
@@ -215,7 +215,7 @@ Page({
         success: function (res) {
           // success
           wx.request({
-            url: 'https://38697963.qcloud.la/CampusMap/SignIn',
+            url: 'http://123.206.94.45/CampusMap/SignIn',
             data: {
               student_id: wx.getStorageSync('student_id'),
               activity_id: wx.getStorageSync('activity_id'),
@@ -267,7 +267,7 @@ Page({
         success: function (res) {
           // success
           wx.request({
-            url: 'https://38697963.qcloud.la/CampusMap/SignOut',
+            url: 'http://123.206.94.45/CampusMap/SignInOut',
             data: {
               student_id: wx.getStorageSync('student_id'),
               activity_id: wx.getStorageSync('activity_id'),

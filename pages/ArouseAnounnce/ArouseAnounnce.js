@@ -33,7 +33,7 @@ Page({
   },
   submit:function(){
     wx.request({
-      url: '',
+      url: 'http://123.206.94.45/CampusMap/ArouseNotice',
       data:{
         admin_id: this.data.admin_id,
         text: this.data.inform_text

@@ -22,7 +22,7 @@ Page({
   onLoad:function(e){
     var that = this
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/StudentList',
+      url: 'http://123.206.94.45/CampusMap/getStudentList',
       data: {
         counsellor_id:wx.getStorageSync('curIdentity').id
       },

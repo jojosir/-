@@ -18,7 +18,7 @@ Page({
   onShow:function(){
     var that = this
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/StudentManager',
+      url: 'http://123.206.94.45/CampusMap/StudentManager',
       data: {
         org_id: wx.getStorageSync('org_id'),
       },
@@ -63,7 +63,7 @@ Page({
   addAdmin: function (e) {
     console.log(this.data.adminID)
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/Authorize',
+      url: 'http://123.206.94.45/CampusMap/setActicityAdmin',
       data: {
         org_id: wx.getStorageSync('org_id'),
         student_id: this.data.adminID
@@ -107,7 +107,7 @@ Page({
   deleteAdmin: function (e) {
     console.log(this.data.adminID)
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/CancelAuthorization',
+      url: 'http://123.206.94.45/CampusMap/CancelActicityAdmin',
       data: {
         org_id: wx.getStorageSync('org_id'),
         student_id: this.data.adminID

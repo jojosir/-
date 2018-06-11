@@ -45,7 +45,7 @@ Page({
     var that = this;
     console.log(options.activity_id)
     wx:wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/StudentIn',
+      url: 'http://123.206.94.45/CampusMap/getStudentInActicity',
       data: {
         counsellor_id:wx.getStorageSync('curIdentity').id,
         activity_id:options.activity_id
@@ -83,7 +83,7 @@ Page({
     var tmp = [];
     if(this.data.createOrCancel == '添加'){  
       wx:wx.request({
-        url: 'https://38697963.qcloud.la/CampusMap/StudentList',
+        url: 'http://123.206.94.45/CampusMap/getStudentList',
         data: {
           counsellor_id: wx.getStorageSync('curIdentity').id
         },
@@ -162,7 +162,7 @@ Page({
     var that = this;
     console.log(this.data.pendingStudent);
     wx:wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+      url: 'http://123.206.94.45/CampusMap/ModifySignInfo',
       data: {
         activity_id:this.data.activity_id,
         action:1,
@@ -174,7 +174,7 @@ Page({
       method: 'POST',
       success: function(res) {
         wx: wx.request({
-          url: 'https://38697963.qcloud.la/CampusMap/StudentIn',
+          url: 'http://123.206.94.45/CampusMap/getStudentInAtivity',
           data: {
             counsellor_id: wx.getStorageSync('curIdentity').id,
             activity_id: that.data.activity_id
@@ -393,7 +393,7 @@ Page({
     var tmp = [];
     tmp.push(list[index].ID);
     wx: wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+      url: 'http://123.206.94.45/CampusMap/ModifySignInfo',
       data: {
         activity_id: this.data.activity_id,
         action: 2,
@@ -427,7 +427,7 @@ Page({
     var that = this;
     tmp.push(list[index].ID);
     wx: wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+      url: 'http://123.206.94.45/CampusMap/ModifySignInfo',
       data: {
         activity_id: this.data.activity_id,
         action: 2,
@@ -472,7 +472,7 @@ Page({
       if (list[index].imgPath == '/img/yes.png'){
         list[index].imgPath = '/img/no.png'
         wx: wx.request({
-          url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+          url: 'http://123.206.94.45/CampusMap/ModifySignInfo',
           data: {                                                  
             activity_id: this.data.activity_id,
             action:3,
@@ -491,7 +491,7 @@ Page({
       }else{
         list[index].imgPath = '/img/yes.png'
         wx: wx.request({
-          url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+          url: 'http://123.206.94.45/CampusMap/ModifySignInfo',
           data: {
             activity_id: this.data.activity_id,
             action:4,
@@ -540,7 +540,7 @@ Page({
     if (list[index].imgPath == '/img/yes.png') {
       list[index].imgPath = '/img/no.png'
       wx: wx.request({
-        url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+        url: 'http://123.206.94.45/CampusMap/ModifySignInfo',
         data: {
           activity_id: this.data.activity_id,
           action: 3,
@@ -559,7 +559,7 @@ Page({
     } else {
       list[index].imgPath = '/img/yes.png'
       wx: wx.request({
-        url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+        url: 'http://123.206.94.45/CampusMap/ModifySignInfo',
         data: {
           activity_id: this.data.activity_id,
           action: 4,
@@ -647,7 +647,7 @@ Page({
     }
     console.log(pendingDelete)
     wx: wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+      url: 'http://123.206.94.45/CampusMap/ModifySignInfo',
       data: {
         activity_id: this.data.activity_id,
         action: 2,

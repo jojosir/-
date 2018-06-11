@@ -69,7 +69,7 @@ Page({
     console.log('work')
     var that = this
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ActivityStudent',
+      url: 'http://123.206.94.45/CampusMap/ActivityStudent',
       data: {
         student_id: wx.getStorageSync('student_id')
       },

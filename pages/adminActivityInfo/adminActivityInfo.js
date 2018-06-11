@@ -21,7 +21,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx:wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ActivitySingle',
+      url: 'http://123.206.94.45/CampusMap/getActivity',
       data: {
         student_id: -1,
         activity_id: options.activity_id
@@ -82,7 +82,7 @@ Page({
   btnAgreeClick:function(e){
     var that = this;
     wx:wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ExamineActivity',
+      url: 'http://123.206.94.45/CampusMap/ActivityExamine',
       data:{
         action:1,
         activity_id:this.data.activity_id,
@@ -110,7 +110,7 @@ Page({
 
     var that = this;
     wx: wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ExamineActivity',
+      url: 'http://123.206.94.45/CampusMap/ActivityExamine',
       data: {
         action: 1,
         activity_id: this.data.activity_id,

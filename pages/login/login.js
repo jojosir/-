@@ -59,20 +59,14 @@ Page({
     }
   },
   formSubmit: function (e) {
-    wx.setTabBarItem({
-      index: 2,
-      path
-    })
     var that = this
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    //检测数据库，登录成功后跳转至地图界面
     wx.login({
       success: function (res) {
         if (res.code) {
           console.log(res)
           //发起网络请求
           wx.request({
-            url: 'https://38697963.qcloud.la/CampusMap/Activate',
+            url: 'http://123.206.94.45/CampusMap/Activate',
             data: {
               student_id: e.detail.value.input,
               password: e.detail.value.password,
@@ -86,7 +80,7 @@ Page({
               console.log(r.data)
               var tem = r.data.code
 
-              if (tem == 0) {
+              if (tem == 1) {
 
                 wx.setStorageSync('student_id', e.detail.value.input)
                 wx.setStorageSync('curIdentity', r.data.identity[0])
@@ -100,12 +94,7 @@ Page({
                     console.log(tmpIdentity);
                     detailIdentity.push(tmpIdentity);
                     app.edit
-                  } else if (tmp[i] == 'counsellor') {
-                    var tmpIdentity = new Object();
-                    tmpIdentity.id = e.detail.value.input;
-                    tmpIdentity.identity = 'counsellor';
-                    detailIdentity.push(tmpIdentity);
-                  } else if (tmp[i] == 'admin') {
+                  }  else if (tmp[i] == 'admin') {
                     var tmpIdentity = new Object();
                     tmpIdentity.id = e.detail.value.input;
                     tmpIdentity.identity = 'admin';

@@ -13,7 +13,7 @@ Page({
     if(identity = 'admin') hide_button = false
     else hide_button = true
     wx: wx.request({
-      url: '',
+      url: 'http://123.206.94.45/CampusMap/getNotice',
       method: "POST",
       data:{
         id: wx.getStorageSync('inform')

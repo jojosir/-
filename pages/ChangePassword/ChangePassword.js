@@ -101,7 +101,7 @@ Page({
   },
   submit:function(){
     wx.request({
-      url: '',
+      url: 'http://123.206.94.45/CampusMap/ModifyPassword',
       data:{
         old_password: this.data.old_password,
         new_password: this.data.new_password,

@@ -4,7 +4,7 @@ Page({
   },
   onLoad: function () {
     wx: wx.request({
-      url: '',
+      url: 'http://123.206.94.45/CampusMap/getNoticeList',
       method: "GET",
       header: {
         'content-type': 'application/x-www-form-urlencoded'

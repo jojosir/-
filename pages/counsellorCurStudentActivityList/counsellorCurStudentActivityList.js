@@ -16,7 +16,7 @@ Page({
       student_id:options.student_id
     })
     wx: wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ActivityStudent',
+      url: 'http://123.206.94.45/CampusMap/ActivityStudent',
       data: {
         student_id: options.student_id
       },
@@ -79,7 +79,7 @@ Page({
       if (tmp[i].activity_id == index){
         if (tmp[i].state == '有效'){
           wx: wx.request({
-            url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+            url: 'http://123.206.94.45/CampusMap/ModifyStudentInActivity',
             data: {
               activity_id: index,
               action:3,
@@ -101,7 +101,7 @@ Page({
           })
         } else if (tmp[i].state == '无效'){
           wx: wx.request({
-            url: 'https://38697963.qcloud.la/CampusMap/ModifyState',
+            url: 'http://123.206.94.45/CampusMap/ModifyStudentInActivity',
             data: {
               activity_id: index,
               action: 4,

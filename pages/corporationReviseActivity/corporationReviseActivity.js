@@ -53,7 +53,7 @@ Page({
     }
 
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ActivitySingle',
+      url: 'http://123.206.94.45/CampusMap/getActivity',
       data: {
         student_id: -1,
         activity_id: wx.getStorageSync('activity_id')
@@ -151,7 +151,7 @@ Page({
 
     wx.request({
 
-      url: 'https://38697963.qcloud.la/CampusMap/ModifyActivity',
+      url: 'http://123.206.94.45/CampusMap/ModifyActivity',
       data: {
         activity_id: wx.getStorageSync('activity_id'),          
         name: e.detail.value.inputName,
@@ -376,7 +376,7 @@ Page({
 
 
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ModifyActivity',
+      url: 'http://123.206.94.45/CampusMap/ModifyActivity',
       data: {
         activity_id: wx.getStorageSync('activity_id'),
         name: this.data.name,
@@ -399,7 +399,7 @@ Page({
       success: function (res) {
         console.log(res.data)
         wx.request({
-          url: 'https://38697963.qcloud.la/CampusMap/SubmitActivity',
+          url: 'http://123.206.94.45/CampusMap/SubmitActivity',
           data: {
             activity_id: wx.getStorageSync('activity_id')
           },
@@ -444,7 +444,7 @@ Page({
   },
   activityDelete:function(e){
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/DeleteActivity',
+      url: 'http://123.206.94.45/CampusMap/DeleteActivity',
       data: {
         activity_id: wx.getStorageSync('activity_id')
       },

@@ -70,7 +70,7 @@ Page({
   logoutClick: function (e) {
     //注销
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/Logout',
+      url: 'http://123.206.94.45/CampusMap/Logout',
       data: {
         id: wx.getStorageSync('student_id')
       },

@@ -11,7 +11,7 @@ Page({
     var that = this;
     var items = [];
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/AlterList',
+      url: 'http://123.206.94.45/CampusMap/getExaminingActivity',
       method: 'GET',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -56,7 +56,7 @@ Page({
     var items = [];
     var that = this;
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ExamineAlter',
+      url: 'http://123.206.94.45/CampusMap/ExamineAlter',
       data:{
         id:index,
         action:1
@@ -67,7 +67,7 @@ Page({
       },
       success:function(r){
         wx.request({
-          url: 'https://38697963.qcloud.la/CampusMap/AlterList',
+          url: 'http://123.206.94.45/CampusMap/getExaminingActivity',
           method: 'GET',
           header: {
             'content-type': 'application/x-www-form-urlencoded'
@@ -97,7 +97,7 @@ Page({
 
     var that = this;
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ExamineAlter',
+      url: 'http://123.206.94.45/CampusMap/ExamineAlter',
       data: {
         id: index,
         action: 2
@@ -108,7 +108,7 @@ Page({
       },
       success: function (r) {
         wx.request({
-          url: 'https://38697963.qcloud.la/CampusMap/AlterList',
+          url: 'http://123.206.94.45/CampusMap/getExaminingActivity',
           method: 'GET',
           header: {
             'content-type': 'application/x-www-form-urlencoded'

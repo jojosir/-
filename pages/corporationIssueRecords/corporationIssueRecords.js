@@ -36,7 +36,7 @@ Page({
 
     var that = this
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ActivityOrg',
+      url: 'http://123.206.94.45/CampusMap/getRecordByORG',
       data: {
         org_id: wx.getStorageSync('org_id')
       },

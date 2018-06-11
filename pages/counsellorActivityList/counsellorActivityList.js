@@ -19,7 +19,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx: wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ActivityCounsellor',
+      url: 'http://123.206.94.45/CampusMap/getRecord',
       method: "GET",
       header: {
         'content-type': 'application/x-www-form-urlencoded'

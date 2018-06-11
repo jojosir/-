@@ -1,276 +1,360 @@
-
 Page({
-  data:{
-    clickMarker:false,
-    activityLocation:[],
-    markers:[],
-    marker:[],
-    controls:[]
+  data: {
+    longitude: 116.2705,
+    latitude: 40.1535,
+    scale: 17,
+    markers: [],
 
-},
-onShow: function () {
-  var that = this
+  }
+  ,
+  onLoad: function (options) {
+    var that = this
+    // 获取系统信息
+    wx.showTabBar({
 
-  wx.getSystemInfo({
-    success: function (r) {
-      that.setData({
-        controls: [{
-          id: 1,
-          iconPath: '/img/curlocation.png',
-          position: {
-            left: 20,
-            top: r.windowHeight - 80,
-            width: 50,
-            height: 50
-          },
-          clickable: true
-        },
-        {
-          id: 2,
-          iconPath: '/img/activity.png',
-          position: {
-            left: r.windowWidth - 70,
-            top: r.windowHeight - 80,
-            width: 50,
-            height: 50
-          },
-          clickable: true
-        }]
-      })
-    }
-  });
-
-
-
-  wx.request({
-    url: 'https://38697963.qcloud.la/CampusMap/ActivityMap',
-    data: {},
-    method: "GET",
-    header: {
-      'content-type': 'application/x-www-form-urlencoded'
-    },
-    success: function (r) {
-      console.log(r.data)
-
-      var markers = [];
-      for (var i = 0; i < r.data.list.length; i++) {
-        var single = true
-        if (r.data.list[i].activity.length > 1)
-          single = false
-        var labelContent = ''
-        var calloutContent = ''
-        for (var j = 0; j < r.data.list[i].activity.length; j++) {
-          labelContent += r.data.list[i].activity[j].name
-          labelContent += '\n'
-
-          calloutContent += r.data.list[i].activity[j].name
-          calloutContent += " "
-          calloutContent += r.data.list[i].activity[j].place
-          calloutContent += " "
-
-          var startDate = r.data.list[i].activity[j].start_time.toString().substr(0, 10)
-          var endDate = r.data.list[i].activity[j].end_time.toString().substr(0, 10)
-          if (startDate == endDate) {
-            var startTime = r.data.list[i].activity[j].start_time.toString().substr(5, 11);
-            var endTime = r.data.list[i].activity[j].end_time.toString().substr(11, 5);
-            calloutContent += startTime
-            calloutContent += '-'
-            calloutContent += endTime
-          }
-          else {
-            var startTime = r.data.list[i].activity[j].start_time.toString().substr(5, 11);
-            var endTime = r.data.list[i].activity[j].end_time.toString().substr(5, 11);
-            calloutContent += startTime
-            calloutContent += '-'
-            calloutContent += endTime
-          }
-          calloutContent += ' 报名人数：'
-          calloutContent += r.data.list[i].activity[j].current_number
-          calloutContent += '/'
-          calloutContent += r.data.list[i].activity[j].number_limit
-          calloutContent += '\n'
-        }
-        //var date = this.data.startDate.toString();
-        //var tem = date.substr(0, 10);
+    })
+    wx.getSystemInfo({
+      success: function (res) {
         that.setData({
-          marker: [{
-            id: i,
-            activity_id: r.data.list[i].activity[0].id,
-            longitude: r.data.list[i].longitude,
-            latitude: r.data.list[i].latitude,
-            location: r.data.list[i].location,
-            iconPath: '/img/location.png',
-            single: single,
-            label: {
-              content: labelContent,
-
-            },
-            callout: {
-              content: calloutContent,
-              borderRadius:15,
-              color:'#ffffff',
-              padding:15,
-              bgColor:'#4fc3f7',
-              display:'BYCLICK'
-
-            }
-          }]
         })
-
-        markers.push(that.data.marker[0]);
       }
-      that.setData({
-        markers: markers
-      });
-    }
-  })
-
-
-  console.log('student_id:'+wx.getStorageSync('student_id'))
-  console.log(wx.getStorageSync('identity'))
-  console.log(wx.getStorageSync('curIdentity'))
-
-
-},
-  onReady: function (e) {
-    // 使用 wx.createMapContext 获取 map 上下文 
-    this.mapCtx = wx.createMapContext('myMap');
-    //this.mapCtx.moveToLocation();
-    this.setData({
-      clickMarker:false
     })
-  },
-  bindtap: function(event){
-    this.setData({
-      clickMarker:false
-    })
-  }, 
-  bindcontroltap:function(e){
-    console.log(e)
-    if (e.controlId == 1)
-      this.mapCtx.moveToLocation()
-    else if (e.controlId == 2)
-    {
-      this.goToManage()
-    }
-  },
-
-  bindcallouttap:function(e){
-    if (this.data.markers[e.markerId].single)
-    {
-      wx.setStorageSync('activity_id', this.data.markers[e.markerId].activity_id)
-      wx.navigateTo({
-        url: '../activityInfo/activityInfo'
-      })
-    }
-    else
-    {
-      wx.setStorageSync('location', this.data.markers[e.markerId].location)
-
-      wx.navigateTo({
-        url: '../studentChooseActivity/studentChooseActivity'
-      })
-    }
-  },
-
-  bindmarkertap: function(e){
-
-    this.setData({
-      clickMarker:true
-    });
-    //console.log("work");
-    /*var lon1,lon2,lat1,lat2;
-    for (var i = 0;i < this.data.activityLocation.length;i++)
-    {
-      if (this.data.markers[i].id === e.markerId)
-      {
-        console.log("标记lon:"+this.data.markers[i].longitude );
-        console.log("标记lat:"+this.data.markers[i].latitude );
-        lon1=parseFloat(this.data.markers[i].longitude);
-        lat1=parseFloat(this.data.markers[i].latitude);
-      }
-    }
-    wx.getLocation({
-      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
-      success: function(res){
-        // success
-        lon2=res.longitude;
-        lat2=parseFloat(res.latitude);
-        console.log("测试lon:"+lon2);
-        console.log("测试lat:"+lat2);
-
-        var hsinX = Math.sin((lon1 - lon2) * 0.5 * Math.PI / 180);      
-        var hsinY = Math.sin((lat1 - lat2) * 0.5 * Math.PI / 180);         
-        var h = hsinY * hsinY + (Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * hsinX * hsinX);         
-        var dis = 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h)) * 6367000;
-
-        console.log("距离："+dis);
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
+    /*wx.showModal({
+      title: '活动进行中，已无法报名！',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })*/
   },
-  goToManage:function(){
-    var curIdentity = wx.getStorageSync('curIdentity')
-    if (curIdentity.identity == 'student')
-    {
-      wx.navigateTo({
-        url: '../studentManage/studentManage'
-      })
-    }
-    else if (curIdentity.identity == 'org_owner')
-    {
-      wx.setStorageSync('org_id', curIdentity.org_id)
-      wx.navigateTo({
-        url: '../studentRepresentManage/studentRepresentManage'
-      })
-    }
-    else if (curIdentity.identity == 'org_manager') {
-      wx.setStorageSync('org_id', curIdentity.org_id)
-      wx.navigateTo({
-        url: '../studentAdminManage/studentAdminManage'
-      })
-    }
-    else if (curIdentity.identity == 'counsellor') {
-      wx.navigateTo({
-        url: '../counsellorManage/counsellorManage'
-      })
-    }
-    else if (curIdentity.identity == 'admin') {
-      wx.navigateTo({
-        url: '../adminManage/adminManage'
-      })
-    }
+  location() {
+    wx.getLocation({
+      type: "gcj02", // 坐标系类型
+      // 获取经纬度成功回调
+      success: (res) => { // es6 箭头函数，可以解绑当前作用域的this指向，使得下面的this可以绑定到Page对象
+        this.setData({  // 为data对象里定义的经纬度默认值设置成获取到的真实经纬度，这样就可以在地图上显示我们的真实位置
+          longitude: res.longitude,
+          latitude: res.latitude,
+          scale: 19
+        })
+      }
+    });
   },
-    goToStudent: function(){
-    wx.navigateTo({
-      url: '../studentManage/studentManage'
-      
+  school() {
+    this.setData({
+      longitude: 116.2705,
+      latitude: 40.1535,
+      scale: 17
     })
   },
-  goToCounsellor: function(){
-    wx.navigateTo({
-      url: '../counsellorManage/counsellorManage'
+  movetoPosition: function () {
+    this.mapCtx.moveToLocation();
+  },
+  onShow: function () {
+    var that = this
+    //向服务器请求活动信息
+    wx.request({
+      url: 'http://123.206.94.45/CampusMap/ActivityListFromLocation',
+      data: {Location:"田径场"},
+      method: "GET",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (r) {
+        console.log(r.data)
+        var markers = [];
+        //读取活动列表内容
+        var calloutContent = ''
+          for (var j = 0; j < r.data.activity.length; j++) {
+            calloutContent += r.data.list[i].activity[j].name
+            calloutContent += "-"
+            calloutContent += r.data.list[i].activity[j].place
+            calloutContent += "-"
+              var startTime = r.data.list[i].activity[j].start_time.toString().substr(5, 11);
+              calloutContent += startTime
+              calloutContent += '\n'
+          }
+          //在页面地图上显示活动信息
+          that.setData({
+            marker: [{
+              iconPath: "/img/1.png",
+              id: 1,
+              latitude: 40.1520,
+              longitude: 116.2758,
+              width: 30,
+              height: 30,
+              label: { content: "田径场" },
+              callout: {
+                content: calloutContent,
+                borderRadius: 4,
+                padding: 4,
+                bgColor: '#ffffff',
+                display: 'ALWAYS'
+              },
+            }]
+          })
+          markers.push(that.data.marker[0]);
+        
+        that.setData({
+          markers: markers
+        });
+      }
+    })
+    wx.request({
+      url: 'http://123.206.94.45/CampusMap/ActivityListFromLocation',
+      data: { Location: "咏曼剧场" },
+      method: "GET",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (r) {
+        console.log(r.data)
+        var markers = [];
+        //读取活动列表内容
+        var calloutContent = ''
+        for (var j = 0; j < r.data.activity.length; j++) {
+          calloutContent += r.data.list[i].activity[j].name
+          calloutContent += "-"
+          calloutContent += r.data.list[i].activity[j].place
+          calloutContent += "-"
+          var startTime = r.data.list[i].activity[j].start_time.toString().substr(5, 11);
+          calloutContent += startTime
+          calloutContent += '\n'
+        }
+        //在页面地图上显示活动信息
+        that.setData({
+          marker: [{
+              //设置活动场地——咏曼剧场
+            iconPath: "/img/2.png",
+              id: 2,
+              latitude: 40.1512,
+              longitude: 116.2744,
+              width: 30,
+              height: 30,
+              label: { content: "咏曼剧场" },
+              callout: {
+                content: calloutContent,
+                borderRadius: 4,
+                padding: 4,
+                bgColor: '#ffffff',
+                display: 'ALWAYS'
+              }
+            
+          }]
+        })
+        markers.push(that.data.marker[0]);
+
+        that.setData({
+          markers: markers
+        });
+      }
+    })
+    wx.request({
+      url: 'http://123.206.94.45/CampusMap/ActivityListFromLocation',
+      data: { Location: "图书馆" },
+      method: "GET",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (r) {
+        console.log(r.data)
+        var markers = [];
+        //读取活动列表内容
+        var calloutContent = ''
+        for (var j = 0; j < r.data.activity.length; j++) {
+          calloutContent += r.data.list[i].activity[j].name
+          calloutContent += "-"
+          calloutContent += r.data.list[i].activity[j].place
+          calloutContent += "-"
+          var startTime = r.data.list[i].activity[j].start_time.toString().substr(5, 11);
+          calloutContent += startTime
+          calloutContent += '\n'
+        }
+        //在页面地图上显示活动信息
+        that.setData({
+          marker: [{
+            //设置活动场地——图书馆
+            iconPath: "/img/3.png",
+            id: 3,
+            latitude: 40.1518,
+            longitude: 116.2717,
+            width: 30,
+            height: 30,
+            callout: {
+              content: calloutContent,
+              borderRadius: 4,
+              padding: 4,
+              bgColor: '#ffffff',
+              display: 'ALWAYS'
+            },
+            label: { content: "图书馆" }
+          }]
+        })
+        markers.push(that.data.marker[0]);
+
+        that.setData({
+          markers: markers
+        });
+      }
+    })
+    wx.request({
+      url: 'http://123.206.94.45/CampusMap/ActivityListFromLocation',
+      data: { Location: "实验楼" },
+      method: "GET",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (r) {
+        console.log(r.data)
+        var markers = [];
+        //读取活动列表内容
+        var calloutContent = ''
+        for (var j = 0; j < r.data.activity.length; j++) {
+          calloutContent += r.data.list[i].activity[j].name
+          calloutContent += "-"
+          calloutContent += r.data.list[i].activity[j].place
+          calloutContent += "-"
+          var startTime = r.data.list[i].activity[j].start_time.toString().substr(5, 11);
+          calloutContent += startTime
+          calloutContent += '\n'
+        }
+        //在页面地图上显示活动信息
+        that.setData({
+          marker: [{//设置活动场地——实验楼
+            iconPath: "/img/4.png",
+            id: 4,
+            latitude: 40.1508,
+            longitude: 116.27,
+            width: 30,
+            height: 30,
+            callout: {
+              content: calloutContent,
+              borderRadius: 4,
+              padding: 4,
+              bgColor: '#ffffff',
+              display: 'ALWAYS'
+            }
+            , label: { content: "实验楼" }
+          }]
+        })
+        markers.push(that.data.marker[0]);
+
+        that.setData({
+          markers: markers
+        });
+      }
+    })
+    wx.request({
+      url: 'http://123.206.94.45/CampusMap/ActivityListFromLocation',
+      data: { Location: "宿舍" },
+      method: "GET",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (r) {
+        console.log(r.data)
+        var markers = [];
+        //读取活动列表内容
+        var calloutContent = ''
+        for (var j = 0; j < r.data.activity.length; j++) {
+          calloutContent += r.data.list[i].activity[j].name
+          calloutContent += "-"
+          calloutContent += r.data.list[i].activity[j].place
+          calloutContent += "-"
+          var startTime = r.data.list[i].activity[j].start_time.toString().substr(5, 11);
+          calloutContent += startTime
+          calloutContent += '\n'
+        }
+        //在页面地图上显示活动信息
+        that.setData({
+          marker: [{
+            //设置活动场地——宿舍
+            iconPath: "/img/5.png",
+            id: 5,
+            latitude: 40.1550,
+            longitude: 116.2738,
+            width: 30,
+            height: 30,
+            callout: {
+              content: calloutContent,
+              borderRadius: 4,
+              padding: 4,
+              bgColor: '#ffffff',
+              display: 'ALWAYS'
+            },
+            label: { content: "宿舍" }
+          }]
+        })
+        markers.push(that.data.marker[0]);
+
+        that.setData({
+          markers: markers
+        });
+      }
+    })
+    wx.request({//设置活动场地——国家实验楼
+      url: 'http://123.206.94.45/CampusMap/ActivityListFromLocation',
+      data: { Location: "国家实验楼" },
+      method: "GET",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (r) {
+        console.log(r.data)
+        var markers = [];
+        //读取活动列表内容
+        var calloutContent = ''
+        for (var j = 0; j < r.data.activity.length; j++) {
+          calloutContent += r.data.list[i].activity[j].name
+          calloutContent += "-"
+          calloutContent += r.data.list[i].activity[j].place
+          calloutContent += "-"
+          var startTime = r.data.list[i].activity[j].start_time.toString().substr(5, 11);
+          calloutContent += startTime
+          calloutContent += '\n'
+        }
+        //在页面地图上显示活动信息
+        that.setData({
+          marker: [{
+            iconPath: "/img/6.png",
+            id: 6,
+            latitude: 40.1539,
+            longitude: 116.2712,
+            width: 30,
+            height: 30,
+            callout: {
+              content:calloutContent,
+              borderRadius: 4,
+              padding: 4,
+              bgColor: '#ffffff',
+              display: 'ALWAYS'
+            }
+            , label: { content: "国家实验楼" }
+          }]
+        })
+        markers.push(that.data.marker[0]);
+
+        that.setData({
+          markers: markers
+        });
+      }
     })
   },
-  goToOrganizer: function(){
-    wx.navigateTo({
-      url: '../studentRepresentManage/studentRepresentManage'
+  SARClick: function (e) {
+    //进入活动记录页面
+    wx.reLaunch({
+      url: '../studentActivityRecards/studentActivityRecards',
     })
   },
-  goToStudentAdmin: function(){
-    wx.navigateTo({
-      url: '../studentAdminManage/studentAdminManage'
-    })
-  },
-  goToAdmin: function(){
-    wx.navigateTo({
-      url: '../adminManage/adminManage'
+  ALClick: function (e) {
+    //进入活动列表页面
+    wx.reLaunch({
+      url: '../activityList/activityList',
     })
   }
+
 
 })

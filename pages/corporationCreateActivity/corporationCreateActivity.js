@@ -68,7 +68,7 @@ Page({
     console.log(e.detail.value.inputName)
 
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/CreateActivity',
+      url: 'http://123.206.94.45/CampusMap/CreateActivity',
       data: {
         org_id: wx.getStorageSync('org_id'),
         activity_name: e.detail.value.inputName

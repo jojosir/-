@@ -10,7 +10,7 @@ Page({
   onShow:function(options){
     var that = this;
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ActivityExamining',
+      url: 'http://123.206.94.45/CampusMap/getExaminingActivity',
       method:'GET',
       header: {
         'content-type': 'application/x-www-form-urlencoded'

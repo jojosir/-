@@ -66,7 +66,7 @@ Page({
   formSubmit: function (e) {
     console.log(e.detail.value.input)
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/SubmitAlter',
+      url: 'http://123.206.94.45/CampusMap/SubmitAlter',
       data: {
         org_id: wx.getStorageSync('org_id'),	
 	      student_id:e.detail.value.input
