@@ -1,0 +1,28 @@
+<!--pages/modifyActivityAdmin/modifyActivityAdmin.wxml-->
+<view class="out-view">
+  <view class="info-header">
+    <image class="info-img" src="/img/act_icon.png"></image>
+      <view class="info-text">
+          <text class="info-header-title">修改管理员权限</text>
+      </view>   
+  </view>
+  <view class="info-content">
+    <view class="info-head">
+      <text class="info-name" >{{Title}}</text>
+    </view>
+  </view>
+  <scroll-view class="info-content">
+    <view class="class-item">
+      <view class="item" wx:key="{{index}}" data-index="{{index}}" wx:for="{{activities}}">
+        <view class="item-left">
+          <view class="item-name" data-index="{{index}}">{{item.name}}</view>
+          <switch class="item-other" data-index="{{index}}" bindchange='changeSwitch' checked='{{item.active}}'></switch> 
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="plenty-btn">
+    <button class="btn" bindtap="btnAgreeClick"  disabled="{{disabled}}">确认修改/button>
+    <button class="btn" bindtap="btnDenyClick"  disabled="{{disabled}}">放弃修改</button>
+  </view>
+</view>

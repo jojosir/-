@@ -1,5 +1,0 @@
-<view class="outView">
-   <scroll-view class="scrollView">
-      代表变更列表
-   </scroll-view>
-</view>

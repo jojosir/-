@@ -26,7 +26,7 @@
         <view class="item">
           <button class="item-content" bindtap="ChangeRepresentClick">
             <image class="item-content-image" src="/img/cha_rep_icon_1.png"></image>
-            <view class="item-content-state">授予组织代表</view>
+            <view class="item-content-state">审批组织代表变更</view>
           </button>
         </view>
         <view class="item">
@@ -58,7 +58,26 @@
           </button>
         </view>
       </block>
-      
+      <block wx:elif = "{{user_type < 6}}">
+        <view class="item">
+          <button class="item-content" bindtap="issueRecordsClick">
+            <image class="item-content-image" src="/img/wat_actli_icon.png"></image>
+            <view class="item-content-state">查看发布活动记录</view>
+          </button>
+        </view>
+        <view class="item">
+          <button class="item-content" bindtap="changeRepresentClick">
+            <image class="item-content-image" src="/img/cha_rep_icon.png"></image>
+            <view class="item-content-state">申请代表变更</view>
+          </button>
+        </view>
+        <view class="item">
+          <button class="item-content" bindtap="createAdminClick">
+            <image class="item-content-image" src="/img/cre_admin_icon.png"></image>
+            <view class="item-content-state">授权管理员</view>
+          </button>
+        </view>
+      </block>
     </view>
   </view>
   <view class="main-title">
@@ -68,14 +87,12 @@
   </view>
   <view class="main-list" >
     <view class="list-item">
-      <picker bindchange="bindPickerChange" range="{{identity}}" >
-        <view class="item">
-          <button class="item-content" bindtap="identityClick">
-            <image class="item-content-image" src="/img/user_icon.png"></image>
-            <view class="item-content-state">切换身份</view>  
-          </button>
-        </view>
-      </picker>
+      <view class="item">
+        <button class="item-content" bindtap="identityClick">
+          <image class="item-content-image" src="/img/user_icon.png"></image>
+          <view class="item-content-state">切换身份</view>  
+        </button>
+      </view>
       <view class="item">
         <button class="item-content" bindtap="logoutClick">
           <image class="item-content-image" src="/img/out_icon.png"></image>
@@ -83,7 +100,7 @@
         </button>
       </view>
       <view class="item">
-        <button class="item-content" bindtap="ChangeClick">
+        <button class="item-content" bindtap="ChangePasswordClick">
           <image class="item-content-image" src="/img/app_act_icon.png"></image>
           <view class="item-content-state">修改密码</view>
         </button>

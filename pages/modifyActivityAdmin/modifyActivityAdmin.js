@@ -1,18 +1,32 @@
-// pages/corporationActivityInfo/corporationActivityInfo.js
+// pages/modifyActivityAdmin/modifyActivityAdmin.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    activities:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.request({
+      url: '',
+      method:'POST',
+      data:{
+        student_id:wx.getStorageSync('student_id'),
+        org_id: wx.getStorageSync('org_id')
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success(res){
+        var tmp = res.data.activities
+        
+      }
+    })
   },
 
   /**
@@ -62,5 +76,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  btnAgreeClick:function(){
+
+  },
+  btnDenyClick:function(){
+
   }
 })

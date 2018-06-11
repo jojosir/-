@@ -27,10 +27,10 @@ Page({
       complete: function (res) { },
     })
   },
-  click_inform: function(){
-    wx.setStorageSync(inform, data)
+  click_inform: function(e){
+    wx.setStorageSync("inform", data)
     wx: wx.navigateTo({
-      url: '' + e.target.dataset.id,
+      url: '../Inform/Inform?inform_id=' + this.data.items[e.target.dataset.index].inform_id,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

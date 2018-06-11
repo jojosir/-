@@ -6,9 +6,9 @@ Page({
     inform_id: 0,
     hide_button:true
   },
-  onLoad: function () {
+  onLoad: function (options) {
 
-    var identity = wx.getExtConfigSync(identity)
+    var identity = wx.getExtConfigSync("identity")
     var hide_button
     if(identity = 'admin') hide_button = false
     else hide_button = true
@@ -16,7 +16,7 @@ Page({
       url: 'http://123.206.94.45/CampusMap/getNotice',
       method: "POST",
       data:{
-        id: wx.getStorageSync('inform')
+        id: options.inform_id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'

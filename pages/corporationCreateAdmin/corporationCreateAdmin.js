@@ -10,6 +10,7 @@ Page({
     admin:[],
     admins: [],
     adminID:''
+    
   },
 
   /**
@@ -59,6 +60,11 @@ Page({
         opacity: 0.4
       })
     }
+  },
+  modifyAdmin:function(e){
+    wx.navigateTo({
+      url: '../modifyActivityAdmin/modifyActivityAdmin?id=' + this.data.admin[e.target.dataset.index].adminID
+    })
   },
   addAdmin: function (e) {
     console.log(this.data.adminID)

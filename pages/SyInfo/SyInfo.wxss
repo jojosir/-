@@ -31,3 +31,20 @@
   font-size: 14pt;
   color: #222;
 }
+.class-content{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+}
+.class-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 11pt;
+    padding: 0 40rpx;
+    margin-left:20rpx;
+    margin-right:20rpx;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
