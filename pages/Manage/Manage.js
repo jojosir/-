@@ -6,7 +6,8 @@ Page({
    */
   data: {
     user_type: 1,//1:student,2:admin,3:counsellor，4：活动管理员，5：组织代表
-    user_id: 0
+    user_id: 0,
+    disabled:false
   },
 
   /**
@@ -22,12 +23,14 @@ Page({
         url: '../login/login'
       })
     } /*测试时隐藏,获取当前身份，若小于1代表未登陆*/
-    
+    var mid = false;
+    if(value = 2)
+      mid = true;
     this.setData({
-      user_type: value //测试时隐藏
+      user_type: value, //测试时隐藏
+      disabled:mid
     })
   },
-
   student_activityClick: function (e) {
     wx.navigateTo({
       url: '../studentActivityRecords/studentActivityRecords'
@@ -44,10 +47,12 @@ Page({
       itemColor: '#007aff',
       success(res) {
         var tmp = this.data.user_type;
-        if ((tmp == 0 && res.tapIndex == 1) || (tmp == 1 && res.tapIndex == 3) || (tmp == 2 && res.tapIndex == 4) || (tmp == 3 && res.tapIndex == 5)) wx.showToast({
+        if ((tmp == 1 && res.tapIndex == 0) || (tmp == 3 && res.tapIndex == 1) || (tmp == 4 && res.tapIndex == 2) || (tmp == 5 && res.tapIndex == 3)) wx.showToast({
           title: '无效操作',
+          duration:2000
         })
         else{
+          
           wx.request({
             url: '',
             method: 'POST',
@@ -116,7 +121,7 @@ Page({
   logoutClick: function (e) {
     //注销
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/Logout',
+      url: 'http://123.206.94.45/CampusMap/Logout',
       data: {
         id: wx.getStorageSync('student_id')
       },

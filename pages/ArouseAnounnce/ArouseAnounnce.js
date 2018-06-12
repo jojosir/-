@@ -5,7 +5,9 @@ Page({
    */
   data: {
     admin_id:0,
-    disabled:true,
+    disabled1:true,
+    disabled1: true,
+    title:"",
     inform_text:'233',
   },
  
@@ -22,21 +24,34 @@ Page({
     if (e.detail.value.length < 400){
       this.setData({
         inform_text: e.detail.value,
-        disabled: true
+        disabled1: true
       })
     }
     else this.setData({
       inform_text: e.detail.value,
-      disabled:false
+      disabled1:false
     })
 
+  },
+  settitle: function(e){
+    if (e.detail.value.length <= 0) {
+      this.setData({
+        title: e.detail.value,
+        disabled2: true
+      })
+    }
+    else this.setData({
+      title: e.detail.value,
+      disabled2: false
+    })
   },
   submit:function(){
     wx.request({
       url: 'http://123.206.94.45/CampusMap/ArouseNotice',
       data:{
         admin_id: this.data.admin_id,
-        text: this.data.inform_text
+        text: this.data.inform_text,
+        title: this.data.title
       },
       method: "POST",
       header: {
@@ -45,7 +60,12 @@ Page({
       },
       success: function (res) {
         console.log(res.data)
-
+        wx.showModal({
+          title: '发布成功'
+        }) 
+        wx.switchTab({
+          url: '../SyInfo/SyInfo',
+        })
       }
     })
   },

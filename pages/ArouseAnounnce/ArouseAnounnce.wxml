@@ -6,12 +6,12 @@
       </view>   
   </view>
   <view class="reporter-detail">
-    <text class="reporter-detail-name">标题</text>
+    <text class="reporter-detail-name" bindinput = 'settitle'>标题</text>
     <view class="reporter-detail-input">
         <input bindinput="newInput" name="inputName" value="{{name}}" placeholder="标题部分" />
     </view>
   </view>
   <textarea name = 'formal_text' bindinput='num_check'  cursor-spacing="50" maxlength= "1000" placeholder="正文部分" class='text'> </textarea>
-  <button bindtap='submit' class='btn' disabled='{{disabled}}' id = 'submit' type = 'primary'>确认发布</button>
+  <button bindtap='submit' class='btn' disabled='{{disabled1 || disabled1}}' id = 'submit' type = 'primary'>确认发布</button>
   <button bindtap='cancel' class='btn' type='warn'>放弃发布</button>
 </view>

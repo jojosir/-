@@ -5,7 +5,7 @@
   font-size: 14pt;
   line-height: 80rpx;
   height: 80rpx;
-  width:40%;
+  width:100%;
   text-align: center;
   border-radius: 10px;
   margin: 10rpx 5% 30rpx;

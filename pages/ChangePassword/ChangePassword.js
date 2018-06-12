@@ -70,7 +70,7 @@ Page({
   },
   oldInput: function(e){
     this.setData({
-      old_password: 'e.detail.value'
+      old_password: e.detail.value
     })
     if (e.detail.value.length > 0) {
       this.setData({
@@ -85,7 +85,7 @@ Page({
   },
   newInput: function (e) {
     this.setData({
-      new_password: 'e.detail.value'
+      new_password: e.detail.value
     })
     if(e.detail.value.length > 0){
       this.setData({
@@ -105,7 +105,8 @@ Page({
       data:{
         old_password: this.data.old_password,
         new_password: this.data.new_password,
-        user_id: this.data.user_id
+        id: wx.getStorageSync('student_id'),
+        role: wx.getStorageSync('curIdentity')
       },
       method:'POST',
       header: {
@@ -113,13 +114,14 @@ Page({
       },
       success:function(r){
         var temp = r.data.code
-        if (temp == 0) wx.showModal({
+        if (temp == 1)
+          wx.showModal({
+            title: '修改成功'
+
+          }) 
+        else wx.showModal({
           title: '修改失败',
           content: '密码错误',
-        })
-        else wx.showModal({
-          title: '修改成功'
-         
         })
       }
     })

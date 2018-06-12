@@ -145,8 +145,8 @@ Page({
         }
       }
     })*/
-  },
-  onShow: function () {
+  //},
+  //onShow: function () {
     var that = this
     //向服务器请求活动信息
     wx.request({

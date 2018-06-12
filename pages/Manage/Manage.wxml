@@ -87,7 +87,7 @@
   </view>
   <view class="main-list" >
     <view class="list-item">
-      <view class="item">
+      <view class="item" hidden='{{disabled}}'>
         <button class="item-content" bindtap="identityClick">
           <image class="item-content-image" src="/img/user_icon.png"></image>
           <view class="item-content-state">切换身份</view>  
