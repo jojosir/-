@@ -50,7 +50,7 @@ Page({
         var buttonContent = ''
         var hasButton = true
         var deleteButton = false
-        switch (r.data.activity.state) {
+        switch (r.data.state) {
           case 0:
             state = "未参加";
             buttonContent = "报名";
