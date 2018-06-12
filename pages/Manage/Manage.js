@@ -17,14 +17,14 @@ Page({
     wx.showTabBar({
 
     })
-    /*if (value < 1 ) {
+    if (value < 1 ) {
       wx.reLaunch({
         url: '../login/login'
       })
-    } 测试时隐藏,获取当前身份，若小于1代表未登陆*/
+    } /*测试时隐藏,获取当前身份，若小于1代表未登陆*/
     
     this.setData({
-      //user_type: value 测试时隐藏
+      user_type: value //测试时隐藏
     })
   },
 

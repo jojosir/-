@@ -54,8 +54,8 @@ Page({
       title: '系统提示',
       content: '是否放弃发布',
       success:function(res){
-        wx.reLaunch({
-          url: '../page/SyInfo/SyInfo',
+        if(res.confirm)wx.reLaunch({
+          url: '../SyInfo/SyInfo',
         })
       },
       fail:{}

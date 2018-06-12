@@ -22,7 +22,7 @@
     </view>
   </scroll-view>
   <view class="plenty-btn">
-    <button class="btn" bindtap="btnAgreeClick"  disabled="{{disabled}}">确认修改/button>
+    <button class="btn" bindtap="btnAgreeClick"  disabled="{{disabled}}">确认修改</button>
     <button class="btn" bindtap="btnDenyClick"  disabled="{{disabled}}">放弃修改</button>
   </view>
 </view>

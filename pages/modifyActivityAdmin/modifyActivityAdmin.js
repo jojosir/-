@@ -23,8 +23,10 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success(res){
-        var tmp = res.data.activities
-        
+        var tmp = res.data.activities//需要获取该组织所有活动的名称、id和该管理员的权限
+        this.setData({
+          activities: tmp
+        })
       }
     })
   },
@@ -78,9 +80,44 @@ Page({
   
   },
   btnAgreeClick:function(){
-
+    wx.request({
+      url: '',//上传修改
+      method: 'POST',
+      data: {
+        student_id: wx.getStorageSync('student_id'),
+        activities: this.data.activities
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success(res) {
+        wx.showToast({
+          title: '修改成功',
+          icon:'success'
+        })
+        wx.reLaunch({
+          url: '../corporationCreateAdmin/corporationCreateAdmin',
+        })
+      }
+    })
   },
   btnDenyClick:function(){
-
+    wx.showModal({
+      title: '系统提示',
+      content: '是否放弃修改',
+      success: function (res) {
+        if (res.confirm) wx.reLaunch({
+          url: '../corporationCreateAdmin/corporationCreateAdmin',
+        })
+      },
+      fail: {}
+    })
+  },
+  changeSwitch:function(e){
+    var tmp = this.data.activities
+    tmp[e.target.dataset.index] = e.detail.value
+    this.setData({
+      activities: tmp
+    })
   }
 })

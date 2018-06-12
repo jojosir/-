@@ -1,4 +1,3 @@
-// pages/createAdmin/createAdmin.js
 Page({
 
   /**
@@ -63,7 +62,7 @@ Page({
   },
   modifyAdmin:function(e){
     wx.navigateTo({
-      url: '../modifyActivityAdmin/modifyActivityAdmin?id=' + this.data.admin[e.target.dataset.index].adminID
+      url: '../modifyActivityAdmin/modifyActivityAdmin?id=' + this.data.admins[e.target.dataset.index].adminID
     })
   },
   addAdmin: function (e) {

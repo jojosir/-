@@ -123,5 +123,17 @@ Page({
         })
       }
     })
+  },
+  cancel: function () {
+    wx.showModal({
+      title: '系统提示',
+      content: '是否放弃修改',
+      success: function (res) {
+        if (res.confirm) wx.switchTab({
+          url: '../Manage/Manage',
+        })
+      },
+      fail: {}
+    })
   }
 })

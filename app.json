@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Manage/Manage",
     "pages/login/login",
     "pages/studentManage/studentManage",
     "pages/ArouseAnounnce/ArouseAnounnce",
@@ -29,7 +30,6 @@
     "pages/changeRepresentInfo/changeRepresentInfo",
     "pages/counsellorCurStudentActivityList/counsellorCurStudentActivityList",
     "pages/studentRepresentChange/studentRepresentChange",
-    "pages/Manage/Manage",
     "pages/modifyActivityAdmin/modifyActivityAdmin"
   ],
   "window": {
