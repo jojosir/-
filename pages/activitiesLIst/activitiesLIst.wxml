@@ -1,0 +1,18 @@
+<!--pages/activitiesLIst/activitiesLIst.wxml-->
+<view class="out-view">
+  <view class="info-header">
+    <view class="info-text">
+        <text class="info-header-title">活动列表</text>
+    </view>
+    <image class="info-img" src="/img/QQ图片20180610154859.png"></image>
+  </view>
+  <view class="class-content" wx:key="{{index}}" data-index="{{index}}" wx:for="{{activities}}">
+    <view class="class-item">
+      <view class="item" data-index="{{index}}" bindtap="activitiyClick">
+          <view class="item-name" data-index="{{index}}">
+            {{item.name}}
+          </view>
+      </view>
+    </view>
+  </view>
+</view>

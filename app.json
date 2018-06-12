@@ -30,7 +30,8 @@
     "pages/changeRepresentInfo/changeRepresentInfo",
     "pages/counsellorCurStudentActivityList/counsellorCurStudentActivityList",
     "pages/studentRepresentChange/studentRepresentChange",
-    "pages/modifyActivityAdmin/modifyActivityAdmin"
+    "pages/modifyActivityAdmin/modifyActivityAdmin",
+    "pages/activitiesLIst/activitiesLIst"
   ],
   "window": {
     "backgroundTextStyle": "light",

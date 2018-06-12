@@ -1,8 +1,10 @@
 <view class='out_view'> 
-  <view class="info-header">
-      <text class="info-header-title" >系统公告</text>
+   <view class="info-header">
+    <image class="info-img" src="/img/charep_icon.png"></image>
+      <view class="info-text">
+          <text class="info-header-title">系统公告</text>
+      </view>   
   </view>
-  <view class = "header"></view>
   <scroll-view class="class-content" wx:key="{{index}}" data-index="{{index}}" wx:for="{{items}}">
     <view class="class-item">
       <view class='inform' bindtap='click_inform' data-index="{{index}}">
