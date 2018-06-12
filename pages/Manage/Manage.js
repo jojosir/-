@@ -5,9 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user_type: 1,//1:student,2:admin,3:counsellor，4：活动管理员，5：组织代表
+    user_type: 1,//1:admin,2:student,3:counsellor，4：活动管理员，5：组织代表
     user_id: 0,
-    disabled:false
+    disabled:false,
+    role: '身份设置'
   },
 
   /**
@@ -24,11 +25,15 @@ Page({
       })
     } /*测试时隐藏,获取当前身份，若小于1代表未登陆*/
     var mid = false;
-    if(value = 2)
+    if(value == 1)
       mid = true;
     this.setData({
       user_type: value, //测试时隐藏
       disabled:mid
+    })
+    if(value == 1)
+    this.setData({
+      role:
     })
   },
   student_activityClick: function (e) {

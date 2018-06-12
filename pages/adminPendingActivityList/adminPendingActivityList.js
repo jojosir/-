@@ -17,9 +17,9 @@ Page({
       },
       success: function (r) {
 
-        wx.setStorageSync('pendingActivityList',r.data)
+        wx.setStorageSync('pendingActivityList',r.data.list)
         that.setData({
-          items:r.data
+          items:r.data.list
         })
         console.log(r.data)
       }

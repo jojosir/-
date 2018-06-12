@@ -82,7 +82,7 @@
   </view>
   <view class="main-title">
     <text class="title-text">
-      身份设置
+      '{{role}}'
     </text>
   </view>
   <view class="main-list" >
