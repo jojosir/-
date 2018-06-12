@@ -6,7 +6,7 @@ Page({
   data: {
     admin_id:0,
     disabled1:true,
-    disabled1: true,
+    disabled2: true,
     title:"",
     inform_text:'233',
   },

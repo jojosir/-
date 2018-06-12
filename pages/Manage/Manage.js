@@ -8,7 +8,7 @@ Page({
     user_type: 1,//1:admin,2:student,3:counsellor，4：活动管理员，5：组织代表
     user_id: 0,
     disabled:false,
-    role: '身份设置'
+    role: '当前身份'
   },
 
   /**
@@ -25,7 +25,7 @@ Page({
       })
     } /*测试时隐藏,获取当前身份，若小于1代表未登陆*/
     var mid = false;
-    if(value == 1)
+    if (value == 1)
       mid = true;
     this.setData({
       user_type: value, //测试时隐藏
@@ -33,8 +33,44 @@ Page({
     })
     if(value == 1)
     this.setData({
-      role:
+      role:'当前身份：系统管理员'
     })
+    if (value == 2)
+      this.setData({
+        role: '当前身份:学生'
+      })
+    if (value == 3)
+      this.setData({
+        role: '当前身份:导员'
+      })
+    if (value == 4)
+      this.setData({
+        role: '当前身份:活动管理员'
+      })
+    if (value == 5)
+      this.setData({
+        role: '身份设置:组织代表'
+      })
+    if(value != 1)
+    {
+      wx.request({
+        url: 'http://123.206.94.45/CampusMap/getRole',
+        method: 'POST',
+        data: {
+          id: wx.getStorageSync("student_id")
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (r) {
+          console.log(r.data)
+          wx.setStorageSync('role', r.data.code)
+          wx.showToast({
+            title: r.data.code,
+          })
+        }
+      })
+    }
   },
   student_activityClick: function (e) {
     wx.navigateTo({
@@ -47,36 +83,25 @@ Page({
     })
   },
   identityClick: function (e) {
+   // var tmp = [],
+    var tmp = ['学生', '导员', '活动管理员', '组织代表']
     wx.showActionSheet({
-      itemList: ['学生', '导员', '活动管理员', '组织代表'],
+      itemList: tmp,
       itemColor: '#007aff',
       success(res) {
         var tmp = this.data.user_type;
-        if ((tmp == 1 && res.tapIndex == 0) || (tmp == 3 && res.tapIndex == 1) || (tmp == 4 && res.tapIndex == 2) || (tmp == 5 && res.tapIndex == 3)) wx.showToast({
+       /* if ((tmp == 1 && res.tapIndex == 0) || (tmp == 3 && res.tapIndex == 1) || (tmp == 4 && res.tapIndex == 2) || (tmp == 5 && res.tapIndex == 3)) wx.showToast({
           title: '无效操作',
           duration:2000
-        })
-        else{
-          
-          wx.request({
-            url: '',
-            method: 'POST',
-            data:{
-              student_id: wx.getStorageSync("student_id"),
-              user_type: this.data.user_type
-            },
-            header: {
-              'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function(r){
-              wx.setStorageSync('org_id', r.data.org_id),
-              wx.setStorageSync('curIdentity', r.data.uer_type),
-              wx.switchTab({
-                url: '../schoolMap/schoolMap',
-              })
-            }
+        })*/
+        //else{
+          wx.showToast({
+            title:'123',
           })
-        }
+         // wx.showToast({
+         //   title: tmp[res.tapIndex],
+         // })
+        //}
       }
     })
     this.setData({
