@@ -1,10 +1,10 @@
 <!--pages/schoolMap/schoolMap.wxml-->
 <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}"  markers="{{markers}}"    style="width: 100%; height:80vh;" bindcontroltap="bindcontroltap" show-location>
  <cover-view class="view_location"  bindtap="location">
- <cover-image class="img" src="/image/location.png"/> 
+ <cover-image class="img" src="/img/location.png"/> 
 </cover-view>
 <cover-view class="view_school"  bindtap="school">
- <cover-image class="img" src="/image/school.png"/> 
+ <cover-image class="img" src="/img/school.png"/> 
 </cover-view>
 </map>
 <view> 
@@ -12,7 +12,5 @@
  <button bindtap="ALClick"  class="btn_enroll"  disabled="{{disabled}}" > 
  活动列表        
 </button>  
-  <button bindtap="SARClick" class="btn_enroll" disabled="{{disabled}}" >活动记录             
-  </button>
  </view>
 </view>
