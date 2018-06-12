@@ -22,7 +22,7 @@ Page({
   onShow: function (options) {
     var that = this
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ActivitySingle',
+      url: 'http://123.206.94.45/CampusMap/getAcitivityInfo',
       data: {
         student_id: wx.getStorageSync('student_id'),
         activity_id: wx.getStorageSync('activity_id')
@@ -145,7 +145,7 @@ Page({
   
   deleteClick:function(e){
     wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ExitActivity',
+      url: 'http://123.206.94.45/CampusMap/ExitActivity',
       data: {
         student_id: wx.getStorageSync('student_id'),
         activity_id: wx.getStorageSync('activity_id')

@@ -16,7 +16,7 @@ Page({
     wx.hideTabBar({
       
     })
-    if (value) {
+    if (value){
       wx.reLaunch({
         url: '../schoolMap/schoolMap'
       })
@@ -61,7 +61,6 @@ Page({
   formSubmit: function (e) {
     wx.setTabBarItem({
       index: 2,
-      path
     })
     var that = this
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -70,11 +69,12 @@ Page({
       success: function (res) {
         if (res.code) {
           console.log(res)
+          var role
           //发起网络请求
           wx.request({
-            url: 'https://38697963.qcloud.la/CampusMap/Activate',
+            url: 'http://123.206.94.45/CampusMap/Activate',
             data: {
-              student_id: e.detail.value.input,
+              account: e.detail.value.input,
               password: e.detail.value.password,
               code: res.code,
             },
@@ -85,11 +85,11 @@ Page({
             success: function (r) {
               console.log(r.data)
               var tem = r.data.code
-
-              if (tem == 0) {
-
+              console.log(tem)
+              if (tem == 1) {
+                console.log(tem == 1)
                 wx.setStorageSync('student_id', e.detail.value.input)
-                wx.setStorageSync('curIdentity', r.data.identity[0])
+                /*wx.setStorageSync('curIdentity', r.data.identity[0])
                 var tmp = r.data.identity;
                 var detailIdentity = [];
                 for (var i = 0; i < tmp.length; i++) {
@@ -121,10 +121,13 @@ Page({
                     detailIdentity.push(tmpIdentity);
                   }
                 }
-                wx.setStorageSync('detailIdentity', detailIdentity)
-                wx.setStorageSync('curIdentity', detailIdentity[0])
-                wx.redirectTo({
-                  url: '../schoolMap/schoolMap'
+                wx.setStorageSync('detailIdentity', detailIdentity)*/
+                wx.setStorageSync('curIdentity', r.data.identity)
+                wx.switchTab({
+                  url: '../schoolMap/schoolMap',
+                  success: function(res) {},
+                  fail: function(res) {},
+                  complete: function(res) {},
                 })
               }
               else {

@@ -1,5 +1,6 @@
 {
   "pages": [
+        "pages/Manage/Manage",
         "pages/studentManage/studentManage",
         "pages/ArouseAnounnce/ArouseAnounnce",
     "pages/login/login",
@@ -38,8 +39,8 @@
     "pages/corporationAdminList/corporationAdminList",
     "pages/changeRepresentInfo/changeRepresentInfo",
     "pages/counsellorCurStudentActivityList/counsellorCurStudentActivityList",
-    "pages/studentRepresentChange/studentRepresentChange",
-    "pages/Manage/Manage"
+    "pages/studentRepresentChange/studentRepresentChange"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -63,13 +64,13 @@
       {
         "iconPath": "/img/white_qizi.png",
         "selectedIconPath": "/img/green_qizi.png",
-        "pagePath": "pages/activityInfo/activityInfo",
+        "pagePath": "pages/schoolMap/schoolMap",
         "text": "活动地图"
       },
       {
         "iconPath": "/img/white_ren.png",
         "selectedIconPath": "/img/green_ren.png",
-        "pagePath": "pages/studentManage/studentManage",
+        "pagePath": "pages/Manage/Manage",
         "text": "个人中心"
       }
     ]

@@ -31,7 +31,7 @@
         </view>
       </picker>
       <view class="item">
-        <button class="item-content" bindtap="logoutClick">
+        <button class="item-content" bindtap="changePasswordClick">
           <image class="item-content-image" src="/img/timg(1).png"></image>
           <view class="item-content-state">修改密码</view>
         </button>

@@ -4,7 +4,7 @@ Page({
   },
   onLoad: function () {
     wx: wx.request({
-      url: '',
+      url: 'http://123.206.94.45/CampusMap/getNoticeList',
       method: "GET",
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -15,7 +15,6 @@ Page({
         for (var i = 0; i < res.data.list.length; i++) {
           var tmp = new Object();
           tmp.title = res.data.list[i].title
-          tmp.detail = res.data.list[i].detail
           tmp.id = res.data.list[i].id
           tmpItems.push(tmp);
           that.setData({
@@ -30,7 +29,7 @@ Page({
   click_inform: function(){
     wx.setStorageSync(inform, data)
     wx: wx.navigateTo({
-      url: '' + e.target.dataset.id,
+      url: '../Inform' + e.target.dataset.id,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="out_view">
-  <image class="background" src="/img/QQ图片20180610213646.png" mode="widthFix"/>
+  <image class="background" src="/img/background.jpg" mode="widthFix"/>
 
   <view class="form_view">
 

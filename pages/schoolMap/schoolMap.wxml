@@ -1,5 +1,16 @@
-<!-- map.wxml -->
-<view class="container">
-  <map id="myMap" scale="17"  longitude="116.27297" latitude="40.15156" bindtap="bindtap" bindcontroltap="bindcontroltap" bindmarkertap = "bindmarkertap" controls="{{controls}}" markers="{{markers}}" show-location class="nomalMap" bindcallouttap="bindcallouttap"/>
+<!--pages/schoolMap/schoolMap.wxml-->
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}"  markers="{{markers}}"    style="width: 100%; height:80vh;" bindcontroltap="bindcontroltap" show-location>
+ <cover-view class="view_location"  bindtap="location">
+ <cover-image class="img" src="/img/location.png"/> 
+</cover-view>
+<cover-view class="view_school"  bindtap="school">
+ <cover-image class="img" src="/img/school.png"/> 
+</cover-view>
+</map>
+<view> 
+<view class="plenty-btn">
+ <button bindtap="ALClick"  class="btn_enroll"  disabled="{{disabled}}" > 
+ 活动列表        
+</button>  
+ </view>
 </view>
-
