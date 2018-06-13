@@ -7,6 +7,7 @@ Page({
   data: {
     activity: [],
     activities: [],
+    org_name: wx.getStorageSync('org_name'),
     showOrNot:true
   },
   /*data: {
@@ -46,38 +47,26 @@ Page({
       },
       success: function (r) {
         console.log(r.data)
+        wx.setStorageSync('org_name', r.data.org)
         var activities = [];
         for (var i = 0; i < r.data.list.length; i++) {
-          var state = ''
-          if (!r.data[i].is_submitted)
-          {
-            state += '未发布'
-          }
-          else if (!r.data[i].is_approved)
-          {
-            state += '待审批'
-          }
-          else if (!r.data[i].is_started) 
-          {
-            state += '已发布'
-          }
-          else if (!r.data[i].is_ended) {
-            state += '进行中'
-          }
-          else if (r.data[i].is_started) {
-            state += '已结束'
-          }
-          that.setData({
+           that.setData({
             activity: [{
-              name: r.data[i].name,
-              id: r.data[i].id,
-              state: state
+              id: r.data.list[i].id,
+              name: r.data.list[i].name,
+              state: r.data.list[i].state,
+              profile: r.data.list[i].profile,
+              start_time: r.data.list[i].start_time,
+              end_time: r.data.list[i].end_time,
+              location: r.data.list[i].location,
+              place: r.data.list[i].place
             }]
           })
           activities.push(that.data.activity[0])
         }
         that.setData({
-          activities: activities
+          activities: activities,
+          org_name: wx.getStorageSync('org_name')
         })
       }
     })
@@ -90,8 +79,9 @@ Page({
   activityItemClick:function(e){
     console.log(e)
     wx.setStorageSync('activity_id', this.data.activities[e.target.dataset.index].id)
-    if (this.data.activities[e.target.dataset.index].state == '未发布')
+    if (this.data.activities[e.target.dataset.index].state == '暂未提交' || this.data.activities[e.target.dataset.index].state == '暂未发布')
     {
+      wx.setStorageSync('reviseActivity', this.data.activities[e.target.dataset.index])
       wx.navigateTo({
         url: '../corporationReviseActivity/corporationReviseActivity'
       })

@@ -5,7 +5,8 @@ Page({
    */
   data: {
     Title:'',
-    time:'',
+    start_time:'',
+    end_time: '',
     site:'',
     sponsor:'',
     briefIntro:'',
@@ -33,7 +34,7 @@ Page({
       },
       success: function (r) {
         console.log(r.data)
-        if (wx.getStorageSync('curIdentity').identity == 'student')
+        if (wx.getStorageSync('curIdentity') == 2)
         {
           that.setData({
             curID:true
@@ -50,45 +51,21 @@ Page({
         var buttonContent = ''
         var hasButton = true
         var deleteButton = false
-
-
-
-
         var attendNumber = ''
         attendNumber += r.data.activity.current_number
         attendNumber += '/'
         attendNumber += r.data.activity.number_limit
-
-
-        var time = ''
-        var startDate = r.data.activity.start_time.toString().substr(0, 10)
-        var endDate = r.data.activity.end_time.toString().substr(0, 10)
-        if (startDate == endDate) {
-          var startTime = r.data.activity.start_time.toString().substr(5, 11);
-          var endTime = r.data.activity.end_time.toString().substr(11, 5);
-          time += startTime
-          time += '-'
-          time += endTime
-        }
-        else {
-          var startTime = r.data.activity.start_time.toString().substr(5, 11);
-          var endTime = r.data.activity.end_time.toString().substr(5, 11);
-          time += startTime
-          time += '-'
-          time += endTime
-        }
-        var courseType = ''
       that.setData({
           buttonContent: buttonContent,
           deleteButton : deleteButton,
           Title: r.data.activity.activity_name,
-          time: time,
-          site: r.data.activity.place,
+          start_time : r.data.activity.start_time.toString().substr(0, 16),
+          end_time : r.data.activity.end_time.toString().substr(0, 16),
+          site: r.data.activity.location + '-' + r.data.activity.place,
           sponsor: r.data.activity.org_name,
           briefIntro: r.data.activity.profile,
           attendNumber: attendNumber,
-          state: state,
-          courseType: courseType,
+          state: r.data.activity.state,
           buttonContent: buttonContent,
           hasButton: hasButton
         })

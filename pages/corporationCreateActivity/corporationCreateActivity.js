@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    disabled:true
   },
 
   /**
@@ -26,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log(this.data.disabled)
   },
 
   /**
@@ -60,18 +60,27 @@ Page({
   /**
    * 用户点击右上角分享
    */
+  bInput:function(e){
+    if (e.detail.value.length > 0) {
+      this.setData({
+        disabled: false
+      })
+    }
+    else this.setData({
+      disabled: true
+    })
+  },
   onShareAppMessage: function () {
   
   },
   formSubmit: function (e) {
     console.log(wx.getStorageSync('org_id'))
     console.log(e.detail.value.inputName)
-
     wx.request({
       url: 'http://123.206.94.45/CampusMap/CreateActivity',
       data: {
         org_id: wx.getStorageSync('org_id'),
-        activity_name: e.detail.value.inputName
+        name: e.detail.value.inputName
       },
       method: "GET",
       header: {
