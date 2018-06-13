@@ -109,11 +109,11 @@ Page({
               name: r.data.record[i].name,
               id: r.data.record[i].activity_id,
               state: state,
-             start_time: r.data.record[i],
-               end_time: r.data.record[i],
-               SignInStatus: r.data.record[i],
-                 SignOutStatus: r.data.record[i],
-                 is_valid: r.data.record[i]
+              start_time: r.data.record[i],
+              end_time: r.data.record[i],
+              SignInStatus: r.data.record[i],
+              SignOutStatus: r.data.record[i],
+              is_valid: r.data.record[i]
             }]
           })
           activities.push(that.data.activity[0])

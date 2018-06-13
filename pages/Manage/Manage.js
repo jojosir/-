@@ -124,6 +124,7 @@ Page({
           duration:2000
         })*/
         //else{
+        
         if (tmp[res.tapIndex] ==  '学生')
           {
            wx.setStorageSync('curIdentity', 2)
@@ -138,6 +139,21 @@ Page({
            wx.setStorageSync('curIdentity', 5)
          }
          var value = wx.getStorageSync('curIdentity')
+         wx.request({
+           url: 'http://123.206.94.45/CampusMap/SwitchRole',
+           method: 'POST',
+           data: {
+             id: wx.getStorageSync("student_id"),
+             role:value
+          },
+           header: {
+             'content-type': 'application/x-www-form-urlencoded'
+           },
+           success: function (r) {
+             console.log(r.data)
+             wx.setStorageSync('org_id', r.data.list[0].org_id);
+           }
+         })
          that.onShow();
          wx.showToast({
            title: '切换成功',
