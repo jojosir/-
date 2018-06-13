@@ -26,12 +26,15 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        console.log(res.data);
+        console.log(res.data.title);
+        console.log(res.data.time);
+        console.log(res.data.content);
+        console.log(res.data.admin);
         that.setData({
           inform_title : res.data.title,
-        inform_detail : res.data.time,
+          inform_detail : res.data.time,
           inform_text : res.data.content,
-        inform_admin : res.data.admin
+          inform_admin : res.data.admin
         })
         
       },
