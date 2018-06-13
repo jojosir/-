@@ -1,4 +1,3 @@
-// pages/Manage/Manage.js
 Page({
 
   /**
