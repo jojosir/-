@@ -64,7 +64,7 @@ Page({
           title: '发布成功'
         }) 
         wx.switchTab({
-          url: '../SyInfo/SyInfo',
+          url: '../syInfo/syInfo',
         })
       }
     })
@@ -75,7 +75,7 @@ Page({
       content: '是否放弃发布',
       success:function(res){
         if(res.confirm)wx.reLaunch({
-          url: '../SyInfo/SyInfo',
+          url: '../syInfo/syInfo',
         })
       },
       fail:{}
