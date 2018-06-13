@@ -22,7 +22,7 @@ Page({
   onShow: function (options) {
     var that = this
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/getActivity',
+      url: 'http://123.206.94.45/CampusMap/getAcitivityInfo',
       data: {
         student_id: wx.getStorageSync('student_id'),
         activity_id: wx.getStorageSync('activity_id')
@@ -50,40 +50,6 @@ Page({
         var buttonContent = ''
         var hasButton = true
         var deleteButton = false
-        switch (r.data.state) {
-          case 0:
-            state = "未参加";
-            buttonContent = "报名";
-            deleteButton = false
-            break;
-          case 1:
-            state = "参加未签到";
-            buttonContent = "签到"
-            deleteButton = true
-            break;
-          case 2:
-            state = "签到未签退";
-            buttonContent = "签退";
-            deleteButton = false
-            break;
-          case 3:
-            state = "签退";
-            hasButton = false;
-            deleteButton = false
-            break;
-          case 4:
-            state = "有效";
-            hasButton = false;
-            deleteButton = false
-            break;
-          case 5:
-            state = "无效";
-            hasButton = false;
-            deleteButton = false
-            break;
-          default:
-            console.log('state错误')
-        }
 
 
 
@@ -111,20 +77,8 @@ Page({
           time += '-'
           time += endTime
         }
-
-
         var courseType = ''
-        if (r.data.activity.is_boya)
-        {
-          courseType += '博雅课程'
-        }
-        else
-        {
-          courseType += '非博雅课程'
-        }
-
-
-        that.setData({
+      that.setData({
           buttonContent: buttonContent,
           deleteButton : deleteButton,
           Title: r.data.activity.activity_name,

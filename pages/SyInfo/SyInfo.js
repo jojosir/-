@@ -31,7 +31,6 @@ Page({
   click_inform: function(e){
     console.log('need' + e.target.dataset.index)
     console.log(this.data.items[e.target.dataset.index].id)
-    //wx.setStorageSync("inform", data)
     wx: wx.navigateTo({
       url: '../inform/inform?inform_id=' + this.data.items[e.target.dataset.index].id,
       success: function (res) { },

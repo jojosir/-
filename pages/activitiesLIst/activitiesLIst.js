@@ -11,7 +11,7 @@ Page({
     console.log('work')
     var that = this
     wx.request({
-      url: '',
+      url: 'http://123.206.94.45/CampusMap/getAllActivity',
       method: "GET",
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -19,9 +19,8 @@ Page({
       success: function (r) {
         console.log(r.data)
         that.setData({
-          activities: r.data.activities
+          activities: r.data.list
         })
-
       }
     })
   },

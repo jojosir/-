@@ -2,7 +2,6 @@
   "pages": [
     "pages/manage/manage",
     "pages/login/login",
-    "pages/studentManage/studentManage",
     "pages/arouseAnounnce/arouseAnounnce",
     "pages/changePassword/changePassword",
     "pages/inform/inform",
@@ -14,24 +13,20 @@
     "pages/adminActivityInfo/adminActivityInfo",
     "pages/adminPendingActivityList/adminPendingActivityList",
     "pages/adminPendingRepresentList/adminPendingRepresentList",
-    "pages/adminManage/adminManage",
     "pages/corporationReviseActivity/corporationReviseActivity",
     "pages/corporationCreateActivity/corporationCreateActivity",
     "pages/corporationIssueRecords/corporationIssueRecords",
     "pages/corporationCreateAdmin/corporationCreateAdmin",
-    "pages/counsellorManage/counsellorManage",
     "pages/counsellorCurActivityStudentList/counsellorCurActivityStudentList",
     "pages/counsellorActivityList/counsellorActivityList",
     "pages/counsellorStudentList/counsellorStudentList",
     "pages/studentActivityRecords/studentActivityRecords",
-    "pages/studentAdminManage/studentAdminManage",
-    "pages/studentRepresentManage/studentRepresentManage",
     "pages/activityInfo/activityInfo",
     "pages/changeRepresentInfo/changeRepresentInfo",
     "pages/counsellorCurStudentActivityList/counsellorCurStudentActivityList",
     "pages/studentRepresentChange/studentRepresentChange",
     "pages/modifyActivityAdmin/modifyActivityAdmin",
-    "pages/activitiesLIst/activitiesLIst"
+    "pages/activitiesList/activitiesList"
   ],
   "window": {
     "backgroundTextStyle": "light",

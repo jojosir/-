@@ -22,13 +22,13 @@ Page({
   },
   onShow: function (options) {
 
-    if (wx.getStorageSync('curIdentity').identity == 'org_owner') {
+    if (wx.getStorageSync('curIdentity') == 5) {
       this.setData({
         showOrNot : true
       })
       
     }
-    else if (wx.getStorageSync('curIdentity').identity == 'org_manager') {
+    else if (wx.getStorageSync('curIdentity') == 4) {
       this.setData({
         showOrNot: false
       })
@@ -47,7 +47,7 @@ Page({
       success: function (r) {
         console.log(r.data)
         var activities = [];
-        for (var i = 0; i < r.data.length; i++) {
+        for (var i = 0; i < r.data.list.length; i++) {
           var state = ''
           if (!r.data[i].is_submitted)
           {

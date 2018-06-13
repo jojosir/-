@@ -320,7 +320,7 @@ Page({
   ALClick: function (e) {
     //进入活动列表页面
     wx.reLaunch({
-      url: '../activityList/activityList',
+      url: '../activitiesList/activitiesList',
     })
   }
 

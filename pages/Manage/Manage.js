@@ -9,7 +9,6 @@ Page({
     disabled:false,
     role: '当前身份'
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -116,28 +115,32 @@ Page({
       itemList: tmp,
       itemColor: '#007aff',
       success(res) {
-        console.log(res.tapIndex)
         //var tmp = this.data.user_type;
        /* if ((tmp == 1 && res.tapIndex == 0) || (tmp == 3 && res.tapIndex == 1) || (tmp == 4 && res.tapIndex == 2) || (tmp == 5 && res.tapIndex == 3)) wx.showToast({
           title: '无效操作',
           duration:2000
         })*/
         //else{
-        
+        var value
         if (tmp[res.tapIndex] ==  '学生')
           {
            wx.setStorageSync('curIdentity', 2)
+           value = 0
           }
          else if (tmp[res.tapIndex] == '导员') {
            wx.setStorageSync('curIdentity', 3)
+           value = 10
          }
         else if (tmp[res.tapIndex] == '活动管理员') {
            wx.setStorageSync('curIdentity', 4)
+           value = 100
          }
         else if (tmp[res.tapIndex] == '组织代表') {
            wx.setStorageSync('curIdentity', 5)
+           value = 1000
          }
-         var value = wx.getStorageSync('curIdentity')
+       console.log(value)
+       console.log(wx.getStorageSync("student_id"))
          wx.request({
            url: 'http://123.206.94.45/CampusMap/SwitchRole',
            method: 'POST',
@@ -149,8 +152,8 @@ Page({
              'content-type': 'application/x-www-form-urlencoded'
            },
            success: function (r) {
-             console.log(r.data)
-             wx.setStorageSync('org_id', r.data.list[0].org_id);
+             if (value == 100 || value ==1000)
+              wx.setStorageSync('org_id', r.data.list[0].org_id);
            }
          })
          that.onShow();

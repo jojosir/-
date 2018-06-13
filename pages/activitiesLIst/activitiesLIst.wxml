@@ -4,7 +4,7 @@
     <view class="info-text">
         <text class="info-header-title">活动列表</text>
     </view>
-    <image class="info-img" src="/img/QQ图片20180610154859.png"></image>
+    <image class="info-img" src="/img/QQ.png"></image>
   </view>
   <view class="class-content" wx:key="{{index}}" data-index="{{index}}" wx:for="{{activities}}">
     <view class="class-item">

@@ -2,7 +2,7 @@
   <view class='title'>
     <view class = 'inform-title'>{{inform_title}}</view>
     <view class = 'inform-admin'>{{inform_admin}}</view>
-    <view class = 'inform-dtail'>{{inform_dtail}}</view>
+    <view class = 'inform-dtail'>{{inform_detail}}</view>
 
   </view>
   <view class = 'text'>

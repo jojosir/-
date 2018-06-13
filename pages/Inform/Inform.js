@@ -26,10 +26,8 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        console.log(res.data.title);
-        console.log(res.data.time);
-        console.log(res.data.content);
-        console.log(res.data.admin);
+        console.log(options.inform_id)
+        console.log(res);
         that.setData({
           inform_title : res.data.title,
           inform_detail : res.data.time,

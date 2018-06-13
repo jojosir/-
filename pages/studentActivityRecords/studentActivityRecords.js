@@ -66,7 +66,6 @@ Page({
     })
   },*/
   onShow: function (options) {
-    console.log('work')
     var that = this
     wx.request({
       url: 'http://123.206.94.45/CampusMap/getRecord',
