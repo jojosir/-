@@ -2,6 +2,7 @@
   <view class="info-header">
     <view class="info-text">
         <text class="info-header-title">活动发布记录</text>
+        <text class="info-header-title">{{org_name}}</text>
     </view>
     <image class="info-img" src="/img/actiss_icon_1.png"></image>
   </view>
@@ -13,8 +14,6 @@
           <view class="item-name" data-index="{{index}}">
             {{item.name}}
           </view>
-
-
           <view class="item-other" data-index="{{index}}">
             <block  wx:if="{{item.state=='未发布'}}">
               <view class="item-label item-label-primary-hellno item-label-small" data-index="{{index}}">{{item.state}}</view>
@@ -26,9 +25,6 @@
               <view class="item-label item-label-primary item-label-small" data-index="{{index}}">{{item.state}}</view>
             </block>
           </view>   
-
-
-
         </view>
         <image class="item-icon" src="/img/enter.png" data-index="{{index}}"></image>
       </view>

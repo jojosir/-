@@ -18,12 +18,7 @@
             <input value="{{state}}" disabled="true"/>
         </view>
       </view>
-      <view class="reporter-user reporter-detail-item">
-        <text class="reporter-detail-name">博雅课堂</text>
-        <view class="reporter-detail-input">
-            <switch name="boya" bindchange="boyaSwitch" value="{{boya}}" />
-        </view>
-      </view>
+
       <view class="reporter-user reporter-detail-item">
         <text class="reporter-detail-name">人数上限</text>
         <view class="reporter-detail-input">

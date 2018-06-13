@@ -7,8 +7,8 @@ Page({
     state:'未发布',
     issueShowOrNot:'',
 
-    name:'',
-    locationAddress: '',
+    name: '',
+    location: '',
     longitude: 0,
     latitude: 0,
     place: '',
@@ -53,9 +53,9 @@ Page({
     }
 
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/getActivity',
+      url: 'http://123.206.94.45/CampusMap/getAcitivityInfo',
       data: {
-        student_id: -1,
+        student_id: wx.getStorageSync('student_id'),
         activity_id: wx.getStorageSync('activity_id')
       },
       method: "POST",
@@ -64,14 +64,12 @@ Page({
       },
       success: function (r) {
         console.log(r.data)
-
-
         if (r.data.activity.start_time != undefined)
         {
           var startDate = r.data.activity.start_time.toString().substr(0, 10)
-          var startTime = r.data.activity.start_time.toString().substr(11, 5)
+          var startTime = r.data.activity.start_time.toString().substr(11, 16)
           var endDate = r.data.activity.end_time.toString().substr(0, 10)
-          var endTime = r.data.activity.end_time.toString().substr(11, 5)
+          var endTime = r.data.activity.end_time.toString().substr(11, 16)
         }
         var locationAddress
         if (r.data.activity.location != undefined)
@@ -362,7 +360,6 @@ Page({
     end_time += this.data.endDate
     end_time += ' '
     end_time += this.data.endTime
-
 
     console.log(this.data.name)
     console.log(this.data.place)
