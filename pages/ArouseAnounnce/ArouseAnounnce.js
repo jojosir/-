@@ -21,28 +21,28 @@ Page({
   },
 
   num_check:function(e){
-    if (e.detail.value.length < 400){
+    if (e.detail.value.length >= 400){
       this.setData({
         inform_text: e.detail.value,
-        disabled1: true
+        disabled1: false
       })
     }
     else this.setData({
       inform_text: e.detail.value,
-      disabled1:false
+      disabled1:true
     })
 
   },
   settitle: function(e){
-    if (e.detail.value.length <= 0) {
+    if (e.detail.value.length > 0) {
       this.setData({
         title: e.detail.value,
-        disabled2: true
+        disabled2: false
       })
     }
     else this.setData({
       title: e.detail.value,
-      disabled2: false
+      disabled2: true
     })
   },
   submit:function(){
