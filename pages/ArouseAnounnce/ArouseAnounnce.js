@@ -20,7 +20,7 @@ Page({
   },
 
   num_check:function(e){
-    if (e.detail.value.length >= 400){
+    if (e.detail.value.length >= 10){
       this.setData({
         inform_text: e.detail.value,
         disabled1: false

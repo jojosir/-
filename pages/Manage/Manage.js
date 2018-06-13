@@ -30,10 +30,32 @@ Page({
       user_type: value, //测试时隐藏
       disabled:mid
     })
-    if(value == 1)
-    this.setData({
-      role:'当前身份：系统管理员'
-    })
+    updaRole();
+    /*if(value != 1)
+    {
+      console.log(wx.getStorageSync("student_id"))
+      wx.request({
+        url: 'http://123.206.94.45/CampusMap/getRole',
+        method: 'POST',
+        data: {
+          id: wx.getStorageSync("student_id")
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (r) {
+          console.log(r.data)
+          wx.setStorageSync('role', r.data.code)
+        }
+      })
+    }*/
+  },
+  updateRole:function(e){
+    var value = wx.getStorageSync('curIdentity')
+    if (value == 1)
+      this.setData({
+        role: '当前身份：系统管理员'
+      })
     if (value == 2)
       this.setData({
         role: '当前身份:学生'
@@ -50,27 +72,8 @@ Page({
       this.setData({
         role: '身份设置:组织代表'
       })
-    if(value != 1)
-    {
-      wx.request({
-        url: 'http://123.206.94.45/CampusMap/getRole',
-        method: 'POST',
-        data: {
-          id: wx.getStorageSync("student_id")
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded'
-        },
-        success: function (r) {
-          console.log(r.data)
-          wx.setStorageSync('role', r.data.code)
-          wx.showToast({
-            title: r.data.code,
-          })
-        }
-      })
-    }
-  },
+  }
+  ,
   student_activityClick: function (e) {
     wx.navigateTo({
       url: '../studentActivityRecords/studentActivityRecords'
@@ -88,21 +91,41 @@ Page({
       itemList: tmp,
       itemColor: '#007aff',
       success(res) {
-        var tmp = this.data.user_type;
+        console.log(res.tapIndex)
+        //var tmp = this.data.user_type;
        /* if ((tmp == 1 && res.tapIndex == 0) || (tmp == 3 && res.tapIndex == 1) || (tmp == 4 && res.tapIndex == 2) || (tmp == 5 && res.tapIndex == 3)) wx.showToast({
           title: '无效操作',
           duration:2000
         })*/
         //else{
-          wx.showToast({
-            title:'123',
-          })
-         // wx.showToast({
-         //   title: tmp[res.tapIndex],
-         // })
+         if(res.tapIndex == 0)
+          {
+           wx.setStorageSync('curIdentity', 2)
+           this.setData({
+             role: '身份设置:学生'
+           })
+          }
+         else if (res.tapIndex == 1) {
+           wx.setStorageSync('curIdentity', 3)
+           this.setData({
+             role: '身份设置:导员'
+           })
+         }
+         else if (res.tapIndex == 2) {
+           wx.setStorageSync('curIdentity', 4)
+           this.setData({
+             role: '身份设置:活动管理员'
+           })
+         }
+           else if (res.tapIndex == 3) {
+           wx.setStorageSync('curIdentity', 5)
+           this.setData({
+             role: '身份设置:组织代表'
+           })
+         }
+         }
         //}
-      }
-    })
+      })
     this.setData({
       hidden: false
     })
