@@ -3,11 +3,15 @@ Page({
     inform_title:'',
     inform_detail:'',
     inform_text:'',
-    inform_id: 0,
+    inform_admin: '',
+    notice_id:'',
     hide_button:true
   },
   onLoad: function (options) {
-
+    this.setData({
+      notice_id : options.inform_id
+    })
+   var that = this
     var identity = wx.getExtConfigSync("identity")
     var hide_button
     if(identity = 'admin') hide_button = false
@@ -23,10 +27,13 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        inform_title = res.data.title
-        inform_detail = res.data.detail
-        inform_text = res.data.text
-        inform_id = res.data.text.id
+        that.setData({
+          inform_title : res.data.title,
+        inform_detail : res.data.time,
+          inform_text : res.data.content,
+        inform_admin : res.data.admin
+        })
+        
       },
       fail: function (res) { },
       complete: function (res) { },
@@ -34,9 +41,9 @@ Page({
   },
   delete: function () {
     wx.request({
-      url: '',
+      url: 'http://123.206.94.45/CampusMap/DeleteNotice',
       data: {
-        inform_id: wx.getStorageSync('student_id')
+        notice_id: this.notice_id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
