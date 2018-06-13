@@ -69,9 +69,9 @@ Page({
     console.log('work')
     var that = this
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/ActivityStudent',
+      url: 'http://123.206.94.45/CampusMap/getRecord',
       data: {
-        student_id: wx.getStorageSync('student_id')
+        id: wx.getStorageSync('student_id')
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -80,9 +80,9 @@ Page({
         console.log(wx.getStorageSync('student_id'))
         console.log(r.data)
         var activities = [];
-        for (var i = 0; i < r.data.list.length; i++) {
+        for (var i = 0; i < r.data.record.length; i++) {
           var state = ''
-          switch (r.data.list[i].state) {
+          switch (r.data.record[i].state) {
             case 0:
               state = "未参加";
               break;
@@ -106,9 +106,14 @@ Page({
           }
           that.setData({
             activity: [{
-              name: r.data.list[i].activity_name,
-              id: r.data.list[i].activity_id,
-              state: state
+              name: r.data.record[i].name,
+              id: r.data.record[i].activity_id,
+              state: state,
+             start_time: r.data.record[i],
+               end_time: r.data.record[i],
+               SignInStatus: r.data.record[i],
+                 SignOutStatus: r.data.record[i],
+                 is_valid: r.data.record[i]
             }]
           })
           activities.push(that.data.activity[0])

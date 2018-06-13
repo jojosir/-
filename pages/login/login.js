@@ -88,7 +88,8 @@ Page({
               console.log(tem)
               if (tem == 1) {
                 console.log(tem == 1)
-                wx.setStorageSync('student_id', e.detail.value.input)
+                wx.setStorageSync('user_name', r.data.name)
+                wx.setStorageSync('student_id', r.data.id)
                 /*wx.setStorageSync('curIdentity', r.data.identity[0])
                 var tmp = r.data.identity;
                 var detailIdentity = [];
