@@ -10,7 +10,7 @@
     <view class="class-item">
       <view class="item" data-index="{{index}}" bindtap="activitiyClick">
           <view class="item-name" data-index="{{index}}">
-            {{item.activity_name}}
+            {{item.name}}
           </view>
       </view>
     </view>

@@ -99,7 +99,7 @@
           <view class="repair-detail-item-ft">
             <view class="repair-detail-picker" >
               <view class="repair-detail-content" >
-                <text class="repair-detail-info" bindtap="chooseLocation">{{locationAddress}}</text>
+                <text class="repair-detail-info" bindtap="chooseLocation">{{location}}</text>
                 <block wx:if="{{locationAddress==''||locationAddress=='未选择位置'}}">
                   <image class="more-icon" src="/img/enter.png" bindtap="chooseLocation"></image>
                 </block>

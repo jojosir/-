@@ -17,7 +17,6 @@ Page({
     endDate: '',
     endTime: '12:00',
     num:0,
-    boya:false,
     profile:'',
     tem:''
 
@@ -71,14 +70,14 @@ Page({
           var endDate = r.data.activity.end_time.toString().substr(0, 10)
           var endTime = r.data.activity.end_time.toString().substr(11, 16)
         }
-        var locationAddress
+        var location
         if (r.data.activity.location != undefined)
         {
-          locationAddress = r.data.activity.location
+          location = r.data.activity.location
         }
         else
         {
-          locationAddress = '未选择位置'
+          location = '未选择位置'
         }
 
         that.setData({
@@ -87,31 +86,28 @@ Page({
           latitude: r.data.activity.latitude,
           hasLocation:true,
           name: r.data.activity.activity_name,
-          locationAddress: locationAddress,
+          location: location,
           place: r.data.activity.place,
           startDate: startDate,
           startTime: startTime,
           endDate: endDate,
           endTime: endTime,
           num: r.data.activity.number_limit,
-          boya: r.data.activity.is_boya,
           profile: r.data.activity.profile,
         })
       }
     })
   },
   chooseLocation: function () {
-    var tmp = [];
+    var tmp = ['宿舍', '国家实验楼', '图书馆', '田径场','咏曼剧场','实验楼'];
     var that = this;
     wx.showActionSheet({
       itemList: tmp,
       itemColor: '#007aff',
       success(res) {
-        if (tmp[res.tapIndex] == '') {
           that.setData({
-            location:
+            location: tmp[res.tapIndex]
           })
-        }
         that.onShow();
       }
     })
