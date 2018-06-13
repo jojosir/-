@@ -101,21 +101,18 @@ Page({
     })
   },
   chooseLocation: function () {
-    var that = this
-    wx.chooseLocation({
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          hasLocation: true,
-          //location: formatLocation(res.longitude, res.latitude),
-          locationAddress: res.name,
-          longitude: res.longitude,
-          latitude: res.latitude
-        })
-        that.data.activityLocation.push(res);
-        wx.setStorageSync('location', that.data.activityLocation);
-        console.log(wx.getStorageSync('location'));
-
+    var tmp = [];
+    var that = this;
+    wx.showActionSheet({
+      itemList: tmp,
+      itemColor: '#007aff',
+      success(res) {
+        if (tmp[res.tapIndex] == '') {
+          that.setData({
+            location:
+          })
+        }
+        that.onShow();
       }
     })
   },
