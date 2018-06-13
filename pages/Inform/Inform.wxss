@@ -21,9 +21,6 @@
   font-size: 18pt;
   font-family: "Times New Roman"
 }
-.inform-admin{
-  font-size: 18pt;
-}
 .text{
   font-size: 14pt;
 }

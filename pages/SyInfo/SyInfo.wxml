@@ -9,7 +9,7 @@
     <view class="class-item">
       <view class='inform' bindtap='click_inform' data-index="{{index}}">
         <view class="inform-title"  >
-          {{item.title}}  {{item.detail}}
+          {{item.name}}  {{item.detail}}
         </view>
       </view>
     </view>

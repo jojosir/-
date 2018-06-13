@@ -15,7 +15,23 @@ Page({
    */
   onLoad: function (options) {
     var value = wx.getStorageSync('curIdentity')
-    if(value != 1)
+    wx.showTabBar({
+
+    })
+    if (value < 1 ) {
+      wx.reLaunch({
+        url: '../login/login'
+      })
+    } /*测试时隐藏,获取当前身份，若小于1代表未登陆*/
+    var mid = false;
+    if (value == 1)
+      mid = true;
+    this.setData({
+      user_type: value, //测试时隐藏
+      disabled:mid
+    })
+    updaRole();
+    /*if(value != 1)
     {
       console.log(wx.getStorageSync("student_id"))
       wx.request({
@@ -32,30 +48,7 @@ Page({
           wx.setStorageSync('role', r.data.code)
         }
       })
-    }
-  },
-  updatePage:function(e){
-    var value = wx.getStorageSync('curIdentity')
-    wx.showTabBar({
-
-    })
-    if (value < 1) {
-      wx.reLaunch({
-        url: '../login/login'
-      })
-    } /*测试时隐藏,获取当前身份，若小于1代表未登陆*/
-    var mid = false;
-    if (value == 1)
-      mid = true;
-    this.setData({
-      user_type: value, //测试时隐藏
-      disabled: mid
-    })
-    this.updateRole();
-  }
-  ,
-  onShow:function(e){
-    this.updatePage();
+    }*/
   },
   updateRole:function(e){
     var value = wx.getStorageSync('curIdentity')
@@ -93,25 +86,7 @@ Page({
   },
   identityClick: function (e) {
    // var tmp = [],
-   var that = this
-   var value = wx.getStorageSync('role')
-   var tmp = []
-   if(value == 0)
-      tmp = ['学生']
-   else if (value == 10)
-     tmp = ['学生', '导员']
-   else if (value == 100)
-     tmp = ['学生', '活动管理员']
-   else if (value == 110)
-     tmp = ['学生', '导员', '活动管理员']
-   else if (value == 1000)
-     tmp = ['学生', '组织代表']
-   else if (value == 1100)
-     tmp = ['学生', '活动管理员', '组织代表']
-   else if (value == 1010)
-     tmp = ['学生', '导员', '组织代表']
-   else if (value == 1110)
-     tmp = ['学生', '导员', '活动管理员', '组织代表']
+    var tmp = ['学生', '导员', '活动管理员', '组织代表']
     wx.showActionSheet({
       itemList: tmp,
       itemColor: '#007aff',
@@ -123,29 +98,37 @@ Page({
           duration:2000
         })*/
         //else{
-        if (tmp[res.tapIndex] ==  '学生')
+         if(res.tapIndex == 0)
           {
            wx.setStorageSync('curIdentity', 2)
+           this.setData({
+             role: '身份设置:学生'
+           })
           }
-         else if (tmp[res.tapIndex] == '导员') {
+         else if (res.tapIndex == 1) {
            wx.setStorageSync('curIdentity', 3)
+           this.setData({
+             role: '身份设置:导员'
+           })
          }
-        else if (tmp[res.tapIndex] == '活动管理员') {
+         else if (res.tapIndex == 2) {
            wx.setStorageSync('curIdentity', 4)
+           this.setData({
+             role: '身份设置:活动管理员'
+           })
          }
-        else if (tmp[res.tapIndex] == '组织代表') {
+           else if (res.tapIndex == 3) {
            wx.setStorageSync('curIdentity', 5)
+           this.setData({
+             role: '身份设置:组织代表'
+           })
          }
-         var value = wx.getStorageSync('curIdentity')
-         that.onShow();
-         wx.showToast({
-           title: '切换成功',
-         })
          }
-         
         //}
       })
-    
+    this.setData({
+      hidden: false
+    })
   },
   approveActivityClick: function (e) {
     wx: wx.navigateTo({

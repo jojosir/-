@@ -46,10 +46,10 @@ Page({
   },
   submit:function(){
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/ReleaseNotice',
+      url: 'http://123.206.94.45/CampusMap/ArouseNotice',
       data:{
-        admin_id: wx.getStorageSync('student_id'),
-        content: this.data.inform_text,
+        admin_id: this.data.admin_id,
+        text: this.data.inform_text,
         title: this.data.title
       },
       method: "POST",
@@ -58,7 +58,6 @@ Page({
         'charset': 'utf-8'
       },
       success: function (res) {
-        console.log(wx.getStorageSync('student_id'))
         console.log(res.data)
         wx.showModal({
           title: '发布成功'
