@@ -47,7 +47,7 @@ Page({
           title: '删除成功',
         })
         wx.navigateBack({
-          url: '../SyInfo/SyInfo'
+          url: '../syInfo/syInfo'
         })
       }
     })

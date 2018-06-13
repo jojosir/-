@@ -79,7 +79,7 @@ Page({
   },
   InfoClick: function (e) {
     wx.navigateTo({
-      url: '../ArouseAnounnce/ArouseAnounnce'
+      url: '../arouseAnounnce/arouseAnounnce'
     })
   },
   identityClick: function (e) {
@@ -130,7 +130,7 @@ Page({
   },
   ChangePasswordClick: function (e) {
     wx: wx.navigateTo({
-      url: '../ChangePassword/ChangePassword',
+      url: '../changePassword/changePassword',
     })
   },
   issueRecordsClick: function (e) {

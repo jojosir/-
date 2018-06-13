@@ -132,7 +132,7 @@ Page({
       content: '是否放弃修改',
       success: function (res) {
         if (res.confirm) wx.switchTab({
-          url: '../Manage/Manage',
+          url: '../manage/manage',
         })
       },
       fail: {}

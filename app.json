@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/Manage/Manage",
+    "pages/manage/manage",
     "pages/login/login",
     "pages/studentManage/studentManage",
-    "pages/ArouseAnounnce/ArouseAnounnce",
-    "pages/ChangePassword/ChangePassword",
-    "pages/Inform/Inform",
-    "pages/SyInfo/SyInfo",
+    "pages/arouseAnounnce/arouseAnounnce",
+    "pages/changePassword/changePassword",
+    "pages/inform/inform",
+    "pages/syInfo/syInfo",
     "pages/schoolMap/schoolMap",
     "pages/studentChooseActivity/studentChooseActivity",
     "pages/setActivityLocation/setActivityLocation",
@@ -48,7 +48,7 @@
       {
         "iconPath": "/img/‪white_xinfeng.png",
         "selectedIconPath": "/img/green_xinfeng.png",
-        "pagePath": "pages/SyInfo/SyInfo",
+        "pagePath": "pages/syInfo/syInfo",
         "text": "系统公告"
       },
       {
@@ -60,7 +60,7 @@
       {
         "iconPath": "/img/white_ren.png",
         "selectedIconPath": "/img/green_ren.png",
-        "pagePath": "pages/Manage/Manage",
+        "pagePath": "pages/manage/manage",
         "text": "个人中心"
       }
     ]
