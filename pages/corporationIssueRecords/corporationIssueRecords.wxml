@@ -2,34 +2,34 @@
   <view class="info-header">
     <view class="info-text">
         <text class="info-header-title">活动发布记录</text>
-        <text class="info-header-title">{{org_name}}</text>
+        <text class="org_name">{{org_name}}</text>
     </view>
-    <image class="info-img" src="/img/actiss_icon_1.png"></image>
+    <image class="info-img" src="/img/iss_rec.png"></image>
   </view>
   <view class="class-content" wx:key="{{index}}" data-index="{{index}}" wx:for="{{activities}}" >
-
-    <view class="class-item" >
-      <view class="item" bindtap="activityItemClick">
-        <view class="item-left">
-          <view class="item-name" data-index="{{index}}">
-            {{item.name}}
+    <view class = "class-leftimage" data-index="{{index}}" bindtap="activityItemClick">
+      <image class="item-img" src="/img/act_list1.png"></image>
+      <view class="class-item" >
+        <view class="item" >
+          <view class="item-left">
+            <view class="item-name" data-index="{{index}}">
+              {{item.name}}
+            </view>
+            <view class="item-other" data-index="{{index}}">
+              <block  wx:if="{{item.state=='暂未发布'}}">
+                <view class="item-label item-label-primary-hellno item-label-small" data-index="{{index}}">{{item.state}}</view>
+              </block>
+              <block  wx:elif="{{item.state=='正在进行'}}">
+                <view class="item-label item-label-primary-no item-label-small" data-index="{{index}}">{{item.state}}</view>
+              </block>
+              <block  wx:else>
+                <view class="item-label item-label-primary item-label-small" data-index="{{index}}">{{item.state}}</view>
+              </block>
+            </view>   
           </view>
-          <view class="item-other" data-index="{{index}}">
-            <block  wx:if="{{item.state=='未发布'}}">
-              <view class="item-label item-label-primary-hellno item-label-small" data-index="{{index}}">{{item.state}}</view>
-            </block>
-            <block  wx:elif="{{item.state=='待审批'}}">
-              <view class="item-label item-label-primary-no item-label-small" data-index="{{index}}">{{item.state}}</view>
-            </block>
-            <block  wx:else>
-              <view class="item-label item-label-primary item-label-small" data-index="{{index}}">{{item.state}}</view>
-            </block>
-          </view>   
         </view>
-        <image class="item-icon" src="/img/enter.png" data-index="{{index}}"></image>
       </view>
     </view>
-
   </view>
   <view style="display:{{hasButton}}">
       <button class="btn_enroll" bindtap="createActivity" >创建活动</button>

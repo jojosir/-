@@ -1,4 +1,10 @@
 <view class="out-view">
+  <view class="info-header">
+    <view class="info-text">
+        <text class="info-header-title">修改活动信息</text>
+    </view>
+    <image class="info-img" src="/img/iss_rec.png"></image>
+  </view>
   <form bindsubmit="formSave">
     <view class="main-title">
       <text class="title-text">
@@ -130,7 +136,7 @@
     </view>
 
     <view>
-        <button style="opacity: {{opacity}};color: white; background-color:#e84e40;" 
+        <button style="opacity: {{opacity}};" 
                 class="btnCreate" form-type="submit" class="btn_enroll">
                 保存
         </button>
