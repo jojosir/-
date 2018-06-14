@@ -1,37 +1,39 @@
 <view class="out-view">
   <view class="info-header">
-    <image class="info-img" src="/img/admact_icon.png"></image>
-      <view class="info-text">
-          <text class="info-header-title">活动详情</text>
-      </view>   
+    <view class="info-text">
+        <text class="info-header-title">活动详情</text>
+    </view>   
+    <image class="info-img" src="/img/act_info1.png"></image>
   </view>
   <view class="info-content">
     <view class="info-head">
       <text class="info-name" >{{Title}}</text>
     </view>
     <view class="info-list">
-      <view class="info-item">时间:
-        <text>{{time}}</text>
+      <view class="info-item">开始时间:
+        <text>{{start_time}}</text>
+      </view>
+      <view class="info-item">结束时间:
+        <text>{{end_time}}</text>
       </view>
       <view class="info-item">地点:
         <text>{{site}}</text>
       </view>
-      <view class="info-item">人数限制:
-        <text>{{limit}}</text>
+      <view class="info-item">人数:
+        <text>{{attendNumber}}</text>
       </view>
       <view class="info-item">主办方：
         <text>{{sponsor}}</text>
       </view>
-      <view class="info-item">类型：
-        <text>{{courseType}}</text>
+      <view class="info-item">状态：
+        <text>{{state}}</text>
       </view>
-      <view class="info-item">简介：</view>
+      <view class="info-intro">简介：</view>
       <view class="intro-item">
         <text>{{briefIntro}}</text>
       </view>
     </view>
   </view>
-
   <view class="plenty-btn">
       <button class="btn_enroll" bindtap="btnAgreeClick"  disabled="{{disabled}}">同意申请</button>
       <button class="btn_enroll" bindtap="btnDenyClick"  disabled="{{disabled}}">拒绝申请</button>
