@@ -1,19 +1,17 @@
 <view class="out-view">
   <view class="info-header">
     <view class="info-text">
-        <text class="info-header-title">活动列表</text>
+        <text class="info-header-title">审批活动</text>
     </view>
-    <image class="info-img" src="/img/pendact_icon.png"></image>
+    <image class="info-img" src="/img/pending_list.png"></image>
   </view>
   <view class="class-content">
-    <view class="class-item" wx:for="{{items}}" bindtap="activityItemClick" wx:key="{{index}}" data-index="{{item.activity_id}}">
-      <view class="item">
-        <view class="item-left">
-          <view class="item-name" data-index="{{item.activity_id}}">
-            {{item.activity_name}}
-          </view>   
+    <view class="class-leftimage" wx:for="{{items}}" bindtap="activityItemClick" wx:key="{{index}}" data-index="{{item.activity_id}}">
+      <image class="item-img" src="/img/act_list1.png"></image>
+      <view class="class-item" >
+        <view class="item" data-index="{{index}}">
+          {{item.activity_name}}
         </view>
-        <image class="item-icon"  data-index="{{item.activity_id}}" src="/img/enter.png"></image>
       </view>
     </view>
   </view>
