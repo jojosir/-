@@ -208,10 +208,14 @@ Page({
   },
   logoutClick: function (e) {
     //注销
+    var value = wx.getStorageSync('curIdentity')
+    if(value != 1)
+      value = 2
     wx.request({
       url: 'http://123.206.94.45/CampusMap/Logout',
       data: {
-        id: wx.getStorageSync('student_id')
+        id: wx.getStorageSync('student_id'),
+        role : value
       },
       method: "POST",
       header: {

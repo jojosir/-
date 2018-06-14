@@ -34,7 +34,7 @@ Page({
   },
 
   activitiyClick: function (e) {
-    wx.setStorageSync('activity_id', this.data.activities[e.target.dataset.index].id)
+    wx.setStorageSync('activity_id', this.data.activities[e.target.dataset.index].activity_id)
     wx.navigateTo({
       url: '../activityInfo/activityInfo'
     })
