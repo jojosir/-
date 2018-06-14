@@ -17,29 +17,33 @@ page{
     justify-content: space-between;
     align-items: center;
     padding: 50rpx 0;
-    font-family: "黑体";
 }
 .info-text{
+    text-shadow: 1rpx 1rpx grey;
+    font:30px arial,sans-serif;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    padding-left: 50rpx;
+    padding-left: 100rpx;
 }
 .info-header-title{
-    font-size: 20pt;
+    font-size: 25px;
     font-weight: bold;
     line-height: 150%;
     margin-bottom: 15rpx;
     color: #222;
 }
-
+.org_name{
+  font-size: 17px;
+  font-style: italic
+}
 .info-img{
     display: block;
     width: 200rpx;
     height: 200rpx;
-    
-    opacity: .3;
-    padding-right: 25rpx;
+    opacity: 0.6;
+    margin-right: 30rpx;
+    border-radius: 15px;
 }
 .class-content{
     display: flex;
@@ -107,15 +111,14 @@ page{
   text-align: center;
 }
 .item-label-primary {
-  color: #fff;
-  background: #f69988;
-  border: 1rpx solid #f69988;
+  background: #4fc3f7;
 }
 .item-label-small {
-  font-size: 11px;
+  font-size: 12px;
   height: 16px;
   line-height: 16px;
   padding: 0px 3px;
+  color: #fff;
 }
 .btn_enroll{
   position: relative;
@@ -127,17 +130,32 @@ page{
   text-align: center;
   border-radius: 5px;
   margin: 15rpx 12.5% 30rpx;
-  background-color: #e84e40;
+  background-color: #4fc3f7;
   color: white;
   font-family: "黑体";
 }
 .item-label-primary-no {
-  color: #fff;
-  background: #e84e40;
-  border: 1rpx solid #e84e40;
+  background: blue;
 }
 .item-label-primary-hellno {
-  color: #fff;
-  background: #c41411;
-  border: 1rpx solid #c41411;
+  background: blueviolet;
+}
+.class-leftimage{
+  display: flex;
+  flex-direction: row;
+  font-size: 15pt;
+    padding: 0 20rpx;
+    margin-left:20rpx;
+    margin-right:20rpx;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+    border-radius: 15px;
+}
+.item-img{
+  display: block;
+    width: 60rpx;
+    height: 60rpx;
+    opacity: 0.6;
+    margin-right: 5rpx;
+    border-radius: 5px;
 }

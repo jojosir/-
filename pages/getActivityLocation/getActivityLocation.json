@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "校园活动地图"
+    "navigationBarTitleText": "校园活动地图",
+    "navigationBarBackgroundColor": "#4fc3f7",
+    "navigationBarTextStyle": "white"
+    
 }

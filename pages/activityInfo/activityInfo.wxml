@@ -1,9 +1,9 @@
 <view class="out-view">
   <view class="info-header">
-    <image class="info-img" src="/img/act_icon.png"></image>
-      <view class="info-text">
-          <text class="info-header-title">活动详情</text>
-      </view>   
+    <view class="info-text">
+        <text class="info-header-title">活动详情</text>
+    </view>   
+    <image class="info-img" src="/img/act_info1.png"></image>
   </view>
   <view class="info-content">
     <view class="info-head">
@@ -28,7 +28,7 @@
       <view class="info-item">状态：
         <text>{{state}}</text>
       </view>
-      <view class="info-item">简介：</view>
+      <view class="info-intro">简介：</view>
       <view class="intro-item">
         <text>{{briefIntro}}</text>
       </view>

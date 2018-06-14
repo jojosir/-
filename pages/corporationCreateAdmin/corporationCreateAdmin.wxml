@@ -1,9 +1,9 @@
 <view class="out-view">
-  <view class="info-header">
-    <image class="info-img" src="/img/charep_icon.png"></image>
-      <view class="info-text">
-          <text class="info-header-title">授权管理员</text>
-      </view>   
+ <view class="info-header">
+    <view class="info-text">
+        <text class="info-header-title">授权管理员</text>
+    </view>
+    <image class="info-img" src="/img/cre_adm.png"></image>   
   </view>
   <view class="main-title">
     <text class="title-text">
@@ -25,17 +25,15 @@
       管理员状态管理
     </text>
   </view>
-  <view class="info-content">
-    <view class="reporter-detail">
-      <view class="reporter-user reporter-detail-item">
-        <text class="reporter-detail-name">管理员学号</text>
-        <view class="reporter-detail-input">
-          <input type="number" bindinput="inputID"/>
-        </view>
+  <view class="reporter-detail">
+    <view class="reporter-user reporter-detail-item">
+      <text class="reporter-detail-name">管理员学号</text>
+      <view class="reporter-detail-input">
+        <input type="number" bindinput="inputID"/>
       </view>
     </view>
   </view>
-  <view class="plenty-btn">
+  <view class="btn-area">
     <button class="btn_enroll" style="opacity: {{opacity}};color: white; background-color:#1de9b6;" bindtap="addAdmin"  disabled="{{disabled}}" form-type="submit">添加</button>
     <button class="btn_enroll" style="opacity: {{opacity}};color: white; background-color:#1de9b6;" bindtap="deleteAdmin"  disabled="{{disabled}}" form-type="submit">删除</button>
   </view>
