@@ -23,7 +23,7 @@ Page({
   },
   onLoad: function (options) {
     this.setData({
-      locationAddress: '未选择位置',
+      location: '未选择位置',
       longitude: 0,
       latitude: 0,
     })
@@ -37,7 +37,7 @@ Page({
       endDate: tem,
       state: options.state
     })
-    if (wx.getStorageSync('curIdentity').identity == 'org_owner') {
+    if (wx.getStorageSync('curIdentity') == 5) {
       this.setData({
         disabled: false,
         showOrNot: '',
@@ -63,13 +63,19 @@ Page({
       },
       success: function (r) {
         console.log(r.data)
+        var startDate= ''
+        var startTime= '12:00'
+        var endDate= ''
+        var endTime= '12:00'
         if (r.data.activity.start_time != undefined)
         {
-          var startDate = r.data.activity.start_time.toString().substr(0, 10)
-          var startTime = r.data.activity.start_time.toString().substr(11, 16)
-          var endDate = r.data.activity.end_time.toString().substr(0, 10)
-          var endTime = r.data.activity.end_time.toString().substr(11, 16)
+           startDate = r.data.activity.start_time.toString().substr(0, 10)
+           startTime = r.data.activity.start_time.toString().substr(11, 16)
+           endDate = r.data.activity.end_time.toString().substr(0, 10)
+           endTime = r.data.activity.end_time.toString().substr(11, 16)
         }
+        console.log(startDate)
+        console.log(endDate)
         var location
         if (r.data.activity.location != undefined)
         {
@@ -79,9 +85,8 @@ Page({
         {
           location = '未选择位置'
         }
-
         that.setData({
-
+          
           longitude: r.data.activity.longitude,
           latitude: r.data.activity.latitude,
           hasLocation:true,
@@ -94,6 +99,7 @@ Page({
           endTime: endTime,
           num: r.data.activity.number_limit,
           profile: r.data.activity.profile,
+          state:r.data.activity.state
         })
       }
     })
@@ -133,28 +139,27 @@ Page({
     console.log(start_time)
     console.log(end_time)
     console.log(e.detail.value.profile)
-    console.log(this.data.locationAddress)
+    console.log(this.data.location)
     console.log(e.detail.value.inputPlace)
     console.log(this.data.latitude)
     console.log(this.data.longitude)
     console.log(e.detail.value.inputNumber)
-    console.log(e.detail.value.boya)
 
     wx.request({
 
       url: 'http://123.206.94.45/CampusMap/ModifyActivity',
       data: {
-        activity_id: wx.getStorageSync('activity_id'),          
+        id: wx.getStorageSync('activity_id'),          
         name: e.detail.value.inputName,
         start_time: start_time_clone,
         end_time: end_time_clone,
         profile: e.detail.value.profile,     
-        location: this.data.locationAddress,
+        location: this.data.location,
         place: e.detail.value.inputPlace,       
         latitude: this.data.latitude,    
         longitude: this.data.longitude,   
         number_limit: e.detail.value.inputNumber,
-        is_boya: e.detail.value.boya
+        limit : 0
       },
 
       method: "GET",
@@ -334,11 +339,6 @@ Page({
         num: 0
       })
     }
-    if (this.data.boya == undefined) {
-      this.setData({
-        boya: false
-      })
-    }
     if (this.data.profile == undefined) {
       this.setData({
         profile: ''
@@ -361,24 +361,23 @@ Page({
     console.log(this.data.endDate)
     console.log(this.data.endTime)
     console.log(this.data.num)
-    console.log(this.data.boya)
     console.log(this.data.profile)
-
+  
 
     wx.request({
       url: 'http://123.206.94.45/CampusMap/ModifyActivity',
       data: {
-        activity_id: wx.getStorageSync('activity_id'),
+        id: wx.getStorageSync('activity_id'),
         name: this.data.name,
         start_time: start_time,
         end_time: end_time,
         profile: this.data.profile,
-        location: this.data.locationAddress,
+
+        location: this.data.location,
         place: this.data.place,
-        latitude: this.data.latitude,
-        longitude: this.data.longitude,
+        //latitude: this.data.latitude,
+        //longitude: this.data.longitude,
         number_limit: this.data.num,
-        is_boya: this.data.boya
       },
 
       method: "GET",
@@ -391,7 +390,7 @@ Page({
         wx.request({
           url: 'http://123.206.94.45/CampusMap/SubmitActivity',
           data: {
-            activity_id: wx.getStorageSync('activity_id')
+            id: wx.getStorageSync('activity_id')
           },
 
           method: "POST",
@@ -400,31 +399,19 @@ Page({
           },
           success: function (r) {
             console.log(r.data)
-            if(r.data.code == 0)
+            if(r.data.code == 1)
             {
               wx.navigateBack({
                 url: '../corporationIssueRecords/corporationIssueRecords',
               })
             }
-            else if (r.data.code == 29) {
+            else  {
               wx.showToast({
-                title: '信息填写不完整',
+                title: r.data.msg,
                 image: '/img/false.png'
               })
             }
-            else if (r.data.code == 25)
-            {
-              wx.showToast({
-                title: '活动开始时间至少比当前时间晚一小时',
-                image: '/img/false.png'
-              })     
-            }
-            else if (r.data.code == 26) {
-              wx.showToast({
-                title: '活动结束时间过早',
-                image: '/img/false.png'
-              })
-            }
+            
           }
         })
       }

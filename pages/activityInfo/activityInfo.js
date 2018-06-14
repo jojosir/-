@@ -33,6 +33,8 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (r) {
+        console.log(wx.getStorageSync('student_id'))
+        console.log(wx.getStorageSync('activity_id'))
         console.log(r.data)
         if (wx.getStorageSync('curIdentity') == 2)
         {
