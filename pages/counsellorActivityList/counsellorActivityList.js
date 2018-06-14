@@ -19,8 +19,11 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx: wx.request({
-      url: 'http://123.206.94.45/CampusMap/getRecord',
+      url: 'http://123.206.94.45/CampusMap/getAllActivity',
       method: "GET",
+      data: {
+        flag: 1
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -61,7 +64,7 @@ Page({
   },
   activityItemClick:function(e){
     wx.navigateTo({
-      url: '../counsellorCurActivityStudentList/counsellorCurActivityStudentList'
+      url: '../counsellorCurActivityStudentList/counsellorCurActivityStudentList?activity_id='+e.target.dataset.index,
     })
   },
   showInput: function () {

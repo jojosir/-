@@ -13,6 +13,9 @@ Page({
     wx.request({
       url: 'http://123.206.94.45/CampusMap/getAllActivity',
       method: "GET",
+      data: {
+        flag:0
+      },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },

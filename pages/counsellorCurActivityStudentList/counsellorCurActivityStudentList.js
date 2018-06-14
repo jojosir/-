@@ -47,25 +47,28 @@ Page({
     wx:wx.request({
       url: 'http://123.206.94.45/CampusMap/getStudentInActicity',
       data: {
-        counsellor_id:wx.getStorageSync('curIdentity').id,
-        activity_id:options.activity_id
+        counsellor_id: wx.getStorageSync('student_id'),
+        activity_id:options.activity_id,
+        student_id:0,
+        arg:0
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       method: 'GET',
       success: function(res) {
+        console.log(res)
         var items = [];
         for (var i = 0;i < res.data.list.length;i++){
           var tmp = new Object();
           tmp.ID = res.data.list[i].id;
           tmp.name = res.data.list[i].name; 
           tmp.txtStyle = 'left:0px';
-          if (res.data.list[i].is_valid){
+         // if (res.data.list[i].is_valid){
             tmp.imgPath= "/img/yes.png"
-          }else{
-            tmp.imgPath="/img/no.png"
-          }
+          //}else{
+            //tmp.imgPath="/img/no.png"
+          //}
           tmp.checked = false;
           items.push(tmp);
         }

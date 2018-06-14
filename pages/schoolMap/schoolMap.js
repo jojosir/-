@@ -106,7 +106,28 @@ Page({
       }
     ]
   },
-
+  bindmarkertap:function(e){
+  console.log(e)
+  var value
+  switch (e.markerId){
+    case 1: value = "田径场"
+      break
+    case 2: value = "咏曼剧场" 
+      break
+    case 3: value = "图书馆"
+      break
+    case 4: value = "实验楼"
+      break
+    case 5: value = "宿舍"
+      break
+    case 6: value = "国家实验楼"
+      break
+  }
+  wx.setStorageSync('location', value)
+  wx.reLaunch({
+    url: '../studentChooseActivity/studentChooseActivity',
+  })
+  },
   location() {
     console.log('123')
     var that = this

@@ -132,10 +132,7 @@ Page({
                 })
               }
               else {
-                that.setData({
-                  errorMessage: r.data.msg
-                })
-                app.showErrorModal(r.data.msg, '登陆失败');
+                app.showErrorModal('登陆失败,请检查账户和密码');
               }
             }
           })
