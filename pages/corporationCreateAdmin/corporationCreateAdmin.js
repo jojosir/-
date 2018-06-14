@@ -18,7 +18,7 @@ Page({
   onShow:function(){
     var that = this
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/StudentManager',
+      url: 'http://123.206.94.45/CampusMap/getRepresentatice',
       data: {
         org_id: wx.getStorageSync('org_id'),
       },
@@ -68,10 +68,12 @@ Page({
   addAdmin: function (e) {
     console.log(this.data.adminID)
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/setActicityAdmin',
+      url: 'http://123.206.94.45/CampusMap/AlterStudentRole',
       data: {
         org_id: wx.getStorageSync('org_id'),
-        student_id: this.data.adminID
+        student_id: this.data.adminID,
+        operation: 1,
+        role: 0,
       },
       method: "GET",
       header: {
@@ -79,29 +81,12 @@ Page({
       },
       success: function (r) {
         console.log(r.data)
-        if (r.data.code == 18) {
-          wx.showToast({
-            title: '该学生已是该组织管理员',
-            image: '/img/false.png'
-          })
-        }
-        else if (r.data.code == 1) {
-          wx.showToast({
-            title: '学号不存在',
-            image: '/img/false.png'
-          })
-        }  
-        else if (r.data.code == 19) {
-          wx.showToast({
-            title: '超过管理员上限',
-            image: '/img/false.png'
-          })
-        }       
-        else if (r.data.code == 0)
-        {
-          wx.showToast({
-            title: '添加成功'
-          })
+        var msg = r.data.msg
+        wx.showToast({
+          title: msg,
+          image: '/img/false.png'
+        })
+        if (r.data.code == 1) {
           wx.redirectTo({
             url: '../corporationCreateAdmin/corporationCreateAdmin',
           })
@@ -112,10 +97,12 @@ Page({
   deleteAdmin: function (e) {
     console.log(this.data.adminID)
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/CancelActicityAdmin',
+      url: 'http://123.206.94.45/CampusMap/AlterStudentRole',
       data: {
         org_id: wx.getStorageSync('org_id'),
-        student_id: this.data.adminID
+        student_id: this.data.adminID,
+        operation: 0,
+        role: 0,
       },
       method: "GET",
       header: {
@@ -123,16 +110,12 @@ Page({
       },
       success: function (r) {
         console.log(r.data)
-        if (r.data.code == 21) {
-          wx.showToast({
-            title: '该学生不是组织管理员',
-            image: '/img/false.png'
-          })
-        }
-        else if (r.data.code == 0) {
-          wx.showToast({
-            title: '删除成功'
-          })
+        var msg = r.data.msg
+        wx.showToast({
+           title: msg,
+          image: '/img/false.png'
+        })
+        if (r.data.code == 1) {
           wx.redirectTo({
             url: '../corporationCreateAdmin/corporationCreateAdmin',
           })

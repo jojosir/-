@@ -22,9 +22,9 @@ Page({
   onLoad:function(e){
     var that = this
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/getStudentList',
+      url: 'http://123.206.94.45/CampusMap/StudentOfCounsellor',
       data: {
-        counsellor_id:wx.getStorageSync('curIdentity').id
+        id: wx.getStorageSync('student_id')
       },
       method: "GET",
       header: {

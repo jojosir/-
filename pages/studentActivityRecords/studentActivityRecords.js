@@ -80,39 +80,16 @@ Page({
         console.log(r.data)
         var activities = [];
         for (var i = 0; i < r.data.record.length; i++) {
-          var state = ''
-          switch (r.data.record[i].state) {
-            case 0:
-              state = "未参加";
-              break;
-            case 1:
-              state = "参加未签到";
-              break;
-            case 2:
-              state = "签到未签退";
-              break;
-            case 3:
-              state = "签到";
-              break;
-            case 4:
-              state = "有效";
-              break;
-            case 5:
-              state = "无效";
-              break;
-            default:
-              console.log('state错误')
-          }
           that.setData({
             activity: [{
               name: r.data.record[i].name,
-              id: r.data.record[i].activity_id,
-              state: state,
-              start_time: r.data.record[i],
-              end_time: r.data.record[i],
-              SignInStatus: r.data.record[i],
-              SignOutStatus: r.data.record[i],
-              is_valid: r.data.record[i]
+              id: r.data.record[i].id,
+              state: r.data.record[i].state,
+              start_time: r.data.record[i].start_time,
+              end_time: r.data.record[i].end_time,
+              SignInStatus: r.data.record[i].SignInStatus,
+              SignOutStatus: r.data.record[i].SignOutStatus,
+              is_valid: r.data.record[i].is_valid
             }]
           })
           activities.push(that.data.activity[0])

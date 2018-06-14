@@ -21,7 +21,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx:wx.request({
-      url: 'http://123.206.94.45/CampusMap/getActivity',
+      url: 'http://123.206.94.45/CampusMap/getAcitivityInfo',
       data: {
         student_id: -1,
         activity_id: options.activity_id
@@ -54,25 +54,15 @@ Page({
 
           that.setData({
             time: time,
-            site: r.data.activity.location,
+            site: r.data.activity.location + '-' + r.data.activity.place,
             sponsor: r.data.activity.org_name,
-            activity_id: r.data.activity.activity_id,
             limit: r.data.activity.number_limit,
             briefIntro: r.data.activity.profile,
             Title: r.data.activity.activity_name,
             start_time: startDate,
-            end_time: endDate
-            
+            end_time: endDate,
+            activity_id: options.activity_id
           })
-          if (r.data.activity.is_boya == true) {
-            that.setData({
-              courseType: '博雅课程'
-            })
-          } else {
-            that.setData({
-              courseType: '非博雅课程'
-            })
-          }
       },
       fail: function(res) {},
       complete: function(res) {},
@@ -85,9 +75,8 @@ Page({
       url: 'http://123.206.94.45/CampusMap/ActivityExamine',
       data:{
         action:1,
-        activity_id:this.data.activity_id,
-        start_time:this.data.start_time,
-        end_time:this.data.end_time
+        id: this.data.activity_id,
+        detail :''
       },
       method: "POST",
       header: {
@@ -112,10 +101,9 @@ Page({
     wx: wx.request({
       url: 'http://123.206.94.45/CampusMap/ActivityExamine',
       data: {
-        action: 1,
+        action: 2,
         activity_id: this.data.activity_id,
-        start_time: this.data.start_time,
-        end_time: this.data.end_time
+        detail: ''
       },
       method: "POST",
       header: {

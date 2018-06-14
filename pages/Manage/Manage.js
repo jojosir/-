@@ -181,11 +181,6 @@ Page({
       url: '../counsellorActivityList/counsellorActivityList'
     })
   },
-  ChangeRepresentClick: function (e) {
-    wx: wx.navigateTo({
-      url: '../adminPendingRepresentList/adminPendingRepresentList',
-    })
-  },
   ChangePasswordClick: function (e) {
     wx: wx.navigateTo({
       url: '../changePassword/changePassword',

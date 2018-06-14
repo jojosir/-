@@ -3,6 +3,7 @@ Page({
     longitude: 116.2705,
     latitude: 40.1535,
     scale: 17,
+    hidden:false,
     markers: [
       {
         iconPath: "/img/1.png",
@@ -107,16 +108,23 @@ Page({
   },
 
   location() {
+    console.log('123')
+    var that = this
     wx.getLocation({
       type: "gcj02", // 坐标系类型
       // 获取经纬度成功回调
-      success: (res) => { // es6 箭头函数，可以解绑当前作用域的this指向，使得下面的this可以绑定到Page对象
-        this.setData({  // 为data对象里定义的经纬度默认值设置成获取到的真实经纬度，这样就可以在地图上显示我们的真实位置
+      success: function(res){ // es6 箭头函数，可以解绑当前作用域的this指向，使得下面的this可以绑定到Page对象
+        console.log(res)
+        that.setData({  // 为data对象里定义的经纬度默认值设置成获取到的真实经纬度，这样就可以在地图上显示我们的真实位置
           longitude: res.longitude,
           latitude: res.latitude,
           scale: 19
         })
+      },
+      fail:function(e){
+        console.log(e)
       }
+      
     });
   },
   school() {
@@ -129,7 +137,15 @@ Page({
   movetoPosition: function () {
     this.mapCtx.moveToLocation();
   },
+  onHide:function(){
+    this.setData({
+      hidden: true
+    })
+  },
   onLoad: function (options) {
+    this.setData({
+      hidden:false
+    })
     var that = this
     // 获取系统信息
     wx.showTabBar({
@@ -145,8 +161,11 @@ Page({
         }
       }
     })*/
-  //},
-  //onShow: function () {
+  },
+  onShow: function () {
+    this.setData({
+      hidden: false
+    })
     var that = this
     //向服务器请求活动信息
     wx.request({
@@ -326,3 +345,5 @@ Page({
 
 
 })
+
+

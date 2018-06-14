@@ -1,5 +1,5 @@
 <!--pages/schoolMap/schoolMap.wxml-->
-<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}"  markers="{{markers}}"    style="width: 100%; height:80vh;" bindcontroltap="bindcontroltap" show-location>
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}"  markers="{{markers}}"    style="width: 100%; height:80vh;" bindcontroltap="bindcontroltap"  hidden='{{hidden}}'show-location>
  <cover-view class="view_location"  bindtap="location">
  <cover-image class="img" src="/img/location.png"/> 
 </cover-view>

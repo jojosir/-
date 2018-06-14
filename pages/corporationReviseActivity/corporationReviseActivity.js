@@ -70,12 +70,12 @@ Page({
         if (r.data.activity.start_time != undefined)
         {
            startDate = r.data.activity.start_time.toString().substr(0, 10)
-           startTime = r.data.activity.start_time.toString().substr(11, 16)
+           startTime = r.data.activity.start_time.toString().substr(11, 5)
            endDate = r.data.activity.end_time.toString().substr(0, 10)
-           endTime = r.data.activity.end_time.toString().substr(11, 16)
+           endTime = r.data.activity.end_time.toString().substr(11, 5)
         }
-        console.log(startDate)
-        console.log(endDate)
+        console.log(startTime)
+        console.log(endTime)
         var location
         if (r.data.activity.location != undefined)
         {
@@ -159,7 +159,7 @@ Page({
         latitude: this.data.latitude,    
         longitude: this.data.longitude,   
         number_limit: e.detail.value.inputNumber,
-        limit : 0
+        limit : 10
       },
 
       method: "GET",

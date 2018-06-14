@@ -16,44 +16,46 @@ Page({
       student_id:options.student_id
     })
     wx: wx.request({
-      url: 'http://123.206.94.45/CampusMap/ActivityStudent',
+      url: 'http://123.206.94.45/CampusMap/getRecord',
       data: {
-        student_id: options.student_id
+        id: options.student_id
       },
       method: "GET",
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(options.student_id)
+        console.log(res)
         var tmpItems=[];
-        for (var i = 0; i < res.data.list.length; i++) {
+        for (var i = 0; i < res.data.record.length; i++) {
           var tmp = new Object();
-          tmp.activity_id = res.data.list[i].activity_id
-          tmp.activity_name = res.data.list[i].activity_name
-          if (res.data.list[i].state == 1) {
+          tmp.activity_id = res.data.record[i].activity_id
+          tmp.activity_name = res.data.record[i].activity_name
+          if (res.data.record[i].state == 1) {
             tmp.state = '参加未签到'
-          } else if (res.data.list[i].state == 2) {
+          } else if (res.data.record[i].state == 2) {
             tmp.state = '签到未签退'
-          } else if (res.data.list[i].state == 3) {
+          } else if (res.data.record[i].state == 3) {
             tmp.state = '签退'
-          } else if (res.data.list[i].state == 4) {
+          } else if (res.data.record[i].state == 4) {
             tmp.state = '有效'
-          } else if (res.data.list[i].state == 5) {
+          } else if (res.data.record[i].state == 5) {
             tmp.state = '无效'
           }
           var time = ''
-          var startDate = res.data.list[i].start_time.toString().substr(0, 10)
-          var endDate = res.data.list[i].end_time.toString().substr(0, 10)
+          var startDate = res.data.record[i].start_time.toString().substr(0, 10)
+          var endDate = res.data.record[i].end_time.toString().substr(0, 10)
           if (startDate == endDate) {
-            var startTime = res.data.list[i].start_time.toString().substr(5, 11);
-            var endTime = res.data.list[i].end_time.toString().substr(11, 5);
+            var startTime = res.data.record[i].start_time.toString().substr(5, 11);
+            var endTime = res.data.record[i].end_time.toString().substr(11, 5);
             time += startTime
             time += '-'
             time += endTime
           }
           else {
-            var startTime = res.data.list[i].start_time.toString().substr(5, 11);
-            var endTime = res.data.list[i].end_time.toString().substr(5, 11);
+            var startTime = res.data.record[i].start_time.toString().substr(5, 11);
+            var endTime = res.data.record[i].end_time.toString().substr(5, 11);
             time += startTime
             time += '-'
             time += endTime

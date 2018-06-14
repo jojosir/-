@@ -66,10 +66,12 @@ Page({
   formSubmit: function (e) {
     console.log(e.detail.value.input)
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/SubmitAlter',
+      url: 'http://123.206.94.45/CampusMap/AlterStudentRole',
       data: {
-        org_id: wx.getStorageSync('org_id'),	
-	      student_id:e.detail.value.input
+        org_id:wx.getStorageSync('org_id'),	
+	      student_id:e.detail.value.input,
+        operation : 1,
+        role : 1,
       },
       method: "POST",
       header: {
@@ -77,25 +79,12 @@ Page({
       },
       success: function (r) {
         console.log(r.data)
-        if (r.data.code == 17) {
-          wx.showToast({
-            title: '已是社团代表',
-            image: '/img/false.png'
-          })
-        }
-        else if (r.data.code == 27) {
-          wx.showToast({
-            title: '有未处理的申请',
-            image: '/img/false.png'
-          })
-        }
-        else if (r.data.code == 1) {
-          wx.showToast({
-            title: '该学号不存在',
-            image: '/img/false.png'
-          })
-        }
-        else if (r.data.code == 0) {
+        var msg = r.data.msg
+        wx.showToast({
+          title: msg,
+          image: '/img/false.png'
+        })
+        if (r.data.code == 1) {
           wx.navigateBack({
             url: '../studentRepresentManage/studentRepresentManage',
           })
