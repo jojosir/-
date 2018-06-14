@@ -24,7 +24,14 @@ Page({
       }
     })
   },
-
+  returnmap:function(){
+    wx,wx.switchTab({
+      url: '../schoolMap/schoolMap',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
 
   activitiyClick: function (e) {
     wx.setStorageSync('activity_id', this.data.activities[e.target.dataset.index].activity_id)
