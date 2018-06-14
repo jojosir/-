@@ -1,24 +1,20 @@
 
 <view class="out-view">
-  <image class="background" src="/img/bg2.png" mode="widthFix"/>
+
   <view class="info-header">
     <view class="info-text">
         <text class="info-header-title">创建活动</text>
     </view> 
-    <image class="info-img" src="/img/actiss_icon_1.png"></image>
+    <image class="info-img" src="/img/cre_act.png"></image>
   </view>
-  <form bindsubmit="formSubmit">
-    <view class="info-content">
+  <form >
+    
       <view class="reporter-detail">
-        <view class="reporter-user reporter-detail-item">
           <text class="reporter-detail-name">活动名称</text>
           <view class="reporter-detail-input">
             <input class="input" type="text" name = "input" bindinput='bInput' name="inputName"/>
           </view>
-        </view>
       </view>
-    </view>
-    <button class="btn_enroll" style="opacity: {{opacity}};color: white; background-color:#e84e40;" disabled='{{disabled}}'form-type="submit">创建</button>
+    <button class="btn_enroll" style="opacity: {{opacity}};color: white; " disabled='{{disabled}}' bindtap="formSubmit">创建</button>
   </form>
 </view>
-
