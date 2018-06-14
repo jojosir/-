@@ -45,6 +45,8 @@ Page({
     })
   },
   submit:function(){
+    console.log(this.data.title)
+    console.log(this.data.inform_text)
     wx.request({
       url: 'http://123.206.94.45/CampusMap/ReleaseNotice',
       data:{

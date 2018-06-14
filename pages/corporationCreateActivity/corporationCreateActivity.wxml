@@ -7,7 +7,7 @@
     </view> 
     <image class="info-img" src="/img/cre_act.png"></image>
   </view>
-  <form >
+  <form bindsubmit="formSubmit">
     
       <view class="reporter-detail">
           <text class="reporter-detail-name">活动名称</text>
@@ -15,6 +15,6 @@
             <input class="input" type="text" name = "input" bindinput='bInput' name="inputName"/>
           </view>
       </view>
-    <button class="btn_enroll" style="opacity: {{opacity}};color: white; " disabled='{{disabled}}' bindtap="formSubmit">创建</button>
+    <button class="btn_enroll" style="opacity: {{opacity}};color: white; " disabled='{{disabled}}' form-type="submit">创建</button>
   </form>
 </view>

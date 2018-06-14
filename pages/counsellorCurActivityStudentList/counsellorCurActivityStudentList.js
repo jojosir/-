@@ -1,4 +1,4 @@
--// pages/counsellorCurActivityStudentList/counsellorCurActivityStudentList.js
+// pages/counsellorCurActivityStudentList/counsellorCurActivityStudentList.js
 Page({
 
   /**

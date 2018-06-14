@@ -14,8 +14,16 @@ Page({
    var that = this
     var identity = wx.getExtConfigSync("identity")
     var hide_button
-    if(identity = 'admin') hide_button = false
-    else hide_button = true
+    if(identity = 'admin'){
+      this.setData({
+        hide_button:false
+      })
+    }
+    else{
+      this.setData({
+        hide_button: true
+      })
+    }
     wx: wx.request({
       url: 'http://123.206.94.45/CampusMap/getNotice',
       method: "POST",
@@ -41,10 +49,11 @@ Page({
     })
   },
   delete: function () {
+    console.log(this.data.notice_id)
     wx.request({
       url: 'http://123.206.94.45/CampusMap/DeleteNotice',
       data: {
-        notice_id: this.notice_id
+        notice_id: this.data.notice_id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'

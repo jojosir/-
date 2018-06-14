@@ -64,7 +64,10 @@
 }
 
 .text{
-  margin: 15rpx 2% 15rpx;
+  width: 90%;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 15rpx;
   height: 600rpx;
   background-color: white;
 }

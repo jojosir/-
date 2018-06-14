@@ -2,7 +2,7 @@ Page({
   data: {
     items: []
   },
-  onLoad: function () {
+  onShow: function () {
     var that = this
     wx: wx.request({
       url: 'http://123.206.94.45/CampusMap/getNoticeList',

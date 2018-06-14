@@ -1,15 +1,21 @@
-<view class='out_view'> 
-   <view class="info-header">
-    <image class="info-img" src="/img/charep_icon.png"></image>
-      <view class="info-text">
-          <text class="info-header-title">系统公告</text>
-      </view>   
+<view class='out-view'> 
+  <view class="info-header">
+    <view class="info-text">
+        <text class="info-header-title">系统公告</text>
+    </view>
+    <image class="info-img" src="/img/act_icon.png"></image>   
   </view>
   <scroll-view class="class-content" wx:key="{{index}}" data-index="{{index}}" wx:for="{{items}}">
-    <view class="class-item">
-      <view class='inform' bindtap='click_inform' data-index="{{index}}">
-        <view class="inform-title"  data-index="{{index}}">
-          {{item.title}}  {{item.detail}}
+    <view class = "class-leftimage"  bindtap="click_inform" data-index="{{index}}">
+      <image class="item-img" src="/img/syinform1.png"></image>
+      <view class="class-item">
+        <view class='inform' >
+          <view class="inform-title"  data-index="{{index}}">
+            {{item.title}}
+          </view>
+          <view class="inform-title"  data-index="{{index}}">
+            {{item.detail}}
+          </view>
         </view>
       </view>
     </view>
