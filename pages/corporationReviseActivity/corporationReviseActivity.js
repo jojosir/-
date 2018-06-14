@@ -70,9 +70,9 @@ Page({
         if (r.data.activity.start_time != undefined)
         {
            startDate = r.data.activity.start_time.toString().substr(0, 10)
-           startTime = r.data.activity.start_time.toString().substr(11, 16)
+           startTime = r.data.activity.start_time.toString().substr(11, 5)
            endDate = r.data.activity.end_time.toString().substr(0, 10)
-           endTime = r.data.activity.end_time.toString().substr(11, 16)
+           endTime = r.data.activity.end_time.toString().substr(11, 5)
         }
         console.log(startDate)
         console.log(endDate)
