@@ -77,7 +77,7 @@ Page({
       },
       success: function (r) {
         console.log(wx.getStorageSync('student_id'))
-        console.log(r.data)
+        console.log(r.data.record)
         var activities = [];
         for (var i = 0; i < r.data.record.length; i++) {
           that.setData({
@@ -95,8 +95,9 @@ Page({
           activities.push(that.data.activity[0])
         }
         that.setData({
-          activities: activities
+          activities: r.data.record
         })
+        console.log(that.data.activities)
       }
     })
   },
