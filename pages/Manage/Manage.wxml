@@ -24,12 +24,6 @@
           </button>
         </view>
         <view class="item">
-          <button class="item-content" bindtap="ChangeRepresentClick">
-            <image class="item-content-image" src="/img/cha_rep_icon_1.png"></image>
-            <view class="item-content-state">审批组织代表变更</view>
-          </button>
-        </view>
-        <view class="item">
           <button class="item-content" bindtap="InfoClick">
             <image class="item-content-image" src="/img/cha_rep_icon_1.png"></image>
             <view class="item-content-state">发布公告</view>
@@ -63,12 +57,6 @@
           <button class="item-content" bindtap="issueRecordsClick">
             <image class="item-content-image" src="/img/wat_actli_icon.png"></image>
             <view class="item-content-state">查看发布活动记录</view>
-          </button>
-        </view>
-        <view class="item">
-          <button class="item-content" bindtap="changeRepresentClick">
-            <image class="item-content-image" src="/img/cha_rep_icon.png"></image>
-            <view class="item-content-state">代表变更</view>
           </button>
         </view>
         <view class="item">

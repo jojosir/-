@@ -157,3 +157,7 @@ page{
     margin-right: 5rpx;
     border-radius: 5px;
 }
+.org_name{
+  font-size: 17px;
+  font-style: italic
+}
