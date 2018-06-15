@@ -45,7 +45,7 @@ Page({
     var that = this;
     console.log(options.activity_id)
     wx:wx.request({
-      url: 'http://123.206.94.45/CampusMap/getStudentInActicity',
+      url: 'http://123.206.94.45/CampusMap/getStudentInActivity',
       data: {
         counsellor_id: wx.getStorageSync('student_id'),
         activity_id:options.activity_id,
@@ -65,7 +65,7 @@ Page({
           tmp.name = res.data.list[i].name; 
           tmp.txtStyle = 'left:0px';
          // if (res.data.list[i].is_valid){
-            tmp.imgPath= "/img/yes.png"
+            //tmp.imgPath= "/img/yes.png"
           //}else{
             //tmp.imgPath="/img/no.png"
           //}
@@ -131,7 +131,7 @@ Page({
     }
 
   },
-  selectAllStu:function(e){
+  /*selectAllStu:function(e){
     var tmp = this.data.checkItems;
     var pending = []; 
     if (this.data.createAllOrNot == '全选'){ //选中所有学生
@@ -160,7 +160,7 @@ Page({
     this.setData({
       checkItems: tmp
     })
-  },
+  },*/
   createConfirm:function(e){
     var that = this;
     console.log(this.data.pendingStudent);

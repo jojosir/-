@@ -90,6 +90,25 @@ Page({
                 console.log(tem == 1)
                 wx.setStorageSync('user_name', r.data.name)
                 wx.setStorageSync('student_id', r.data.id)
+
+                wx.setStorageSync('TJClatitude', 40.1520)
+                wx.setStorageSync('TJClongitude', 116.2758)
+
+                wx.setStorageSync('YMlatitude', 40.1512)
+                wx.setStorageSync('YMlongitude', 116.2744)
+
+                wx.setStorageSync('TSGlatitude', 40.1518)
+                wx.setStorageSync('TSGlongitude', 116.2717)
+
+                wx.setStorageSync('SYLlatitude', 40.1508)
+                wx.setStorageSync('SYLlongitude', 116.27)
+
+                wx.setStorageSync('SSlatitude', 40.1550)
+                wx.setStorageSync('SSlongitude', 116.2738)
+
+                wx.setStorageSync('GSlatitude', 40.1539)
+                wx.setStorageSync('GSlongitude', 116.2712)
+
                 /*wx.setStorageSync('curIdentity', r.data.identity[0])
                 var tmp = r.data.identity;
                 var detailIdentity = [];

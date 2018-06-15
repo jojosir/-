@@ -8,8 +8,8 @@ Page({
       {
         iconPath: "/img/1.png",
         id: 1,
-        latitude: 40.1520,
-        longitude: 116.2758,
+        latitude: wx.getStorageSync('TJClatitude'),
+        longitude: wx.getStorageSync('TJClongitude'),
         width: 30,
         height: 30,
         label: { content: "田径场" },
@@ -25,8 +25,8 @@ Page({
         //设置活动场地——咏曼剧场
         iconPath: "/img/2.png",
         id: 2,
-        latitude: 40.1512,
-        longitude: 116.2744,
+        latitude: wx.getStorageSync('YMlatitude'),
+        longitude: wx.getStorageSync('YMlongitude'),
         width: 30,
         height: 30,
         label: { content: "咏曼剧场" },
@@ -42,8 +42,8 @@ Page({
         //设置活动场地——图书馆
         iconPath: "/img/3.png",
         id: 3,
-        latitude: 40.1518,
-        longitude: 116.2717,
+        latitude: wx.getStorageSync('TSGlatitude'),
+        longitude: wx.getStorageSync('TSGlongitude'),
         width: 30,
         height: 30,
         callout: {
@@ -58,8 +58,8 @@ Page({
       {//设置活动场地——实验楼
         iconPath: "/img/4.png",
         id: 4,
-        latitude: 40.1508,
-        longitude: 116.27,
+        latitude: wx.getStorageSync('SYLlatitude'),
+        longitude: wx.getStorageSync('SYLlongitude'),
         width: 30,
         height: 30,
         callout: {
@@ -75,8 +75,8 @@ Page({
         //设置活动场地——宿舍
         iconPath: "/img/5.png",
         id: 5,
-        latitude: 40.1550,
-        longitude: 116.2738,
+        latitude: wx.getStorageSync('SSlatitude'),
+        longitude: wx.getStorageSync('SSlongitude'),
         width: 30,
         height: 30,
         callout: {
@@ -91,8 +91,8 @@ Page({
       {
         iconPath: "/img/6.png",
         id: 6,
-        latitude: 40.1539,
-        longitude: 116.2712,
+        latitude: wx.getStorageSync('GSlatitude'),
+        longitude: wx.getStorageSync('GSlongitude'),
         width: 30,
         height: 30,
         callout: {
@@ -200,13 +200,29 @@ Page({
         console.log(r.data)
         //读取活动列表内容
         var calloutContent = ''
-        for (var j = 0; j < r.data.list.length; j++) {
-          calloutContent += r.data.list[j].name
+        for (var i = 0; i < r.data.list.length; i++) {
+          calloutContent += r.data.list[i].name
           calloutContent += "-"
-          calloutContent += r.data.list[j].place
+          calloutContent += r.data.list[i].place
           calloutContent += "-"
-          var startTime = r.data.list[j].start_time.toString().substr(5, 11);
-          calloutContent += startTime
+          var time = ''
+          var startDate = r.data.list[i].start_time.toString().substr(0, 10)
+          var endDate = r.data.list[i].end_time.toString().substr(0, 10)
+          if (startDate == endDate) {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(11, 5);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          else {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(5, 11);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          calloutContent += time
           calloutContent += '\n'
         }
         //在页面地图上显示活动信息
@@ -227,13 +243,29 @@ Page({
         var markers = [];
         //读取活动列表内容
         var calloutContent = ''
-        for (var j = 0; j < r.data.list.length; j++) {
-          calloutContent += r.data.list[j].name
+        for (var i = 0; i < r.data.list.length; i++) {
+          calloutContent += r.data.list[i].name
           calloutContent += "-"
-          calloutContent += r.data.list[j].place
+          calloutContent += r.data.list[i].place
           calloutContent += "-"
-          var startTime = r.data.list[j].start_time.toString().substr(5, 11);
-          calloutContent += startTime
+          var time = ''
+          var startDate = r.data.list[i].start_time.toString().substr(0, 10)
+          var endDate = r.data.list[i].end_time.toString().substr(0, 10)
+          if (startDate == endDate) {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(11, 5);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          else {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(5, 11);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          calloutContent += time
           calloutContent += '\n'
         }
         //在页面地图上显示活动信息
@@ -253,13 +285,29 @@ Page({
         console.log(r.data)
         //读取活动列表内容
         var calloutContent = ''
-        for (var j = 0; j < r.data.list.length; j++) {
-          calloutContent += r.data.list[j].name
+        for (var i = 0; i < r.data.list.length; i++) {
+          calloutContent += r.data.list[i].name
           calloutContent += "-"
-          calloutContent += r.data.list[j].place
+          calloutContent += r.data.list[i].place
           calloutContent += "-"
-          var startTime = r.data.list[j].start_time.toString().substr(5, 11);
-          calloutContent += startTime
+          var time = ''
+          var startDate = r.data.list[i].start_time.toString().substr(0, 10)
+          var endDate = r.data.list[i].end_time.toString().substr(0, 10)
+          if (startDate == endDate) {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(11, 5);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          else {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(5, 11);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          calloutContent += time
           calloutContent += '\n'
         }
         //在页面地图上显示活动信息
@@ -279,13 +327,29 @@ Page({
         console.log(r.data)
         //读取活动列表内容
         var calloutContent = ''
-        for (var j = 0; j < r.data.list.length; j++) {
-          calloutContent += r.data.list[j].name
+        for (var i = 0; i < r.data.list.length; i++) {
+          calloutContent += r.data.list[i].name
           calloutContent += "-"
-          calloutContent += r.data.list[j].place
+          calloutContent += r.data.list[i].place
           calloutContent += "-"
-          var startTime = r.data.list[j].start_time.toString().substr(5, 11);
-          calloutContent += startTime
+          var time = ''
+          var startDate = r.data.list[i].start_time.toString().substr(0, 10)
+          var endDate = r.data.list[i].end_time.toString().substr(0, 10)
+          if (startDate == endDate) {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(11, 5);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          else {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(5, 11);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          calloutContent += time
           calloutContent += '\n'
         }
         //在页面地图上显示活动信息
@@ -307,13 +371,29 @@ Page({
         console.log(r.data)
         //读取活动列表内容
         var calloutContent = ''
-        for (var j = 0; j < r.data.list.length; j++) {
-          calloutContent += r.data.list[j].name
+        for (var i = 0; i < r.data.list.length; i++) {
+          calloutContent += r.data.list[i].name
           calloutContent += "-"
-          calloutContent += r.data.list[j].place
+          calloutContent += r.data.list[i].place
           calloutContent += "-"
-          var startTime = r.data.list[j].start_time;
-          calloutContent += startTime
+          var time = ''
+          var startDate = r.data.list[i].start_time.toString().substr(0, 10)
+          var endDate = r.data.list[i].end_time.toString().substr(0, 10)
+          if (startDate == endDate) {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(11, 5);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          else {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(5, 11);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          calloutContent += time
           calloutContent += '\n'
         }
         //在页面地图上显示活动信息
@@ -333,13 +413,29 @@ Page({
         console.log(r.data)
         //读取活动列表内容
         var calloutContent = ''
-        for (var j = 0; j < r.data.list.length; j++) {
-          calloutContent += r.data.list[j].name
+        for (var i = 0; i < r.data.list.length; i++) {
+          calloutContent += r.data.list[i].name
           calloutContent += "-"
-          calloutContent += r.data.list[j].place
+          calloutContent += r.data.list[i].place
           calloutContent += "-"
-          var startTime = r.data.list[j].start_time.toString().substr(5, 11);
-          calloutContent += startTime
+          var time = ''
+          var startDate = r.data.list[i].start_time.toString().substr(0, 10)
+          var endDate = r.data.list[i].end_time.toString().substr(0, 10)
+          if (startDate == endDate) {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(11, 5);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          else {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(5, 11);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
+          calloutContent += time
           calloutContent += '\n'
         }
         //在页面地图上显示活动信息
