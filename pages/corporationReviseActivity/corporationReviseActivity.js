@@ -117,6 +117,38 @@ Page({
         that.onShow();
       }
     })
+    if (this.data.location == '田径场')
+    {
+        this.setData({
+          latitude: wx.getStorageSync('TJClatitude'),
+          longitude: wx.getStorageSync('TJClongitude')
+        })
+    } else if (this.data.location == '咏曼剧场') {
+      this.setData({
+        latitude: wx.getStorageSync('YMlatitude'),
+        longitude: wx.getStorageSync('YMlongitude')
+      })
+    } else if (this.data.location == '实验楼') {
+      this.setData({
+        latitude: wx.getStorageSync('SYLlatitude'),
+        longitude: wx.getStorageSync('SYLlongitude')
+      })
+    } else if (this.data.location == '图书馆') {
+      this.setData({
+        latitude: wx.getStorageSync('TSGlatitude'),
+        longitude: wx.getStorageSync('TSGlongitude')
+      })
+    } else if (this.data.location == '宿舍') {
+      this.setData({
+        latitude: wx.getStorageSync('SSlatitude'),
+        longitude: wx.getStorageSync('SSlongitude')
+      })
+    } else if (this.data.location == '国家实验楼') {
+      this.setData({
+        latitude: wx.getStorageSync('GSlatitude'),
+        longitude: wx.getStorageSync('GSlongitude')
+      })
+    }
   },
   formSave: function (e) {
     console.log('formSubmit')
@@ -145,6 +177,7 @@ Page({
     console.log(this.data.longitude)
     console.log(e.detail.value.inputNumber)
 
+
     wx.request({
 
       url: 'http://123.206.94.45/CampusMap/ModifyActivity',
@@ -157,7 +190,7 @@ Page({
         location: this.data.location,
         place: e.detail.value.inputPlace,       
         latitude: this.data.latitude,    
-        longitude: this.data.longitude,   
+        longitude: this.data.longitude,  
         number_limit: e.detail.value.inputNumber,
         limit : 10
       },
@@ -362,7 +395,7 @@ Page({
     console.log(this.data.endTime)
     console.log(this.data.num)
     console.log(this.data.profile)
-  
+   
 
     wx.request({
       url: 'http://123.206.94.45/CampusMap/ModifyActivity',
@@ -372,12 +405,12 @@ Page({
         start_time: start_time,
         end_time: end_time,
         profile: this.data.profile,
-
         location: this.data.location,
         place: this.data.place,
-        //latitude: this.data.latitude,
-        //longitude: this.data.longitude,
+        latitude: this.data.latitude,
+        longitude: this.data.longitude,
         number_limit: this.data.num,
+        limit: 10
       },
 
       method: "GET",
@@ -398,6 +431,7 @@ Page({
             'content-type': 'application/x-www-form-urlencoded',
           },
           success: function (r) {
+            console.log(wx.getStorageSync('activity_id'))
             console.log(r.data)
             if(r.data.code == 1)
             {
