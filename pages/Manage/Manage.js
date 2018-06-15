@@ -12,8 +12,32 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
+    console.log('123')
     var value = wx.getStorageSync('curIdentity')
+    console.log(value)
+    if (value != 1) {
+      console.log(wx.getStorageSync("student_id"))
+      wx.request({
+        url: 'http://123.206.94.45/CampusMap/getRole',
+        method: 'POST',
+        data: {
+          id: wx.getStorageSync("student_id")
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (r) {
+          console.log(r.data)
+          wx.setStorageSync('role', r.data.code)
+        }
+      })
+    }
+  },
+  onShow: function () {
+    console.log('456')
+    var value = wx.getStorageSync('curIdentity')
+    console.log(value)
     if(value != 1)
     {
       console.log(wx.getStorageSync("student_id"))
@@ -33,7 +57,7 @@ Page({
       })
     }
   },
-  updatePage:function(e){
+  updatePage:function(){
     var value = wx.getStorageSync('curIdentity')
     wx.showTabBar({
 
@@ -56,7 +80,7 @@ Page({
   onShow:function(e){
     this.updatePage();
   },
-  updateRole:function(e){
+  updateRole:function(){
     var value = wx.getStorageSync('curIdentity')
     if (value == 1)
       this.setData({

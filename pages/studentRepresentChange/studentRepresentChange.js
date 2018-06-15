@@ -78,15 +78,25 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (r) {
-        console.log(r.data)
+        console.log(r.data.code)
         var msg = r.data.msg
         wx.showToast({
           title: msg,
           image: '/img/false.png'
         })
         if (r.data.code == 1) {
-          wx.navigateBack({
-            url: '../studentRepresentManage/studentRepresentManage',
+          wx.switchTab({
+            url: '../manage/manage',
+            success(e){
+              var page = getCurrentPages().pop();
+              var value = wx.getStorageSync('role');
+              if(value >= 1000) value -= 1000;
+              wx.setStorageSync('role', value);
+              wx.setStorageSync('curIdentity', 2);
+              console.log(page);
+              if (page == undefined || page == null) return;
+              page.updatePage();
+            }
           })
         }
       },
