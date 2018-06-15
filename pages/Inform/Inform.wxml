@@ -1,14 +1,14 @@
-<view class='out_view'> 
-  <view class="info-header">
-    <view class="info-text">
-        <text class="info-header-title">{{inform_title}}</text>
-         <text class="org_name">{{inform_admin}}</text>
-    </view>  
-    <image class="info-img" src="/img/inform.png"></image> 
-  </view>
+<view class = 'out_view'>
+  <view class='title'>
+    <view class = 'inform-title'>{{inform_title}}</view>
+    <view class = 'inform-admin'>{{inform_admin}}</view>
+    <view class = 'inform-dtail'>{{inform_detail}}</view>
 
-  <textarea name = 'formal_text' bindinput='num_check'  cursor-spacing="50" maxlength= "1000" value="{{inform_text}}" class='text' readonly="readonly"> </textarea>
+  </view>
+  <view class = 'text'>
+    <text>{{inform_text}}</text>
+  </view>
   <view>
-    <button class='button'  bindtap='delete' wx:if="{{hide_button == false}}">删除</button>
+    <button class='button' wx:if="{{hide_button == false}}" bindtap='delete'>删除</button>
   </view>
 </view>

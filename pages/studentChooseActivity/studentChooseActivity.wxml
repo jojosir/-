@@ -2,7 +2,6 @@
   <view class="info-header">
     <view class="info-text">
         <text class="info-header-title">活动列表</text>
-         <text class="org_name">{{activities[0].location}}</text>
     </view>
     <image class="info-img" src="/img/stucho.png"></image>
   </view>
