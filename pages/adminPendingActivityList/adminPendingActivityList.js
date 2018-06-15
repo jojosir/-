@@ -21,16 +21,16 @@ Page({
         that.setData({
           items:r.data.list
         })
-        console.log(r.data)
+        console.log(that.data.items)
       }
    })
   },
 
   activityItemClick:function(e){
-    console.log(e.target.dataset.index)
+    console.log(e.currentTarget.dataset.index)
     console.log('hh')
     wx:wx.navigateTo({
-      url: '../adminActivityInfo/adminActivityInfo?activity_id='+e.target.dataset.index,
+      url: '../adminActivityInfo/adminActivityInfo?activity_id=' + this.data.items[e.currentTarget.dataset.index].id,
       success: function(res) {
       },
       fail: function(res) {},

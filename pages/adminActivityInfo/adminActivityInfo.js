@@ -15,11 +15,14 @@ Page({
   briefIntro:'',
   Title:'',
   start_time:'',
-  end_time:''
+  end_time:'',
+  attendNumber:'',
+  state:'',
   },
 
   onLoad: function (options) {
     var that = this
+    console.log(options)
     wx:wx.request({
       url: 'http://123.206.94.45/CampusMap/getAcitivityInfo',
       data: {
@@ -31,6 +34,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(r) {
+        console.log(r.data)
         var time = ''
         var start_Date = r.data.activity.start_time.toString().substr(0, 10)
         var end_Date = r.data.activity.end_time.toString().substr(0, 10)
@@ -51,7 +55,10 @@ Page({
 
           var startDate = r.data.activity.start_time.toString().substr(0, 16)
           var endDate = r.data.activity.end_time.toString().substr(0, 16)
-
+          var attendNumber = ''
+          attendNumber += r.data.activity.current_number
+          attendNumber += '/'
+          attendNumber += r.data.activity.number_limit
           that.setData({
             time: time,
             site: r.data.activity.location + '-' + r.data.activity.place,
@@ -61,7 +68,9 @@ Page({
             Title: r.data.activity.activity_name,
             start_time: startDate,
             end_time: endDate,
-            activity_id: options.activity_id
+            activity_id: options.activity_id,
+            attendNumber: attendNumber,
+            state: r.data.activity.state,
           })
       },
       fail: function(res) {},
@@ -83,11 +92,15 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(res)
         wx.showToast({
           title: '已同意',
         })
         that.setData({
           disabled:true
+        })
+        wx.navigateBack({
+
         })   
       },
       fail: function (res) { },
@@ -110,11 +123,15 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(res)
         wx.showToast({
           title: '已拒绝',
         })
         that.setData({
           disabled: true
+        })
+        wx.navigateBack({
+          
         })
       },
       fail: function (res) { },

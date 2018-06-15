@@ -6,11 +6,11 @@
     <image class="info-img" src="/img/pending_list.png"></image>
   </view>
   <view class="class-content">
-    <view class="class-leftimage" wx:for="{{items}}" bindtap="activityItemClick" wx:key="{{index}}" data-index="{{item.activity_id}}">
+    <view class="class-leftimage" wx:for="{{items}}" bindtap="activityItemClick" wx:key="{{index}}" data-index="{{index}}">
       <image class="item-img" src="/img/act_list1.png"></image>
       <view class="class-item" >
         <view class="item" data-index="{{index}}">
-          {{item.activity_name}}
+          {{item.name}}
         </view>
       </view>
     </view>
