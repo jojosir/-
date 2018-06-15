@@ -92,11 +92,15 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(res)
         wx.showToast({
           title: '已同意',
         })
         that.setData({
           disabled:true
+        })
+        wx.navigateBack({
+
         })   
       },
       fail: function (res) { },
@@ -119,11 +123,15 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(res)
         wx.showToast({
           title: '已拒绝',
         })
         that.setData({
           disabled: true
+        })
+        wx.navigateBack({
+          
         })
       },
       fail: function (res) { },
