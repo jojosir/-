@@ -60,6 +60,12 @@
           </button>
         </view>
         <view class="item">
+          <button class="item-content" bindtap="changeRepresentClick">
+            <image class="item-content-image" src="/img/cha_rep_icon.png"></image>
+            <view class="item-content-state">代表变更</view>
+          </button>
+        </view>
+        <view class="item">
           <button class="item-content" bindtap="createAdminClick">
             <image class="item-content-image" src="/img/cre_admin_icon.png"></image>
             <view class="item-content-state">授权管理员</view>
