@@ -87,40 +87,31 @@ Page({
       },
       success: function (r) {
         console.log(r.data)
-
         var activities = [];
         for (var i = 0; i < r.data.list.length; i++) {
-          var state = ''
-          switch (r.data.list[i].state) {
-            case 0:
-              state = "未参加";
-              break;
-            case 1:
-              state = "参加未签到";
-              break;
-            case 2:
-              state = "签到未签退";
-              break;
-            case 3:
-              state = "签到";
-              break;
-            case 4:
-              state = "有效";
-              break;
-            case 5:
-              state = "无效";
-              break;
-            default:
-              console.log('state错误')
+          var time = ''
+          var startDate = r.data.list[i].start_time.toString().substr(0, 10)
+          var endDate = r.data.list[i].end_time.toString().substr(0, 10)
+          if (startDate == endDate) {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(11, 5);
+            time += startTime
+            time += '-'
+            time += endTime
           }
-
-
+          else {
+            var startTime = r.data.list[i].start_time.toString().substr(5, 11);
+            var endTime = r.data.list[i].end_time.toString().substr(5, 11);
+            time += startTime
+            time += '-'
+            time += endTime
+          }
           that.setData({
             activity: [{
               name: r.data.list[i].name,
               id: r.data.list[i].id,
-              state: state
-
+              state: r.data.list[i].state,
+              time:time
             }]
           })
           activities.push(that.data.activity[0])

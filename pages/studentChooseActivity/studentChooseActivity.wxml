@@ -10,14 +10,14 @@
       <image class="item-img" src="/img/act_list1.png"></image>
       <view class="class-item" >
         <view class="item" data-index="{{index}}">
-          {{item.activity_name}}
+          {{item.name}}
         </view>
         <view class='tag'>
           <view class="item-label item-label-primary item-label-small">
-                {{item.location}}
+                {{item.state}}
           </view>
           <view class="item-label item-label-primary item-label-small">
-                {{item.place}}
+                {{item.time}}
           </view>
         </view>
       </view>
