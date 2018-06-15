@@ -1,31 +1,115 @@
 .out_view{
-  position: absolute;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     height: 100%;
+    position: absolute;
     background-color: #f7f7f7;
 }
-.title{
-  font-family: "宋体";
-  font-weight: bold;
-  line-height: 150%;
-  margin-bottom: 15rpx;
-  color: #222;
+.info-header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50rpx 0;
 }
-.inform-title{
-  font-size: 25pt;
+.info-text{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    padding-left: 100rpx;
+    width: 350rpx;
+    word-wrap:break-word ;
 }
-.inform-detail{
-  font-size: 18pt;
-  font-family: "Times New Roman"
+.info-header-title{
+    font:18pt arial,sans-serif;
+    text-shadow: 1rpx 1rpx grey;
+    font-weight: bold;
+    line-height: 150%;
+    margin-bottom: 15rpx;
+    color: #222;
 }
-.inform-admin{
-  font-size: 18pt;
+
+.info-img{
+    display: block;
+    width: 200rpx;
+    height: 200rpx;
+    opacity: 0.6;
+    margin-right: 30rpx;
+    border-radius: 15px;
 }
-.text{
+
+.info-text{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    padding-right: 25rpx;
+}
+.btn
+{
+  top: 25rpx;
+  flex-direction: row;
   font-size: 14pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width:40%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15rpx 5% 15rpx;
+  background-color: #4fc3f7;
+  color: white;
+  font-family: "黑体";
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  bottom: 0;
+}
+
+.text{
+  width: 90%;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 15rpx;
+  height: 700rpx;
+}
+.reporter-detail-input{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30rpx;
+    padding-left: 45rpx;
+    font-size: 14pt;
+}
+.reporter-detail-name{
+    font-size: 14pt;
+    font-family: "黑体";
+    text-align: left;
+    padding-top: 20rpx;
+    padding-left: 20rpx;
+}
+.reporter-detail{
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-top: 25rpx;
+    overflow: hidden;
+    height: 90rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    border-radius: 10px;
+}
+.btn_area{
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  align-items: center;
+}
+.org_name{
+  font-size: 14pt;
+  font-family: "宋体"
 }
 .button{
   position: relative;
