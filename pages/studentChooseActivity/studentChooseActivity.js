@@ -76,8 +76,9 @@ Page({
     console.log('work')
     var that = this
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/ActivityListFromLocation',
+      url: 'http://123.206.94.45/CampusMap/ActivityList',
       data: {
+        student_id: wx.getStorageSync('student_id'),
         location: wx.getStorageSync('location')
       },
       method: "GET",
