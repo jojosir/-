@@ -22,8 +22,20 @@
               <block  wx:elif="{{item.state=='正在进行'}}">
                 <view class="item-label item-label-primary-no item-label-small" data-index="{{index}}">{{item.state}}</view>
               </block>
-              <block  wx:else>
+              <block  wx:elif="{{item.state=='已经结束'}}">
                 <view class="item-label item-label-primary item-label-small" data-index="{{index}}">{{item.state}}</view>
+              </block>
+              <block  wx:elif="{{item.state=='等待审核'}}">
+                <view class="item-label item-label-primary1 item-label-small" data-index="{{index}}">{{item.state}}</view>
+              </block>
+              <block  wx:elif="{{item.state=='暂未提交'}}">
+                <view class="item-label item-label-primary2 item-label-small" data-index="{{index}}">{{item.state}}</view>
+              </block>
+              <block  wx:elif="{{item.state=='尚未开始'}}">
+                <view class="item-label item-label-primary3 item-label-small" data-index="{{index}}">{{item.state}}</view>
+              </block>
+              <block  wx:else>
+                <view class="item-label item-label-primary4 item-label-small" data-index="{{index}}">{{item.state}}</view>
               </block>
             </view>   
           </view>

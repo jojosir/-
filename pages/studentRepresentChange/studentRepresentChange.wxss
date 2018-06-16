@@ -12,7 +12,7 @@ page{
   text-align: center;
   border-radius: 5px;
   margin: 15rpx 12.5% 30rpx;
-  background-color: #00adef;
+  background-color: #4fc3f7;
   color: white;
   font-family: "黑体";
 }
@@ -83,21 +83,20 @@ page{
     flex-shrink: 0;
     font-family: "黑体";
 }
-
-
 .info-header{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     padding: 50rpx 0;
-    font-family: "黑体";
 }
 .info-text{
+    text-shadow: 1rpx 1rpx grey;
+    font:30px arial,sans-serif;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    padding-right: 25rpx;
+    padding-left: 150rpx;
 }
 .info-header-title{
     font-size: 20pt;
@@ -111,8 +110,9 @@ page{
     display: block;
     width: 200rpx;
     height: 200rpx;
-    padding-left: 50rpx;
-    opacity: .3;
+    opacity: 0.6;
+    margin-right: 30rpx;
+    border-radius: 15px;
 }
 .info-content{
     display: flex;

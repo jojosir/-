@@ -103,7 +103,7 @@ Page({
     console.log(this.data.searchKey)
     console.log(this.data.items);
     for (var i = 0; i < this.data.items.length; i++) {
-      if (this.data.items[i].name == this.data.searchKey || this.data.items[i].id == this.data.searchKey ) {
+      if (this.data.items[i].name == this.data.searchKey || this.data.items[i].id == this.data.searchKey || this.data.items[i].name.indexOf(this.data.searchKey) > - 1 || this.data.items[i].id.toString().indexOf(this.data.searchKey) > - 1 ) {
           tmp.push(this.data.items[i])
         }
     }

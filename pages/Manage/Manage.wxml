@@ -1,17 +1,19 @@
 <!--pages/Manage/Manage.wxml-->
 <view class="out-view">
-  <image class="background" src="/img/ground1.png" mode="widthFix"/>
-  <view class="main-title">
-    <text class="title-text">
-      功能
-    </text>
-  </view>
+  <image class="background" src="/img/ground.png" mode="widthFix"/>
+  <block>
+    <view class="main-title" >
+      <button class="title-text2" >
+        功能
+      </button>
+    </view>
+  </block>
   <view class="main-list" >
     <view class="list-item">
       <block wx:if = "{{user_type == 2 }}">
         <view class="item" >
           <button class="item-content" bindtap="student_activityClick">
-            <image class="item-content-image" src="/img/rec_icon.png"></image>
+            <image class="item-content-image" src="/img/man2.png"></image>
             <view class="item-content-state">已选活动记录</view>
           </button>
         </view>
@@ -19,13 +21,13 @@
       <block wx:elif = "{{user_type == 1}}">
         <view class="item">
           <button class="item-content" bindtap="approveActivityClick">
-            <image class="item-content-image" src="/img/app_act_icon.png"></image>
+            <image class="item-content-image" src="/img/man10.png"></image>
             <view class="item-content-state">审批活动</view>
           </button>
         </view>
         <view class="item">
           <button class="item-content" bindtap="InfoClick">
-            <image class="item-content-image" src="/img/cha_rep_icon_1.png"></image>
+            <image class="item-content-image" src="/img/man1.png"></image>
             <view class="item-content-state">发布公告</view>
           </button>
         </view>
@@ -33,13 +35,13 @@
       <block wx:elif = "{{user_type == 3}}">
         <view class="item">
           <button class="item-content" bindtap="stuClick">
-            <image class="item-content-image" src="/img/stu_icon.png"></image>
+            <image class="item-content-image" src="/img/man5.png"></image>
             <view class="item-content-state">学生记录</view>
           </button>
         </view>
         <view class="item">
           <button class="item-content" bindtap="counsellor_activityClick">
-            <image class="item-content-image" src="/img/actli_icon.png"></image>
+            <image class="item-content-image" src="/img/man2.png"></image>
             <view class="item-content-state">活动列表</view>
           </button>
         </view>
@@ -47,7 +49,7 @@
       <block wx:elif = "{{user_type == 4}}">
         <view class="item">
           <button class="item-content" bindtap="issueRecordsClick">
-            <image class="item-content-image" src="/img/adm_wat_actli_icon.png"></image>
+            <image class="item-content-image" src="/img/inform.png"></image>
             <view class="item-content-state">查看发布活动记录</view>
           </button>
         </view>
@@ -55,19 +57,19 @@
       <block wx:elif = "{{user_type == 5}}">
         <view class="item">
           <button class="item-content" bindtap="issueRecordsClick">
-            <image class="item-content-image" src="/img/wat_actli_icon.png"></image>
+            <image class="item-content-image" src="/img/inform.png"></image>
             <view class="item-content-state">查看发布活动记录</view>
           </button>
         </view>
         <view class="item">
           <button class="item-content" bindtap="changeRepresentClick">
-            <image class="item-content-image" src="/img/cha_rep_icon.png"></image>
+            <image class="item-content-image" src="/img/man6.png"></image>
             <view class="item-content-state">代表变更</view>
           </button>
         </view>
         <view class="item">
           <button class="item-content" bindtap="createAdminClick">
-            <image class="item-content-image" src="/img/cre_admin_icon.png"></image>
+            <image class="item-content-image" src="/img/man4.png"></image>
             <view class="item-content-state">授权管理员</view>
           </button>
         </view>
@@ -75,31 +77,30 @@
     </view>
   </view>
   <view class="main-title">
-    <text class="title-text">
+    <button class="title-text1">
       {{role}}
-    </text>
+    </button>
   </view>
   <view class="main-list" >
     <view class="list-item">
       <view class="item" hidden='{{disabled}}'>
         <button class="item-content" bindtap="identityClick">
-          <image class="item-content-image" src="/img/user_icon.png"></image>
+          <image class="item-content-image" src="/img/man7.png"></image>
           <view class="item-content-state">切换身份</view>  
         </button>
       </view>
       <view class="item">
-        <button class="item-content" bindtap="logoutClick">
-          <image class="item-content-image" src="/img/out_icon.png"></image>
-          <view class="item-content-state">注销</view>
+        <button class="item-content" bindtap="ChangePasswordClick">
+          <image class="item-content-image" src="/img/man9.png"></image>
+          <view class="item-content-state">修改密码</view>
         </button>
       </view>
       <view class="item">
-        <button class="item-content" bindtap="ChangePasswordClick">
-          <image class="item-content-image" src="/img/app_act_icon.png"></image>
-          <view class="item-content-state">修改密码</view>
+        <button class="item-content" bindtap="logoutClick">
+          <image class="item-content-image" src="/img/man8.png"></image>
+          <view class="item-content-state">注销</view>
         </button>
       </view>
     </view>
   </view>
 </view>
-

@@ -24,4 +24,5 @@
       </view>
     </view> 
   </view>
+  <button class="btn_enroll" bindtap="returnmap" >返回地图</button>
 </view>

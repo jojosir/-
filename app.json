@@ -41,20 +41,20 @@
     "selectedColor": "#11cd6e",
     "list": [
       {
-        "iconPath": "/img/‪white_xinfeng.png",
-        "selectedIconPath": "/img/green_xinfeng.png",
+        "iconPath": "/img/‪wxingfeng.png",
+        "selectedIconPath": "/img/gxingfeng.png",
         "pagePath": "pages/syInfo/syInfo",
         "text": "系统公告"
       },
       {
-        "iconPath": "/img/white_qizi.png",
-        "selectedIconPath": "/img/green_qizi.png",
+        "iconPath": "/img/wqizi.png",
+        "selectedIconPath": "/img/gqizi.png",
         "pagePath": "pages/schoolMap/schoolMap",
         "text": "活动地图"
       },
       {
-        "iconPath": "/img/white_ren.png",
-        "selectedIconPath": "/img/green_ren.png",
+        "iconPath": "/img/wren.png",
+        "selectedIconPath": "/img/gren.png",
         "pagePath": "pages/manage/manage",
         "text": "个人中心"
       }

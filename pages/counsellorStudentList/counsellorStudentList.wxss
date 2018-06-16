@@ -96,7 +96,7 @@ Page{
 .search-bar-cancel-btn {
   margin-left: 10px;
   line-height: 28px;
-  color: #09BB07;
+  color: #4fc3f7;
   white-space: nowrap;
 }
 
@@ -193,7 +193,7 @@ Page{
 }
 .item-label-primary {
   color: #fff;
-  background: #ffb74d;
-  border: 1rpx solid #ffb74d;
+  background: #4fc3f7;
+  border: 1rpx solid #4fc3f7;
   font-family: "黑体";
 }
