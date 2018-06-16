@@ -67,11 +67,6 @@ Page({
           tmp.txtStyle = 'left:0px';
           tmp.signin = res.data.list[i].signin;
           tmp.signout = res.data.list[i].signout;
-         // if (res.data.list[i].is_valid){
-            //tmp.imgPath= "/img/yes.png"
-          //}else{
-            //tmp.imgPath="/img/no.png"
-          //}
           tmp.checked = false;
           items.push(tmp);
         }
@@ -84,28 +79,86 @@ Page({
       complete: function(res) {},
     })
   },
+  signintap: function (e) {
+    var that = this;
+    wx: wx.request({
+      url: 'http://123.206.94.45/CampusMap/getStudentInActivity',
+      data: {
+        counsellor_id: wx.getStorageSync('student_id'),
+        activity_id: that.data.activity_id,
+        student_id: 0,
+        arg: 1
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(wx.getStorageSync('student_id'))
+        console.log(res)
+        var items = [];
+        for (var i = 0; i < res.data.list.length; i++) {
+          var tmp = new Object();
+          tmp.ID = res.data.list[i].id;
+          tmp.name = res.data.list[i].name;
+          tmp.txtStyle = 'left:0px';
+          tmp.signin = res.data.list[i].signin;
+          tmp.signout = res.data.list[i].signout;
+          tmp.checked = false;
+          items.push(tmp);
+        }
+        that.setData({
+          items: items,
+          basicItems: items
+        })
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  signouttap: function (e) {
+    var that = this;
+    wx: wx.request({
+      url: 'http://123.206.94.45/CampusMap/getStudentInActivity',
+      data: {
+        counsellor_id: wx.getStorageSync('student_id'),
+        activity_id: that.data.activity_id,
+        student_id: 0,
+        arg: 2
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(wx.getStorageSync('student_id'))
+        console.log(res)
+        var items = [];
+        for (var i = 0; i < res.data.list.length; i++) {
+          var tmp = new Object();
+          tmp.ID = res.data.list[i].id;
+          tmp.name = res.data.list[i].name;
+          tmp.txtStyle = 'left:0px';
+          tmp.signin = res.data.list[i].signin;
+          tmp.signout = res.data.list[i].signout;
+          tmp.checked = false;
+          items.push(tmp);
+        }
+        that.setData({
+          items: items,
+          basicItems: items
+        })
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   idInput:function(e){
     this.setData({
       studentID:e.detail.value
     })
   },
-  confirm: function (e) {
-    this.setData({
-      hidden: true
-    })
-    var aItem = [{
-       name:'小红',
-       ID:this.data.studentID,
-       txtStyle:'left:0px',
-       imgPath:"/img/no.png"}
-    ]
-    var items = this.data.items;
-    items.push(aItem[0]);
-    this.setData({
-      items:items
-    })
-    //添加一个学生到当前活动列表中 
-  },
+
   cancel: function (e) {
     this.setData({
       hidden: true

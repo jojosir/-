@@ -193,7 +193,7 @@ Page({
         latitude: this.data.latitude,    
         longitude: this.data.longitude,  
         number_limit: e.detail.value.inputNumber,
-        limit : 10
+        limit : 0.1
       },
 
       method: "GET",
@@ -211,85 +211,6 @@ Page({
 
 
   },
-
-/*
-  formGo: function (e) {
-    console.log('formGo')
-    console.log('form发生了submit事件，携带数据为：', e)
-
-    var start_time = ''
-    start_time += e.detail.value.pickerStartDate
-    start_time += ' '
-    start_time += e.detail.value.pickerStartTime
-    var start_time_clone = JSON.parse(JSON.stringify(start_time))
-
-    var end_time = ''
-    end_time += e.detail.value.pickerEndDate
-    end_time += ' '
-    end_time += e.detail.value.pickerEndTime
-    var end_time_clone = JSON.parse(JSON.stringify(end_time))
-
-    console.log(wx.getStorageSync('org_id'))
-    console.log(e.detail.value.inputName)
-    console.log(start_time)
-    console.log(end_time)
-    console.log(e.detail.value.profile)
-    console.log(this.data.locationAddress)
-    console.log(e.detail.value.inputPlace)
-    console.log(this.data.latitude)
-    console.log(this.data.longitude)
-    console.log(e.detail.value.inputNumber)
-    console.log(e.detail.value.boya)
-
-    wx.request({
-      url: 'https://38697963.qcloud.la/CampusMap/ModifyActivity',
-      data: {
-        activity_id: wx.getStorageSync('activity_id'),
-        name: e.detail.value.inputName,
-        start_time: start_time_clone,
-        end_time: end_time_clone,
-        profile: e.detail.value.profile,
-        location: this.data.locationAddress,
-        place: e.detail.value.inputPlace,
-        latitude: this.data.latitude,
-        longitude: this.data.longitude,
-        number_limit: e.detail.value.inputNumber,
-        is_boya: e.detail.value.boya
-      },
-
-      method: "GET",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'charset': 'utf-8'
-      },
-      success: function (res) {
-        console.log(res.data)
-        wx.request({
-          url: 'https://38697963.qcloud.la/CampusMap/SubmitActivity',
-          data: {
-            activity_id: wx.getStorageSync('activity_id')
-          },
-
-          method: "POST",
-          header: {
-            'content-type': 'application/x-www-form-urlencoded',
-          },
-          success: function (r) {
-            console.log(r.data)
-            wx.navigateBack({
-              url: '../corporationIssueRecords/corporationIssueRecords',
-            })
-          }
-        })
-
-
-      }
-    })
-
-
-
-  },
-*/
 
   nameInput:function(e){
     this.setData({
@@ -411,7 +332,7 @@ Page({
         latitude: this.data.latitude,
         longitude: this.data.longitude,
         number_limit: this.data.num,
-        limit: 10
+        limit: 0.1
       },
 
       method: "GET",

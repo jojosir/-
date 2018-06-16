@@ -30,7 +30,7 @@
           <view class='tag'>
             <view>
               <block wx:if = "{{item.signin == true}}">
-                <view class="item-label item-label-primary item-label-small">
+                <view class="item-label item-label-primary item-label-small" >
                     签到有效
                 </view>
               </block>
@@ -95,11 +95,11 @@
       </view>
   </scroll-view>
   <view class="plenty-btn">
-    <button bindtap="ALClick"  class="btn_enroll"   > 
-    活动列表        
+    <button   class="btn_enroll"   bindtap="signintap"> 
+    签到无效学生        
     </button>
-    <button bindtap="ALClick"  class="btn_enroll"  > 
-    活动列表        
+    <button   class="btn_enroll" bindtap="signouttap" > 
+    签退无效学生        
     </button>  
   </view>
 </view>

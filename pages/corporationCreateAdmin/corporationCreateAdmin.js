@@ -18,7 +18,7 @@ Page({
   onShow:function(){
     var that = this
     wx.request({
-      url: 'http://123.206.94.45/CampusMap/getRepresentatice',
+      url: 'http://123.206.94.45/CampusMap/getRepresentative',
       data: {
         org_id: wx.getStorageSync('org_id'),
       },
