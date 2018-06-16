@@ -57,6 +57,8 @@ Page({
       },
       method: 'GET',
       success: function(res) {
+        console.log(wx.getStorageSync('student_id')) 
+        console.log(options.activity_id)
         console.log(res)
         var items = [];
         for (var i = 0;i < res.data.list.length;i++){

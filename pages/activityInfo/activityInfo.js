@@ -55,7 +55,11 @@ Page({
 
         var state = ''
         var hasButton = true
+        if (r.data.code == 1 && r.data.status.SignOutStatus == true)
+          hasButton = false
         var deleteButton = false
+        if (r.data.code == 1 && r.data.state == '尚未开始')
+          deleteButton = true
         var attendNumber = ''
         attendNumber += r.data.activity.current_number
         attendNumber += '/'
@@ -81,7 +85,7 @@ Page({
             is_valid: r.data.status.is_valid
           })
           var value
-          if (that.SignInStatus == true)
+          if (r.data.status.SignInStatus == true)
             value = '签退'
           else 
             value = '签到'
