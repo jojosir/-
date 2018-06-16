@@ -123,7 +123,14 @@ Page({
       }
     })
   },
-
+  returnmap: function () {
+    wx, wx.switchTab({
+      url: '../schoolMap/schoolMap',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
 
   activitiyClick:function(e)
   {
