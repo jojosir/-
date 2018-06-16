@@ -4,14 +4,14 @@ page{
 }
 
 .Sview{
-  height: 80%;
+  height: 70%;
 }
 .buttonView{
   justify-content: space-around;
   display: flex;
 }
 .button{
-  background-color:lightgreen;
+  background-color:#4fc3f7;
   color: white;
 }
 .studentID{
@@ -125,13 +125,13 @@ page{
 .changeItem{
   width: 60%;
   text-align: center;
-  background-color: orange;
+  background-color: #4fc3f7;
   font-family: "黑体";
   justify-content: center;
 }
 .delItem{
   width: 40%;
-  background-color: #e64340;
+  background-color: #4fc3f7;
   text-align: center;
   font-family: "黑体";
 }
@@ -142,7 +142,7 @@ page{
 .checkTableHead{
   justify-content: space-between;
   display: flex;
-  border-bottom: 1px #e64340 solid;
+  border-bottom: 1px #4fc3f7 solid;
 }
 .hiddenCheckbox{
   width: 0;
@@ -238,7 +238,7 @@ page{
 .search-bar-cancel-btn {
   margin-left: 10px;
   line-height: 28px;
-  color: #09BB07;
+  color: #4fc3f7;
   white-space: nowrap;
 }
 
@@ -246,7 +246,7 @@ page{
   height: 0;
 }
 .searchListView-show{
-  height: 90%;
+  height: 80%;
   width: 100%;
   position: absolute;
   z-index: 100;
@@ -254,10 +254,9 @@ page{
   background-color: #f7f7f7;
 }
 .studentInfoIcon{
-  align-items: center;
   justify-content: flex-end;
   display: flex;
-  margin-right: 15rpx;
+  margin-left: 30rpx;
 }
 .clear-icon{
     width: 30rpx;
@@ -268,17 +267,34 @@ page{
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
-    height: 90%;
+    height: 80%;
 }
 
 .class-item {
     display: flex;
     flex-direction: column;
     font-size: 11pt;
+    padding: 0 40rpx;
+    margin-left:20rpx;
+    margin-right:20rpx;
     margin-bottom: 20rpx;
     background-color: #fff;
+    border-radius: 5px;
+}
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 145rpx;
+    border-top: 1px solid #eee;
 }
 
+.re-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 145rpx;
+}
 .item-left {
     flex: 1;
     display: flex;
@@ -304,7 +320,7 @@ page{
 }
 .item-label {
   display: inline-block;
-  font-size: 24rpx;
+  font-size: ;
   height: 56rpx;
   line-height: 56rpx;
   color: #333;
@@ -318,8 +334,14 @@ page{
 }
 .item-label-primary {
   color: #fff;
-  background: #ffb74d;
-  border: 1rpx solid #ffb74d;
+  background: blue;
+  border: 1rpx solid blue;
+  font-family: "黑体";
+}
+.item-label-primaryno {
+  color: #fff;
+  background: #4fc3f7;
+  border: 1rpx solid #4fc3f7;
   font-family: "黑体";
 }
 .text{
@@ -336,7 +358,7 @@ page{
   text-align: center;
   border-radius: 5px;
   margin: 15rpx 5% 30rpx;
-  background-color: #ffb74d;
+  background-color: #4fc3f7;
   color: white;
   font-family: "黑体";
 }
@@ -373,7 +395,7 @@ page{
   text-align: center;
   border-radius: 5px;
   margin: 15rpx 15% 30rpx;
-  background-color: #ffb74d;
+  background-color: #4fc3f7;
   color: white;
   font-family: "黑体";
 }
@@ -382,4 +404,15 @@ page{
   justify-content: space-around;
   border-top: 2rpx solid #eee;
   line-height: 100rpx;
+}
+.tag {
+    display: flex;
+   flex-direction:  row
+
+}
+.item-label-small {
+  font-size: 11px;
+  height: 16px;
+  line-height: 16px;
+  padding: 0px 3px;
 }

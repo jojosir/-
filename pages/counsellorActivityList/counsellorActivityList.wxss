@@ -200,8 +200,8 @@ Page{
 }
 .item-label-primary {
   color: #fff;
-  background: #ffb74d;
-  border: 1rpx solid #ffb74d;
+  background: #4fc3f7;
+  border: 1rpx solid #4fc3f7;
   font-family: "黑体";
 }
 

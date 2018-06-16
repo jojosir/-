@@ -60,11 +60,6 @@ Page({
       })
     }
   },
-  modifyAdmin:function(e){
-    wx.navigateTo({
-      url: '../modifyActivityAdmin/modifyActivityAdmin?id=' + this.data.admins[e.target.dataset.index].adminID
-    })
-  },
   addAdmin: function (e) {
     console.log(this.data.adminID)
     wx.request({
