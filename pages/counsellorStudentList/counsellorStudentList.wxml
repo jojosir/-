@@ -25,7 +25,7 @@
           <view class="item-other" data-index="{{item.id}}" >{{item.id}}</view>
           <view class="item-name" data-index="{{item.id}}" >{{item.name}}</view>
         </view>
-        <icon type="info" data-index="{{item.id}}" class="studentInfoIcon" size="25"  color="#ffb74d"/>
+        <icon type="info" data-index="{{item.id}}" class="studentInfoIcon" size="25"  color="#4fc3f7"/>
       </view>
     </view>
   </scroll-view>
@@ -37,7 +37,7 @@
           <view class="item-other" data-index="{{item.id}}">{{item.id}}</view>
           <view class="item-name" data-index="{{item.id}}">{{item.name}}</view>
         </view>
-        <icon type="info" data-index="{{item.id}}" class="studentInfoIcon" size="25" color="#ffb74d"/>
+        <icon type="info" data-index="{{item.id}}" class="studentInfoIcon" size="25" color="#4fc3f7"/>
       </view>
     </view>
   </scroll-view>

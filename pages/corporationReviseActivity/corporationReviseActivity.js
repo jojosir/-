@@ -101,6 +101,7 @@ Page({
           profile: r.data.activity.profile,
           state:r.data.activity.state
         })
+        console.log(that.data)
       }
     })
   },
@@ -395,7 +396,7 @@ Page({
     console.log(this.data.endTime)
     console.log(this.data.num)
     console.log(this.data.profile)
-   
+
 
     wx.request({
       url: 'http://123.206.94.45/CampusMap/ModifyActivity',
@@ -505,5 +506,9 @@ Page({
     this.setData({
       endTime: e.detail.value
     })
+  },
+  check:function(e){
+    var date = new Date;
+    var time = date
   }
 })

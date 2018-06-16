@@ -159,3 +159,15 @@ page{
   color: white;
   font-family: "黑体";
 }
+.item-label-primary1 {
+  background: red;
+}
+.item-label-primary2 {
+  background: orange;
+}
+.item-label-primary3 {
+  background: green;
+}
+.item-label-primary4 {
+  background: grey;
+}
