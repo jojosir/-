@@ -116,40 +116,40 @@ Page({
             location: tmp[res.tapIndex]
           })
         that.onShow();
+        if (this.data.location == '田径场') {
+          this.setData({
+            latitude: wx.getStorageSync('TJClatitude'),
+            longitude: wx.getStorageSync('TJClongitude')
+          })
+        } else if (this.data.location == '咏曼剧场') {
+          this.setData({
+            latitude: wx.getStorageSync('YMlatitude'),
+            longitude: wx.getStorageSync('YMlongitude')
+          })
+        } else if (this.data.location == '实验楼') {
+          this.setData({
+            latitude: wx.getStorageSync('SYLlatitude'),
+            longitude: wx.getStorageSync('SYLlongitude')
+          })
+        } else if (this.data.location == '图书馆') {
+          this.setData({
+            latitude: wx.getStorageSync('TSGlatitude'),
+            longitude: wx.getStorageSync('TSGlongitude')
+          })
+        } else if (this.data.location == '宿舍') {
+          this.setData({
+            latitude: wx.getStorageSync('SSlatitude'),
+            longitude: wx.getStorageSync('SSlongitude')
+          })
+        } else if (this.data.location == '国家实验楼') {
+          this.setData({
+            latitude: wx.getStorageSync('GSlatitude'),
+            longitude: wx.getStorageSync('GSlongitude')
+          })
+        }
       }
     })
-    if (this.data.location == '田径场')
-    {
-        this.setData({
-          latitude: wx.getStorageSync('TJClatitude'),
-          longitude: wx.getStorageSync('TJClongitude')
-        })
-    } else if (this.data.location == '咏曼剧场') {
-      this.setData({
-        latitude: wx.getStorageSync('YMlatitude'),
-        longitude: wx.getStorageSync('YMlongitude')
-      })
-    } else if (this.data.location == '实验楼') {
-      this.setData({
-        latitude: wx.getStorageSync('SYLlatitude'),
-        longitude: wx.getStorageSync('SYLlongitude')
-      })
-    } else if (this.data.location == '图书馆') {
-      this.setData({
-        latitude: wx.getStorageSync('TSGlatitude'),
-        longitude: wx.getStorageSync('TSGlongitude')
-      })
-    } else if (this.data.location == '宿舍') {
-      this.setData({
-        latitude: wx.getStorageSync('SSlatitude'),
-        longitude: wx.getStorageSync('SSlongitude')
-      })
-    } else if (this.data.location == '国家实验楼') {
-      this.setData({
-        latitude: wx.getStorageSync('GSlatitude'),
-        longitude: wx.getStorageSync('GSlongitude')
-      })
-    }
+ 
   },
   formSave: function (e) {
     console.log('formSubmit')
@@ -177,7 +177,6 @@ Page({
     console.log(this.data.latitude)
     console.log(this.data.longitude)
     console.log(e.detail.value.inputNumber)
-
 
     wx.request({
 
