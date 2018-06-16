@@ -120,20 +120,6 @@ page{
   padding: 0px 3px;
   color: #fff;
 }
-.btn_enroll{
-  position: relative;
-  top: 25rpx;
-  font-size: 13pt;
-  line-height: 85rpx;
-  height: 85rpx;
-  width:75%;
-  text-align: center;
-  border-radius: 5px;
-  margin: 15rpx 12.5% 30rpx;
-  background-color: #4fc3f7;
-  color: white;
-  font-family: "黑体";
-}
 .item-label-primary-no {
   background: blue;
 }
@@ -158,4 +144,18 @@ page{
     opacity: 0.6;
     margin-right: 5rpx;
     border-radius: 5px;
+}
+.btn_enroll{
+  position: relative;
+  top: 25rpx;
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width:75%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15rpx 12.5% 30rpx;
+  background-color: #4fc3f7;
+  color: white;
+  font-family: "黑体";
 }
