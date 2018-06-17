@@ -117,6 +117,12 @@ Page({
       itemList: tmp,
       itemColor: '#007aff',
       success(res) {
+        //var tmp = this.data.user_type;
+       /* if ((tmp == 1 && res.tapIndex == 0) || (tmp == 3 && res.tapIndex == 1) || (tmp == 4 && res.tapIndex == 2) || (tmp == 5 && res.tapIndex == 3)) wx.showToast({
+          title: '无效操作',
+          duration:2000
+        })*/
+        //else{
         var value
         if (tmp[res.tapIndex] ==  '学生')
           {
