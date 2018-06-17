@@ -6,6 +6,11 @@
     </view>
     <image class="info-img" src="/img/iss_rec.png"></image>
   </view>
+  <view class = "bo">
+  <view style="display:{{hasButton}}">
+      <button class="btn_enroll" bindtap="createActivity" >创建活动</button>
+  </view>
+  </view>
   <view class="class-content" wx:key="{{index}}" data-index="{{index}}" wx:for="{{activities}}" >
     <view class = "class-leftimage" data-index="{{index}}" bindtap="activityItemClick">
       <image class="item-img" src="/img/act_list1.png"></image>
@@ -43,7 +48,5 @@
       </view>
     </view>
   </view>
-  <view style="display:{{hasButton}}">
-      <button class="btn_enroll" bindtap="createActivity" >创建活动</button>
-  </view>
+  
 </view>

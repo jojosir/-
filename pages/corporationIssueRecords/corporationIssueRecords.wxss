@@ -151,13 +151,14 @@ page{
   font-size: 13pt;
   line-height: 85rpx;
   height: 85rpx;
-  width:75%;
+  width:400rpx;
   text-align: center;
   border-radius: 5px;
-  margin: 15rpx 12.5% 30rpx;
+  margin: 30rpx 12.5% 30rpx;
   background-color: #4fc3f7;
   color: white;
   font-family: "黑体";
+
 }
 .item-label-primary1 {
   background: red;
@@ -170,4 +171,10 @@ page{
 }
 .item-label-primary4 {
   background: grey;
+}
+.bo{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  justify-content: center;
 }
