@@ -189,8 +189,13 @@ Page({
                   SignInStatus: true,
                   buttonContent: "签退"
                 })
-                wx.showToast({
-                  title: '签到成功',
+                wx.navigateTo({
+                  url: '../activitiesList/activitiesList',
+                  success: function(){
+                    wx.showToast({
+                      title: '签到成功'
+                    })
+                  }
                 })
               }
               else {
