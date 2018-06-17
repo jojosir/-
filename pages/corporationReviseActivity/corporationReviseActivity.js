@@ -116,33 +116,33 @@ Page({
             location: tmp[res.tapIndex]
           })
         that.onShow();
-        if (this.data.location == '田径场') {
-          this.setData({
+        if (that.data.location == '田径场') {
+          that.setData({
             latitude: wx.getStorageSync('TJClatitude'),
             longitude: wx.getStorageSync('TJClongitude')
           })
-        } else if (this.data.location == '咏曼剧场') {
-          this.setData({
+        } else if (that.data.location == '咏曼剧场') {
+          that.setData({
             latitude: wx.getStorageSync('YMlatitude'),
             longitude: wx.getStorageSync('YMlongitude')
           })
-        } else if (this.data.location == '实验楼') {
-          this.setData({
+        } else if (that.data.location == '实验楼') {
+          that.setData({
             latitude: wx.getStorageSync('SYLlatitude'),
             longitude: wx.getStorageSync('SYLlongitude')
           })
-        } else if (this.data.location == '图书馆') {
-          this.setData({
+        } else if (that.data.location == '图书馆') {
+          that.setData({
             latitude: wx.getStorageSync('TSGlatitude'),
             longitude: wx.getStorageSync('TSGlongitude')
           })
-        } else if (this.data.location == '宿舍') {
-          this.setData({
+        } else if (that.data.location == '宿舍') {
+          that.setData({
             latitude: wx.getStorageSync('SSlatitude'),
             longitude: wx.getStorageSync('SSlongitude')
           })
-        } else if (this.data.location == '国家实验楼') {
-          this.setData({
+        } else if (that.data.location == '国家实验楼') {
+          that.setData({
             latitude: wx.getStorageSync('GSlatitude'),
             longitude: wx.getStorageSync('GSlongitude')
           })
@@ -154,7 +154,6 @@ Page({
   formSave: function (e) {
     console.log('formSubmit')
     console.log('form发生了submit事件，携带数据为：', e)
-
     var start_time = ''
     start_time += e.detail.value.pickerStartDate
     start_time += ' '
@@ -166,7 +165,35 @@ Page({
     end_time += ' '
     end_time += e.detail.value.pickerEndTime
     var end_time_clone = JSON.parse(JSON.stringify(end_time))
-
+    var t = new Date()
+    var year = t.getFullYear()
+    var month
+    var day
+    if (t.getMonth()<9)
+      month = '0'+(t.getMonth() + 1)
+    else
+      month = t.getMonth() + 1
+    if (t.getDate()<10)
+      day = '0' + t.getDate()
+    else
+      day = t.getDate()
+      var date = year + '-' + month + '-' + day
+    console.log(e.detail.value.pickerStartDate)
+    console.log(date)
+    if (e.detail.value.pickerStartDate <= date)
+    {
+      wx.showModal({
+        title: '保存失败',
+        content: '开始时间不能早于第二天',
+      })
+    }
+    else if (start_time >= end_time)
+    {
+        wx.showModal({
+          title: '保存失败',
+          content: '开始时间不能晚于结束时间',
+        })
+    }else{
     console.log(wx.getStorageSync('org_id'))
     console.log(e.detail.value.inputName)
     console.log(start_time)
@@ -208,7 +235,7 @@ Page({
       }
     })
 
-
+    }
   },
 
   nameInput:function(e){
@@ -307,7 +334,33 @@ Page({
     end_time += this.data.endDate
     end_time += ' '
     end_time += this.data.endTime
-
+    var t = new Date()
+    var year = t.getFullYear()
+    var month
+    var day
+    if (t.getMonth() < 9)
+      month = '0' + (t.getMonth() + 1)
+    else
+      month = t.getMonth() + 1
+    if (t.getDate() < 10)
+      day = '0' + t.getDate()
+    else
+      day = t.getDate()
+    var date = year + '-' + month + '-' + day
+    console.log(this.data.startDate)
+    console.log(date)
+    if (this.data.startDate <= date) {
+      wx.showModal({
+        title: '保存失败',
+        content: '开始时间不能早于第二天',
+      })
+    }
+    else if (start_time >= end_time) {
+      wx.showModal({
+        title: '保存失败',
+        content: '开始时间不能晚于结束时间',
+      })
+    } else {
     console.log(this.data.name)
     console.log(this.data.place)
     console.log(this.data.startDate)
@@ -372,7 +425,7 @@ Page({
       }
     })
 
-
+    }
   },
   activityDelete:function(e){
     wx.request({

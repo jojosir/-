@@ -21,6 +21,7 @@ Page({
         url: '../schoolMap/schoolMap'
       })
     }
+   
   },
 
 
@@ -109,39 +110,7 @@ Page({
                 wx.setStorageSync('GSlatitude', 40.1539)
                 wx.setStorageSync('GSlongitude', 116.2712)
 
-                /*wx.setStorageSync('curIdentity', r.data.identity[0])
-                var tmp = r.data.identity;
-                var detailIdentity = [];
-                for (var i = 0; i < tmp.length; i++) {
-                  if (tmp[i] == 'student') {
-                    var tmpIdentity = new Object();
-                    tmpIdentity.id = e.detail.value.input;
-                    tmpIdentity.identity = 'student';
-                    console.log(tmpIdentity);
-                    detailIdentity.push(tmpIdentity);
-                    app.edit
-                  } else if (tmp[i] == 'counsellor') {
-                    var tmpIdentity = new Object();
-                    tmpIdentity.id = e.detail.value.input;
-                    tmpIdentity.identity = 'counsellor';
-                    detailIdentity.push(tmpIdentity);
-                  } else if (tmp[i] == 'admin') {
-                    var tmpIdentity = new Object();
-                    tmpIdentity.id = e.detail.value.input;
-                    tmpIdentity.identity = 'admin';
-                    detailIdentity.push(tmpIdentity);
-                  }
-                  else {
-                    var tmpIdentity = new Object();
-                    var substr = tmp[i].split(" ");
-                    tmpIdentity.id = e.detail.value.input;
-                    tmpIdentity.identity = substr[0];
-                    tmpIdentity.org_id = substr[1];
-                    tmpIdentity.org_name = substr[2];
-                    detailIdentity.push(tmpIdentity);
-                  }
-                }
-                wx.setStorageSync('detailIdentity', detailIdentity)*/
+
                 wx.setStorageSync('curIdentity', r.data.identity)
                 wx.switchTab({
                   url: '../schoolMap/schoolMap',

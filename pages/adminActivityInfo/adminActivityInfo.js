@@ -84,8 +84,9 @@ Page({
       url: 'http://123.206.94.45/CampusMap/ActivityExamine',
       data:{
         action:1,
-        id: this.data.activity_id,
-        detail :''
+        id: that.data.activity_id,
+        detail :'',
+        admin: wx.getStorageSync('student_id')
       },
       method: "POST",
       header: {
@@ -115,14 +116,17 @@ Page({
       url: 'http://123.206.94.45/CampusMap/ActivityExamine',
       data: {
         action: 2,
-        activity_id: this.data.activity_id,
-        detail: ''
+        id: that.data.activity_id,
+        detail: '',
+        admin: wx.getStorageSync('student_id')
       },
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(that.data.activity_id)
+        console.log(wx.getStorageSync('student_id'))
         console.log(res)
         wx.showToast({
           title: '已拒绝',
