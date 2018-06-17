@@ -58,8 +58,9 @@ Page({
         if (r.data.code == 1 && r.data.status.SignOutStatus == true)
           hasButton = false
         var deleteButton = false
-        if (r.data.code == 1 && r.data.state == '尚未开始')
+        if (r.data.code == 1 && r.data.activity.state == '尚未开始')
           deleteButton = true
+        console.log(deleteButton)
         var attendNumber = ''
         attendNumber += r.data.activity.current_number
         attendNumber += '/'

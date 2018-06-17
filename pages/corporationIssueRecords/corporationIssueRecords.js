@@ -47,6 +47,7 @@ Page({
       },
       success: function (r) {
         console.log(r.data)
+        console.log(wx.getStorageSync('org_id'))
         wx.setStorageSync('org_name', r.data.org)
         var activities = [];
         for (var i = 0; i < r.data.list.length; i++) {
