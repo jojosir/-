@@ -31,24 +31,24 @@
             <view>
               <block wx:if = "{{item.signin == true}}">
                 <view class="item-label item-label-primary item-label-small" >
-                    签到有效
+                    已签到
                 </view>
               </block>
               <block wx:else>
                 <view class="item-label item-label-primaryno item-label-small">
-                    签到无效
+                    未签到
                 </view>
               </block>
             </view>
             <view>
               <block wx:if = "{{item.signout == true}}">
                 <view class="item-label item-label-primary item-label-small">
-                    签退有效
+                    已签退
                 </view>
               </block>
               <block wx:else>
                 <view class="item-label item-label-primaryno item-label-small">
-                    签退无效
+                    未签退
                 </view>
               </block>
             </view>  
@@ -68,24 +68,24 @@
             <view>
               <block wx:if = "{{item.signin == true}}">
                 <view class="item-label item-label-primary item-label-small">
-                    签到有效
+                    已签到
                 </view>
               </block>
               <block wx:else>
                 <view class="item-label item-label-primaryno item-label-small">
-                    签到无效
+                    未签到
                 </view>
               </block>
             </view>
             <view>
               <block wx:if = "{{item.signout == true}}">
                 <view class="item-label item-label-primary item-label-small">
-                    签退有效
+                    已签退
                 </view>
               </block>
               <block wx:else>
                 <view class="item-label item-label-primaryno item-label-small">
-                    签退无效
+                    未签退
                 </view>
               </block>
             </view>  
@@ -96,10 +96,10 @@
   </scroll-view>
   <view class="plenty-btn">
     <button   class="btn_enroll"   bindtap="signintap"> 
-    签到无效学生        
+    未签到学生        
     </button>
     <button   class="btn_enroll" bindtap="signouttap" > 
-    签退无效学生        
+    未签退学生        
     </button>  
   </view>
 </view>

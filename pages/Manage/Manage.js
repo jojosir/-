@@ -34,29 +34,7 @@ Page({
       })
     }
   },
-  onShow: function () {
-    console.log('456')
-    var value = wx.getStorageSync('curIdentity')
-    console.log(value)
-    if(value != 1)
-    {
-      console.log(wx.getStorageSync("student_id"))
-      wx.request({
-        url: 'http://123.206.94.45/CampusMap/getRole',
-        method: 'POST',
-        data: {
-          id: wx.getStorageSync("student_id")
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded'
-        },
-        success: function (r) {
-          console.log(r.data)
-          wx.setStorageSync('role', r.data.code)
-        }
-      })
-    }
-  },
+
   updatePage:function(){
     var value = wx.getStorageSync('curIdentity')
     wx.showTabBar({
