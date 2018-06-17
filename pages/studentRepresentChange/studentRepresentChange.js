@@ -65,6 +65,14 @@ Page({
   },
   formSubmit: function (e) {
     console.log(e.detail.value.input)
+    if (e.detail.value.input == wx.getStorageSync('student_id'))
+    {
+      wx.showToast({
+        image: '/img/false.png',
+        title: '不能设置自己的学号'
+      })
+    }
+    else{
     wx.request({
       url: 'http://123.206.94.45/CampusMap/AlterStudentRole',
       data: {
@@ -79,10 +87,10 @@ Page({
       },
       success: function (r) {
         console.log(r.data.code)
+
         var msg = r.data.msg
         wx.showToast({
-          title: msg,
-          image: '/img/false.png'
+          title: msg
         })
         if (r.data.code == 1) {
           wx.switchTab({
@@ -104,5 +112,6 @@ Page({
         console.log('fail')
       }
     })
+    }
   }
 })

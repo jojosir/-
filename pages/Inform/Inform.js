@@ -13,8 +13,7 @@ Page({
     })
    var that = this
     var identity = wx.getExtConfigSync("identity")
-    var hide_button
-    if(identity = 'admin'){
+    if(identity == 'admin'){
       this.setData({
         hide_button:false
       })
@@ -24,6 +23,8 @@ Page({
         hide_button: true
       })
     }
+    console.log(identity)
+    console.log(this.data.hide_button)
     wx: wx.request({
       url: 'http://123.206.94.45/CampusMap/getNotice',
       method: "POST",

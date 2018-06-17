@@ -80,6 +80,13 @@ Page({
   
   },
   btnAgreeClick:function(){
+    if (e.detail.value.input == wx.getStorageSync('student_id')) {
+      wx.showToast({
+        image: '/img/false.png',
+        title: '不能设置自己的学号'
+      })
+    }
+    else {
     wx.request({
       url: '',//上传修改
       method: 'POST',
@@ -99,9 +106,10 @@ Page({
           url: '../corporationCreateAdmin/corporationCreateAdmin',
         })
       }
-    })
+    })}
   },
   btnDenyClick:function(){
+    
     wx.showModal({
       title: '系统提示',
       content: '是否放弃修改',

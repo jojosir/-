@@ -62,6 +62,13 @@ Page({
   },
   addAdmin: function (e) {
     console.log(this.data.adminID)
+    if (this.data.adminID == wx.getStorageSync('student_id')) {
+      wx.showToast({
+        image: '/img/false.png',
+        title: '不能设置自己的学号'
+      })
+    }
+    else {
     wx.request({
       url: 'http://123.206.94.45/CampusMap/AlterStudentRole',
       data: {
@@ -87,10 +94,17 @@ Page({
           })
         }
       }
-    })
+    })}
   },
   deleteAdmin: function (e) {
     console.log(this.data.adminID)
+    if (this.data.adminID == wx.getStorageSync('student_id')) {
+      wx.showToast({
+        image: '/img/false.png',
+        title: '不能设置自己的学号'
+      })
+    }
+    else {
     wx.request({
       url: 'http://123.206.94.45/CampusMap/AlterStudentRole',
       data: {
@@ -117,5 +131,6 @@ Page({
         }
       }
     })
+    }
   },
 })

@@ -60,7 +60,7 @@
 }
 
 .info-header-title{
-    font-family: "宋体";
+    font-family: "黑体";
     font-size: 25pt;
     font-weight: bold;
     line-height: 150%;
@@ -72,7 +72,7 @@
    padding: 50rpx 0;
 }
 .inform-title{
-  font-family: "宋体";
+  font-family: "黑体";
   font-size: 14pt;
   color: #222;
 }
