@@ -13,11 +13,13 @@ Page({
       success: function (res) {
         console.log(res.data);
         var tmpItems = [];
+       
         for (var i = 0; i < res.data.list.length; i++) {
+          var time = res.data.list[i].time
           var tmp = new Object();
           tmp.title = res.data.list[i].title
           tmp.id = res.data.list[i].id
-          tmp.detail = res.data.list[i].time
+          tmp.detail = time.toString().substr(0,16)
           tmpItems.push(tmp);
         }
           that.setData({
