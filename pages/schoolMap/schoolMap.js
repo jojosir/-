@@ -227,6 +227,8 @@ Page({
         }
         //在页面地图上显示活动信息
         that.setData({
+          'markers[0].latitude': wx.getStorageSync('TJClatitude'),
+          'markers[0].longitude': wx.getStorageSync('TJClongitude'),
           'markers[0].callout.content': calloutContent
         });
       }
@@ -270,6 +272,8 @@ Page({
         }
         //在页面地图上显示活动信息
         that.setData({
+          'markers[1].latitude': wx.getStorageSync('YMlatitude'),
+          'markers[1].longitude': wx.getStorageSync('YMlongitude'),
           'markers[1].callout.content': calloutContent
         })
       }
@@ -312,6 +316,8 @@ Page({
         }
         //在页面地图上显示活动信息
         that.setData({
+          'markers[2].latitude': wx.getStorageSync('TSGlatitude'),
+          'markers[2].longitude': wx.getStorageSync('TSGlongitude'),
           'markers[2].callout.content': calloutContent
         })
       }
@@ -354,6 +360,8 @@ Page({
         }
         //在页面地图上显示活动信息
         that.setData({
+          'markers[3].latitude': wx.getStorageSync('SYLlatitude'),
+          'markers[3].longitude': wx.getStorageSync('SYLlongitude'),
           'markers[3].callout.content': calloutContent
         })
 
@@ -398,6 +406,9 @@ Page({
         }
         //在页面地图上显示活动信息
         that.setData({
+
+          'markers[4].latitude': wx.getStorageSync('SSlatitude'),
+          'markers[4].longitude': wx.getStorageSync('SSlongitude'),
           'markers[4].callout.content': calloutContent
         })
       }
@@ -440,6 +451,8 @@ Page({
         }
         //在页面地图上显示活动信息
         that.setData({
+          'markers[5].latitude': wx.getStorageSync('GSlatitude'),
+          'markers[5].longitude': wx.getStorageSync('GSlongitude'),
           'markers[5].callout.content': calloutContent
         })
       }
