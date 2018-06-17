@@ -38,7 +38,6 @@ page{
 .info-name{
   letter-spacing: 2px;
   font-size: 18pt;
-  font-style: italic;
 }
 .card-body{
   padding: 20rpx 25rpx 30rpx 0;
