@@ -211,6 +211,7 @@ Page{
     color: #aaa;
     font-family: "黑体";
     margin: 5rpx;
+    width: 285rpx;
 }
 .item-icon{
     flex-shrink: 0;

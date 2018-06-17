@@ -223,6 +223,7 @@ page{
     color: #000;
     font-family: "黑体";
     font-size: 12pt; 
+    margin: 10rpx 0 10rpx 25rpx;
 }
 .btn_enroll{
   position: relative;

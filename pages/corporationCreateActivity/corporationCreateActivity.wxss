@@ -169,4 +169,6 @@ page{
 .reporter-detail-input input{
     font-size: 14pt;
     width: 100%;
+    padding-top: 13rpx;
+    padding-left: 20rpx;
 }

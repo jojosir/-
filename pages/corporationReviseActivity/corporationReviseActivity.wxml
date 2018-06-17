@@ -15,20 +15,20 @@
       <view class="reporter-user reporter-detail-item">
         <text class="reporter-detail-name">活动名称</text>
         <view class="reporter-detail-input">
-            <input bindinput="nameInput" name="inputName" value="{{name}}" placeholder="请输入活动名称"/>
+            <input bindinput="nameInput" name="inputName" value="{{name}}" placeholder="请输入活动名称" style='text-align: right'/>
         </view>
       </view>
       <view class="reporter-user reporter-detail-item">
         <text class="reporter-detail-name">活动状态</text>
         <view class="reporter-detail-input">
-            <input value="{{state}}" disabled="true"/>
+            <input value="{{state}}" disabled="true" style='text-align: right'/>
         </view>
       </view>
 
       <view class="reporter-user reporter-detail-item">
         <text class="reporter-detail-name">人数上限</text>
         <view class="reporter-detail-input">
-            <input name="inputNumber" bindinput="numberInput" value="{{num}}" type="number" placeholder="请输入人数"/>
+            <input name="inputNumber" bindinput="numberInput" value="{{num}}" type="number" placeholder="请输入人数" style='text-align: right'/>
         </view>
       </view>
     </view>
@@ -120,7 +120,7 @@
       <view class="reporter-user reporter-detail-item">
         <text class="reporter-detail-name">具体位置</text>
         <view class="reporter-detail-input">
-            <input bindinput="placeInput" name="inputPlace" value="{{place}}" placeholder="请输入具体活动位置"/>
+            <input bindinput="placeInput" name="inputPlace" value="{{place}}" placeholder="请输入具体活动位置" style='text-align: right'/>
         </view>
       </view>
     </view>
